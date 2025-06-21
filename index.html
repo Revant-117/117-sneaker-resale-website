@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Premium Sneaker Resale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+            --hero-image: url('https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            background-color: var(--secondary);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .checkout-btn {
+            background-color: var(--accent);
+            color: black;
+        }
+        
+        .checkout-btn:hover {
+            opacity: 0.9;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        var(--hero-image);
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link active-tab">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <a href="watches.html" class="nav-link">Watches</a>
+                    <a href="accessories.html" class="nav-link">Accessories</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search sneakers..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Premium Sneaker Banner -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">PREMIUM SNEAKER RESALE</h2>
+                <p class="text-xl mb-6">Authentic kicks at fixed prices</p>
+                <button class="checkout-btn px-6 py-3 rounded-lg font-bold">
+                    Shop Latest Drops
+                </button>
+            </div>
+        </section>
+
+        <!-- Footwear Section -->
+        <section id="footwear-section" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Featured Footwear</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_00_standard.jpg" alt="Adidas Samba OG" class="product-image">
+                        <span class="price-tag">₹22,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Samba OG</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11, 12</p>
+                    <button onclick="addToCart({
+                        id: 1,
+                        name: 'Adidas Samba OG',
+                        price: 22000,
+                        image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_00_standard.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images-cdn.ubuy.co.in/63574257c517ac09432a1c75-new-balance-retro-530-white-navy-mr530sg.jpg" alt="New Balance 530 - White" class="product-image">
+                        <span class="price-tag">₹26,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">New Balance 530 - White</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 10, 11, 12</p>
+                    <button onclick="addToCart({
+                        id: 2,
+                        name: 'New Balance 530 - White',
+                        price: 26999,
+                        image: 'https://images-cdn.ubuy.co.in/63574257c517ac09432a1c75-new-balance-retro-530-white-navy-mr530sg.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://owp.klarna.com/product/640x640/3005441826/adidas-Yeezy-Boost-350-V2-Bone.jpg?ph=true" alt="Yeezy Boost 350 V2" class="product-image">
+                        <span class="price-tag">₹18,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Yeezy Boost 350 V2</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11, 12, 13</p>
+                    <button onclick="addToCart({
+                        id: 3,
+                        name: 'Yeezy Boost 350 V2',
+                        price: 18000,
+                        image: 'https://owp.klarna.com/product/640x640/3005441826/adidas-Yeezy-Boost-350-V2-Bone.jpg?ph=true'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://cdn-img.poizonapp.com/pro-img/cut-img/20230801/c1fbc53f1a2046beb092758e4ac856ee.jpg?x-oss-process=image/format,webp/resize,w_800,h_800" alt="Balenciaga Defender - Black" class="product-image">
+                        <span class="price-tag">₹99,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga Defender - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 4,
+                        name: 'Balenciaga Defender - Black',
+                        price: 99999,
+                        image: 'https://cdn-img.poizonapp.com/pro-img/cut-img/20230801/c1fbc53f1a2046beb092758e4ac856ee.jpg?x-oss-process=image/format,webp/resize,w_800,h_800'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf6UmjuIvBSppm6tIIGIOKBmn_KYELuTd4gA&s" alt="Loro Piana LP-360 - Blue" class="product-image">
+                        <span class="price-tag">₹149,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Loro Piana LP-360 - Blue</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 5,
+                        name: 'Loro Piana LP-360 - Blue',
+                        price: 149999,
+                        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf6UmjuIvBSppm6tIIGIOKBmn_KYELuTd4gA&s'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.superkicks.in/cdn/shop/files/DD8959-103-5.jpg?v=1690284836" alt="Nike Air Force 1 '07" class="product-image">
+                        <span class="price-tag">₹7,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 '07</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 6,
+                        name: 'Nike Air Force 1 \'07',
+                        price: 7999,
+                        image: 'https://www.superkicks.in/cdn/shop/files/DD8959-103-5.jpg?v=1690284836'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                
+
+    <!-- Product 7 -->
+    <div class="product-card rounded-lg p-4">
+        <div class="relative mb-4">
+            <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard1_91c7b7a5-3a29-48db-a1a1-d52b29cff554.png?v=1742203323&width=1946" alt="Nike Air Jordan 1 Retro Low Travis Scott" class="product-image">
+            <span class="price-tag">₹46,999</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-1">Nike Air Jordan 1 Retro Low Travis Scott</h4>
+        <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+        <button onclick="addToCart({
+            id: 7,
+            name: 'Nike Air Jordan 1 Retro Low Travis Scott',
+            price: 46999,
+            image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard1_91c7b7a5-3a29-48db-a1a1-d52b29cff554.png?v=1742203323&width=1946'
+        })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="product-card rounded-lg p-4">
+        <div class="relative mb-4">
+            <img src="https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp" alt="On Cloudmonster" class="product-image">
+            <span class="price-tag">₹14,999</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-1">On Cloudmonster - White/Blue</h4>
+        <p class="text-gray-400 text-sm mb-3">Sizes: 8, 10</p>
+        <button onclick="addToCart({
+            id: 8,
+            name: 'On Cloudmonster - White/Blue',
+            price: 14999,
+            image: 'https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp'
+        })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Product 9 -->
+    <div class="product-card rounded-lg p-4">
+        <div class="relative mb-4">
+            <img src="https://images.stockx.com/images/Burberry-Arthur-Archive-Beige-Black-Product.jpg" alt="Burberry Arthur Vintage" class="product-image">
+            <span class="price-tag">₹119,999</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-1">Burberry Arthur Vintage - Black</h4>
+        <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+        <button onclick="addToCart({
+            id: 9,
+            name: 'Burberry Arthur Vintage - Black',
+            price: 119999,
+            image: 'https://images.stockx.com/images/Burberry-Arthur-Archive-Beige-Black-Product.jpg'
+        })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Product 10 -->
+    <div class="product-card rounded-lg p-4">
+        <div class="relative mb-4">
+            <img src="https://cdn11.bigcommerce.com/s-hukvtympsj/images/stencil/original/products/19838/67360/lacoste-aglt23-ultra-m-off_white_navy-jeuli__68796.1739969492.jpg" alt="Lacoste AGLT23" class="product-image">
+            <span class="price-tag">₹24,999</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-1">Lacoste AGLT23</h4>
+        <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+        <button onclick="addToCart({
+            id: 10,
+            name: 'Lacoste AGLT23',
+            price: 24999,
+            image: 'https://cdn11.bigcommerce.com/s-hukvtympsj/images/stencil/original/products/19838/67360/lacoste-aglt23-ultra-m-off_white_navy-jeuli__68796.1739969492.jpg'
+        })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Product 11 -->
+    <div class="product-card rounded-lg p-4">
+        <div class="relative mb-4">
+            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg" alt="Adidas Gazelle" class="product-image">
+            <span class="price-tag">₹7,899</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-1">Adidas Gazelle - Red</h4>
+        <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10, 11</p>
+        <button onclick="addToCart({
+            id: 11,
+            name: 'Adidas Gazelle - Red',
+            price: 7899,
+            image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg'
+        })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Product 12 -->
+    <div class="product-card rounded-lg p-4">
+        <div class="relative mb-4">
+            <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg" alt="Adidas Stan Smith" class="product-image">
+            <span class="price-tag">₹6,999</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-1">Adidas Stan Smith - White</h4>
+        <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+        <button onclick="addToCart({
+            id: 12,
+            name: 'Adidas Stan Smith - White',
+            price: 6999,
+            image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg'
+        })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Product 13 -->
+    <div class="product-card rounded-lg p-4">
+        <div class="relative mb-4">
+            <img src="https://www.birkenstock.in/cdn/shop/products/34193_side_6f143189-212f-46b8-a14e-0cc553d86a0f.jpg?v=1659782890&width=1500" alt="Birkenstock Milano" class="product-image">
+            <span class="price-tag">₹7,999</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-1">Birkenstock Milano Natural Leather</h4>
+        <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
+        <button onclick="addToCart({
+            id: 13,
+            name: 'Birkenstock Milano Natural Leather',
+            price: 7999,
+            image: 'https://www.birkenstock.in/cdn/shop/products/34193_side_6f143189-212f-46b8-a14e-0cc553d86a0f.jpg?v=1659782890&width=1500'
+        })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+            Add to Cart
+        </button>
+    </div>
+
+                <!-- Product 15 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.runningxpert.com/media/catalog/product/1/1/1127895-bvr.jpg" alt="HOKA Clifton 9" class="product-image">
+                        <span class="price-tag">₹22,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">HOKA Clifton 9</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 15,
+                        name: 'HOKA Clifton 9',
+                        price: 22999,
+                        image: 'https://www.runningxpert.com/media/catalog/product/1/1/1127895-bvr.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 16 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.crepslocker.com/cdn/shop/products/IMG_8962_434c6e48-4e01-46e2-9e9c-fa749168c99b.jpg?v=1652089398" alt="Balenciaga Speed Knit Sock - Triple Black" class="product-image">
+                        <span class="price-tag">₹1,22,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga Speed Knit Sock - Triple Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 16,
+                        name: 'Balenciaga Speed Knit Sock - Triple Black',
+                        price: 122999,
+                        image: 'https://www.crepslocker.com/cdn/shop/products/IMG_8962_434c6e48-4e01-46e2-9e9c-fa749168c99b.jpg?v=1652089398'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 17 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1b6eef32e1f64f1ca9541e282d22d556_9366/SL_72_OG_Shoes_Black_JH7390_01_standard.jpg" alt="Adidas SL72 OG" class="product-image">
+                        <span class="price-tag">₹8,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas SL72 OG</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 17,
+                        name: 'Adidas SL72 OG',
+                        price: 8999,
+                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1b6eef32e1f64f1ca9541e282d22d556_9366/SL_72_OG_Shoes_Black_JH7390_01_standard.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 18 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images.laced.com/products/01bf16ad-3b97-4dba-b450-0791ea495cfd.jpg?auto=format&fit=max&w=3840&q=75" alt="Nike Air Jordan 1 High OG Chicago Lost and Found" class="product-image">
+                        <span class="price-tag">₹22,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Jordan 1 High OG Chicago Lost and Found</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 18,
+                        name: 'Nike Air Jordan 1 High OG Chicago Lost and Found',
+                        price: 22999,
+                        image: 'https://images.laced.com/products/01bf16ad-3b97-4dba-b450-0791ea495cfd.jpg?auto=format&fit=max&w=3840&q=75'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 19 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://d2cva83hdk3bwc.cloudfront.net/crocs-x-salehe-bembury-pollex-clog-sasquatch-1.jpg" alt="CROCS Salehe Bembury - Black" class="product-image">
+                        <span class="price-tag">₹8,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">CROCS Salehe Bembury - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 19,
+                        name: 'CROCS Salehe Bembury - Black',
+                        price: 8999,
+                        image: 'https://d2cva83hdk3bwc.cloudfront.net/crocs-x-salehe-bembury-pollex-clog-sasquatch-1.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 20 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images.stockx.com/images/Air-Jordan-3-Retro-Mocha-2018-Product.png?fit=fill&bg=FFFFFF&w=1200&h=857&q=60&dpr=1&trim=color&updated_at=1738193358" alt="Air Jordan 3 Mocha" class="product-image">
+                        <span class="price-tag">₹42,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Air Jordan 3 Mocha</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 20,
+                        name: 'Air Jordan 3 Mocha',
+                        price: 42999,
+                        image: 'https://images.stockx.com/images/Air-Jordan-3-Retro-Mocha-2018-Product.png?fit=fill&bg=FFFFFF&w=1200&h=857&q=60&dpr=1&trim=color&updated_at=1738193358'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 21 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://pufferreds.com/cdn/shop/products/Nike-Air-Max-97--Pure-Platinum--Nike-1671782608.jpg?v=1671782609" alt="Nike Air Max 97 Pure Platinum" class="product-image">
+                        <span class="price-tag">₹19,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Max 97 Pure Platinum</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 21,
+                        name: 'Nike Air Max 97 Pure Platinum',
+                        price: 19999,
+                        image: 'https://pufferreds.com/cdn/shop/products/Nike-Air-Max-97--Pure-Platinum--Nike-1671782608.jpg?v=1671782609'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 22 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://balenciaga.dam.kering.com/m/6f889dcc9cc9b0af/Medium-734734W3XL49710_F.jpg?v=7" alt="Balenciaga 3XL" class="product-image">
+                        <span class="price-tag">₹98,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga 3XL</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 22,
+                        name: 'Balenciaga 3XL',
+                        price: 98999,
+                        image: 'https://balenciaga.dam.kering.com/m/6f889dcc9cc9b0af/Medium-734734W3XL49710_F.jpg?v=7'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 23 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.kershkicks.co.uk/cdn/shop/files/cc8abcbf-cabf-4f97-bfe3-7a447fa5bc99_jpg.webp?v=1745404030&width=533" alt="Yeezy 350 V2 - Pirate Black" class="product-image">
+                        <span class="price-tag">₹16,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Yeezy 350 V2 - Pirate Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 23,
+                        name: 'Yeezy 350 V2 - Pirate Black',
+                        price: 16999,
+                        image: 'https://www.kershkicks.co.uk/cdn/shop/files/cc8abcbf-cabf-4f97-bfe3-7a447fa5bc99_jpg.webp?v=1745404030&width=533'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 24 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.superkicks.in/cdn/shop/files/1_d513a1ee-98e0-4884-bdf6-d2d465b10edd.jpg?v=1684761287" alt="Nike Air Force - 1'07" class="product-image">
+                        <span class="price-tag">₹7,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Force - 1'07</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 24,
+                        name: 'Nike Air Force - 1\\\'07',
+                        price: 7999,
+                        image: 'https://www.superkicks.in/cdn/shop/files/1_d513a1ee-98e0-4884-bdf6-d2d465b10edd.jpg?v=1684761287'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 25 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard10_e0f3ac57-26ad-4e11-a3b2-f6ca11a2df16.png?v=1749557482&width=1946" alt="Yeezy 700 V3 - Copper Fade" class="product-image">
+                        <span class="price-tag">₹24,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Yeezy 700 V3 - Copper Fade</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 25,
+                        name: 'Yeezy 700 V3 - Copper Fade',
+                        price: 24999,
+                        image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard10_e0f3ac57-26ad-4e11-a3b2-f6ca11a2df16.png?v=1749557482&width=1946'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 26 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.misterrunning.com/images/2024-media-09/jr1163_A.jpg" alt="Adidas Adizero Adios Pro 4" class="product-image">
+                        <span class="price-tag">₹71,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Adizero Adios Pro 4</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 26,
+                        name: 'Adidas Adizero Adios Pro 4',
+                        price: 71999,
+                        image: 'https://www.misterrunning.com/images/2024-media-09/jr1163_A.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 27 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://limitededt.com/cdn/shop/files/1_fe38aa69-2974-45e9-b90f-500355ac73b9_800x.jpg?v=1711431975" alt="Adidas Forum Low CL - White Core Black" class="product-image">
+                        <span class="price-tag">₹12,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Forum Low CL - White Core Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 27,
+                        name: 'Adidas Forum Low CL - White Core Black',
+                        price: 12999,
+                        image: 'https://limitededt.com/cdn/shop/files/1_fe38aa69-2974-45e9-b90f-500355ac73b9_800x.jpg?v=1711431975'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 28 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://10hillsstudio.com/cdn/shop/files/Air-Jordan-1-Retro-Low-Dior-resized-img01.png?v=1735301149" alt="Nike Dior Jordan - Low" class="product-image">
+                        <span class="price-tag">₹7,20,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Dior Jordan - Low</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 28,
+                        name: 'Nike Dior Jordan - Low',
+                        price: 15999,
+                        image: 'https://10hillsstudio.com/cdn/shop/files/Air-Jordan-1-Retro-Low-Dior-resized-img01.png?v=1735301149'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 29 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-jtNE2VJA6oPX-Xhwm-kYbcg6xeCeDUIy3pa23z4DIGCFcoTj3QR7VSk_967VZahItLCAwyUsUwZRp2KJWeI-4ELBMkapEzvfqiL7fygI9htwE9deK-jbEU8" alt="BALLY Saber Loafers - Black" class="product-image">
+                        <span class="price-tag">₹58,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">BALLY Saber Loafers - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 29,
+                        name: 'BALLY Saber Loafers - Black',
+                        price: 58999,
+                        image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-jtNE2VJA6oPX-Xhwm-kYbcg6xeCeDUIy3pa23z4DIGCFcoTj3QR7VSk_967VZahItLCAwyUsUwZRp2KJWeI-4ELBMkapEzvfqiL7fygI9htwE9deK-jbEU8'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 30 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTF9HAr4wBi2On3vaEhw-ZcTbkuM7t2-0w1uN9GGW6qIfnxqujXWEvz0qELByP2zg2f992i2ynp9jHV4qrXyA934L9bieR44xgHRtH82CWzsD1_PeDgy4Vw454" alt="Balmain Unicorn Sneakers - Black" class="product-image">
+                        <span class="price-tag">₹1,00,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balmain Unicorn Sneakers - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 30,
+                        name: 'Balmain Unicorn Sneakers - Black',
+                        price: 100000,
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTF9HAr4wBi2On3vaEhw-ZcTbkuM7t2-0w1uN9GGW6qIfnxqujXWEvz0qELByP2zg2f992i2ynp9jHV4qrXyA934L9bieR44xgHRtH82CWzsD1_PeDgy4Vw454'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 31 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPv6MajM4_ynoewF3e-jU3NyJYoVXcGmlRkJN74pXx4mMYrLE48HiCG7iT8I_ykd0uP8SBlIOFsIzTjqaJreAfReijQHSWloOmYeuJo_dA6hfpWjnLjogicic" alt="Nike Air Force 1 - Women" class="product-image">
+                        <span class="price-tag">₹9,599</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 - Women</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9</p>
+                    <button onclick="addToCart({
+                        id: 31,
+                        name: 'Nike Air Force 1 - Women',
+                        price: 9599,
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPv6MajM4_ynoewF3e-jU3NyJYoVXcGmlRkJN74pXx4mMYrLE48HiCG7iT8I_ykd0uP8SBlIOFsIzTjqaJreAfReijQHSWloOmYeuJo_dA6hfpWjnLjogicic'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart System -->
+    <script src="js/cart.js"></script>
+    
+    <script>
+    // Working Search Functionality
+    document.getElementById('search-input').addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const productCards = document.querySelectorAll('#footwear-section .product-card');
+        
+        productCards.forEach(card => {
+            const productName = card.querySelector('h4').textContent.toLowerCase();
+            if (productName.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1595950654141-411471141d1a?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link active-tab">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <a href="watches.html" class="nav-link">Watches</a>
+                    <a href="accessories.html" class="nav-link">Accessories</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-white text-center py-20">
+        <div class="container mx-auto">
+            <img src="logo.png" alt="117 Logo" class="mx-auto mb-4 h-24">
+            <h1 class="text-5xl font-bold mb-4">The Pinnacle of Hype.</h1>
+            <p class="text-xl max-w-2xl mx-auto">Exclusive sneakers, designer clothing, and elite accessories. Curated for the discerning collector.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <section id="featured-products">
+            <h2 class="text-3xl font-bold mb-8 text-center">Featured Collections</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+
+                <!-- Featured Footwear -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://images.stockx.com/images/Burberry-Arthur-Archive-Beige-Black-Product.jpg" alt="Burberry Arthur Vintage" class="product-image">
+                            <span class="price-tag">₹84,999</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Burberry Arthur Vintage - Black</h4>
+                        <p class="text-gray-400 text-sm mb-3">Footwear</p>
+                    </div>
+                    <a href="index.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Clothing -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true" alt="Versace Barocco Polo - Grey" class="product-image">
+                            <span class="price-tag">₹73,999</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Versace Barocco Polo - Grey</h4>
+                        <p class="text-gray-400 text-sm mb-3">Clothing</p>
+                    </div>
+                     <a href="clothing.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Football -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/d29358ba-e4cc-46d8-bab6-d5104427057f/mercurial-vapor-16-academy-kylian-mbappe-multi-ground-low-top-football-boot-WsTDpS.png" alt="Mercurial Vapor Pro 16 - Kylian Mbappe" class="product-image">
+                            <span class="price-tag">₹18,999</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor Pro 16 - Kylian Mbappe</h4>
+                        <p class="text-gray-400 text-sm mb-3">Football</p>
+                    </div>
+                    <a href="football.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Watch -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-04/CLASSIC-FUSION-TITANIUM-RACING-GREY-ON-RUBBER-45-MM.png?itok=xsh0UTeN" alt="Hublot Classic Fusion Racing Grey" class="product-image">
+                            <span class="price-tag">₹7,60,000</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Hublot Classic Fusion Racing Grey Titanium (45 mm)</h4>
+                        <p class="text-gray-400 text-sm mb-3">Watches</p>
+                    </div>
+                    <a href="watches.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Accessory -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://assets.ajio.com/medias/sys_master/root/20220720/4FGn/62d81808f997dd03e2e3a8aa/-473Wx593H-410312868-u507p-MODEL.jpg" alt="BALLY Backpack - Blue" class="product-image">
+                            <span class="price-tag">₹65,000</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">BALLY Backpack - Blue</h4>
+                        <p class="text-gray-400 text-sm mb-3">Accessories</p>
+                    </div>
+                    <a href="accessories.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-center py-6 mt-12">
+        <p>&copy; 2024 117. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Load cart system -->
+    <script src="js/cart.js"></script>
+</body>
+</html>

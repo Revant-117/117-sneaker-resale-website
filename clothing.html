@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Clothing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link active-tab">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <a href="watches.html" class="nav-link">Watches</a>
+                    <a href="accessories.html" class="nav-link">Accessories</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="clothing-section">
+            <h2 class="text-2xl font-bold mb-6">Clothing Collection</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLwociKS1AUIgyDnhtcTISfnn5QZjoMWwNw&s" alt="Y-3 Hoodie" class="product-image">
+                        <span class="price-tag">₹12,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Y-3 Hoodie</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
+                    <button onclick="addToCart({
+                        id: 201,
+                        name: 'Y-3 Hoodie',
+                        price: 12000,
+                        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLwociKS1AUIgyDnhtcTISfnn5QZjoMWwNw&s'
+                    })" class="add-to-cart-btn bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://balenciaga.dam.kering.com/m/c3fca444d06af3e/Small-739784TQVQ81073_X.jpg?v=1" alt="Balenciaga ZW - Black" class="product-image">
+                        <span class="price-tag">₹55,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga ZW - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <button onclick="addToCart({
+                        id: 202,
+                        name: 'Balenciaga ZW - Black',
+                        price: 55999,
+                        image: 'https://balenciaga.dam.kering.com/m/c3fca444d06af3e/Small-739784TQVQ81073_X.jpg?v=1'
+                    })" class="add-to-cart-btn bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>                
+                <!-- Product 3 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp" alt="Almost Gods Patched Boxy Tee" class="product-image">
+                        <span class="price-tag">₹6,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Almost Gods Patched Boxy Tee</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: XS, S, M, L</p>
+                    <button onclick="addToCart({
+                        id: 203,
+                        name: 'Almost Gods Patched Boxy Tee',
+                        price: 6999,
+                        image: 'https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true" alt="Versace Barocco Polo - Grey" class="product-image">
+                        <span class="price-tag">₹73,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Versace Barocco Polo - Grey</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M , L,  XL</p>
+                    <button onclick="addToCart({
+                        id: 204,
+                        name: 'Versace Barocco Polo - Grey',
+                        price: 73999,
+                        image: 'https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q" alt="Burberry Horseferry - Black" class="product-image">
+                        <span class="price-tag">₹37,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Burberry Horseferry - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <button onclick="addToCart({
+                        id: 205,
+                        name: 'Burberry Horseferry - Black',
+                        price: 37999,
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug" alt="Balmain Flocked Shorts - Black" class="product-image">
+                        <span class="price-tag">₹12,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balmain Flocked Shorts - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
+                    <button onclick="addToCart({
+                        id: 206,
+                        name: 'Balmain Flocked Shorts - Black',
+                        price: 12999,
+                        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTPymnfgn6ddK8mdX5sogGa_ls_1KEQ7LfU27BuWDfHqBi8-epgLRwNeN0BVk2y8KkJDHeKy3Ltk6aUXcXnJiPvxnMGyzkgrheS1R0iap7sAJtFydyL2reQX2Y" alt="Balenciaga Large Cargo Pants" class="product-image">
+                        <span class="price-tag">₹2,44,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga Large Cargo Pants</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <button onclick="addToCart({
+                        id: 207,
+                        name: 'Balenciaga Large Cargo Pants',
+                        price: 244999,
+                        image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTPymnfgn6ddK8mdX5sogGa_ls_1KEQ7LfU27BuWDfHqBi8-epgLRwNeN0BVk2y8KkJDHeKy3Ltk6aUXcXnJiPvxnMGyzkgrheS1R0iap7sAJtFydyL2reQX2Y'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSkK01rYtoedxdjDP7RnYaDAdjjCPLTxVDNnmUIvPyxeIRf2a67_84rLg54zspZgeiYC-hEqmsvEdOA162Gt9g_Jb5EUq4Mf1Amt9W6u1pTqnC7kXg72ve6sg" alt="Dolce & Gabbana Chennile Jacquard Hoodie - Women" class="product-image">
+                        <span class="price-tag">₹1,33,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Dolce & Gabbana Chennile Jacquard Hoodie - Women</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
+                    <button onclick="addToCart({
+                        id: 208,
+                        name: 'Dolce & Gabbana Chennile Jacquard Hoodie - Women',
+                        price: 133999,
+                        image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSkK01rYtoedxdjDP7RnYaDAdjjCPLTxVDNnmUIvPyxeIRf2a67_84rLg54zspZgeiYC-hEqmsvEdOA162Gt9g_Jb5EUq4Mf1Amt9W6u1pTqnC7kXg72ve6sg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbMKV_fp7B34v7cwoJejN2y-Buo2AQZ93hUfsjh91mVztM-p16KKmhUsH-MKyPWEfGEuGnpqWTYkGpJAYKnmSbr823S6DDtIoRhRx2tDTloHp-A61AQJb_gQ" alt="Balmain Women's Tee - Black" class="product-image">
+                        <span class="price-tag">₹42,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balmain Women's Tee - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <button onclick="addToCart({
+                        id: 209,
+                        name: 'Balmain Women\'s Tee - Black',
+                        price: 42999,
+                        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbMKV_fp7B34v7cwoJejN2y-Buo2AQZ93hUfsjh91mVztM-p16KKmhUsH-MKyPWEfGEuGnpqWTYkGpJAYKnmSbr823S6DDtIoRhRx2tDTloHp-A61AQJb_gQ'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT-hR1mrk2Xn3xXGQnwrojxI9S6nBgjrufhcuI10uGOkAOFF2DE15Eto0vzmuKZbp8mGOhKcp9naAUrskGirF0WCqg787m5ard39SfWveuQ17Rcrr4hTQmdtIU" alt="Loro Piana Open-Knit Silk Top - Women" class="product-image">
+                        <span class="price-tag">₹1,32,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Loro Piana Open-Knit Silk Top - Women</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: XS, S, M, L</p>
+                    <button onclick="addToCart({
+                        id: 210,
+                        name: 'Loro Piana Open-Knit Silk Top - Women',
+                        price: 132999,
+                        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT-hR1mrk2Xn3xXGQnwrojxI9S6nBgjrufhcuI10uGOkAOFF2DE15Eto0vzmuKZbp8mGOhKcp9naAUrskGirF0WCqg787m5ard39SfWveuQ17Rcrr4hTQmdtIU'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Load cart system -->
+    <script src="js/cart.js"></script>
+
+    <!-- Search functionality -->
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
