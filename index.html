@@ -6,6 +6,8 @@
     <title>117 • Premium Sneaker Resale</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load cart system first -->
+    <script src="js/cart.js"></script>
     <style>
         :root {
             --primary: #000000;
@@ -667,13 +669,118 @@
                         Add to Cart
                     </button>
                 </div>
+
+                <!-- Product 32 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.svpsports.ca/cdn/shop/files/adidas---Unisex-Yeezy-700-V3-Shoes-_G54850__01.jpg?v=1731349391&width=2400" alt="Yeezy 700 V3 Arzareth" class="product-image">
+                        <span class="price-tag">₹9,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Yeezy 700 V3 Arzareth</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 32,
+                        name: 'Yeezy 700 V3 Arzareth',
+                        price: 9999,
+                        image: 'https://www.svpsports.ca/cdn/shop/files/adidas---Unisex-Yeezy-700-V3-Shoes-_G54850__01.jpg?v=1731349391&width=2400'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 33 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://limitededt.in/cdn/shop/files/DV0831-108_1.jpg?v=1748370653" alt="Nike Dunk Low - Off White & Retro" class="product-image">
+                        <span class="price-tag">₹8,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Dunk Low - Off White & Retro</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 33,
+                        name: 'Nike Dunk Low - Off White & Retro',
+                        price: 8999,
+                        image: 'https://limitededt.in/cdn/shop/files/DV0831-108_1.jpg?v=1748370653'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 34 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.superkicks.in/cdn/shop/files/5_30326c89-68e3-496e-a211-08abf7caf9c2.jpg?v=1723451236&width=1946" alt="Nike Dunk Low - Aster Pink" class="product-image">
+                        <span class="price-tag">₹7,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Dunk Low - Aster Pink</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9</p>
+                    <button onclick="addToCart({
+                        id: 34,
+                        name: 'Nike Dunk Low - Aster Pink',
+                        price: 7999,
+                        image: 'https://www.superkicks.in/cdn/shop/files/5_30326c89-68e3-496e-a211-08abf7caf9c2.jpg?v=1723451236&width=1946'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 35 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba67c42900a245b48c87e3085c72af99_9366/ADIDAS_FEROZA_MERCEDES_AMG_PETRONAS_F1_TEAM_SHOES_Black_JQ3272_01_00_standard.jpg" alt="Adidas Feroza Mercedes AMG" class="product-image">
+                        <span class="price-tag">₹10,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Feroza Mercedes AMG</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 35,
+                        name: 'Adidas Feroza Mercedes AMG',
+                        price: 10999,
+                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba67c42900a245b48c87e3085c72af99_9366/ADIDAS_FEROZA_MERCEDES_AMG_PETRONAS_F1_TEAM_SHOES_Black_JQ3272_01_00_standard.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 36 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW8J90q3ssY8QQdqUI5X4ShMsz7DP2cGX9-PjyDvqMJ_yjiRP0_mLTFefQ_zQBBxgr4xg&usqp=CAU" alt="Nike Alphafly 3" class="product-image">
+                        <span class="price-tag">₹22,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Alphafly 3</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <button onclick="addToCart({
+                        id: 36,
+                        name: 'Nike Alphafly 3',
+                        price: 22999,
+                        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW8J90q3ssY8QQdqUI5X4ShMsz7DP2cGX9-PjyDvqMJ_yjiRP0_mLTFefQ_zQBBxgr4xg&usqp=CAU'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 37 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.superkicks.in/cdn/shop/files/1_5dfee5fb-b0e9-43c3-86c6-0d9ffac4e433.jpg?v=1725957115" alt="PUMA Speedcat OG - Red & White" class="product-image">
+                        <span class="price-tag">₹9,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">PUMA Speedcat OG - Red & White</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <button onclick="addToCart({
+                        id: 37,
+                        name: 'PUMA Speedcat OG - Red & White',
+                        price: 9999,
+                        image: 'https://www.superkicks.in/cdn/shop/files/1_5dfee5fb-b0e9-43c3-86c6-0d9ffac4e433.jpg?v=1725957115'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Cart System -->
-    <script src="js/cart.js"></script>
-    
     <script>
     // Working Search Functionality
     document.getElementById('search-input').addEventListener('input', function(e) {
