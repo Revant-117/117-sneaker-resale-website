@@ -6,6 +6,23 @@
     <title>117 • Watches</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load cart system first -->
+    <script src="js/cart.js"></script>
+    <script>
+        // Force reload cart.js on GitHub Pages to prevent caching issues
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            console.log('Detected production environment, ensuring latest cart.js is loaded...');
+            const script = document.createElement('script');
+            script.src = 'js/cart.js?v=' + Date.now();
+            script.onload = function() {
+                console.log('Cart.js reloaded successfully');
+            };
+            script.onerror = function() {
+                console.error('Failed to reload cart.js');
+            };
+            document.head.appendChild(script);
+        }
+    </script>
     <style>
         :root {
             --primary: #000000;
@@ -184,9 +201,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Load cart system -->
-    <script src="js/cart.js"></script>
 
     <!-- Search functionality -->
     <script>
