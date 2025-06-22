@@ -68,7 +68,7 @@ function showNotification(message, type = 'success') {
 }
 
 // Simple addToCart function
-function addToCart(product, event = null) {
+function _addToCart(product, event = null) {
     console.log('Adding to cart:', product);
     
     if (!product || !product.id) {
@@ -281,13 +281,7 @@ function renderCart() {
 }
 
 // Make functions globally available
-window.addToCart = function(product, event) {
-    // If called from onclick without event, try to get it from window.event
-    if (!event && window.event) {
-        event = window.event;
-    }
-    addToCart(product, event);
-};
+window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateQuantity = updateQuantity;
 window.renderCart = renderCart;
