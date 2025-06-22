@@ -1,24 +1,31 @@
 // Cart System - Complete Version
+console.log('Cart.js loaded');
 let cart = JSON.parse(localStorage.getItem('117-cart')) || [];
+console.log('Cart initialized:', cart);
 
 // Global Functions - Define these first so they're available immediately
 window.addToCart = function(product) {
+    console.log('addToCart called with:', product);
     const existing = cart.find(item => item.id === product.id);
     if (existing) {
         existing.quantity++;
+        console.log('Updated existing item quantity');
     } else {
         cart.push({...product, quantity: 1});
+        console.log('Added new item to cart');
     }
     updateCart();
     alert(`${product.name} added to cart!`);
 };
 
 window.removeFromCart = function(id) {
+    console.log('removeFromCart called with id:', id);
     cart = cart.filter(item => item.id !== id);
     updateCart();
 };
 
 window.updateQuantity = function(id, newQty) {
+    console.log('updateQuantity called with id:', id, 'newQty:', newQty);
     const item = cart.find(item => item.id === id);
     if (item && newQty > 0) {
         item.quantity = newQty;
@@ -28,6 +35,7 @@ window.updateQuantity = function(id, newQty) {
 
 // Core Functions
 function updateCart() {
+    console.log('updateCart called, cart:', cart);
     localStorage.setItem('117-cart', JSON.stringify(cart));
     updateCartCount();
     if (window.location.pathname.includes('cart.html')) {
@@ -37,6 +45,7 @@ function updateCart() {
 
 function updateCartCount() {
     const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    console.log('Cart count updated to:', count);
     document.querySelectorAll('#cart-count').forEach(el => {
         el.textContent = count;
     });
@@ -82,6 +91,7 @@ window.renderCart = renderCart;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded event fired');
     updateCartCount();
     
     // Highlight active nav link
@@ -92,4 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.remove('text-gray-300');
         }
     });
-}); 
+});
+
+console.log('Cart.js fully loaded, addToCart function available:', typeof window.addToCart); 
