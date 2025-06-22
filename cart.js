@@ -68,7 +68,7 @@ function showNotification(message, type = 'success') {
 }
 
 // Simple addToCart function
-function addToCart(product) {
+function addToCart(product, event = null) {
     console.log('Adding to cart:', product);
     
     if (!product || !product.id) {
@@ -119,9 +119,10 @@ function addToCart(product) {
     // Update cart count display
     updateCartCount();
     
-    // Add visual feedback to the button
-    const button = event.target;
-    if (button) {
+    // Add visual feedback to the button if event is provided or available
+    const buttonEvent = event || window.event;
+    if (buttonEvent && buttonEvent.target) {
+        const button = buttonEvent.target;
         const originalText = button.textContent;
         const originalBg = button.style.backgroundColor;
         
@@ -280,7 +281,13 @@ function renderCart() {
 }
 
 // Make functions globally available
-window.addToCart = addToCart;
+window.addToCart = function(product, event) {
+    // If called from onclick without event, try to get it from window.event
+    if (!event && window.event) {
+        event = window.event;
+    }
+    addToCart(product, event);
+};
 window.removeFromCart = removeFromCart;
 window.updateQuantity = updateQuantity;
 window.renderCart = renderCart;
