@@ -1,15 +1,10 @@
-// Simple Cart System with Server Compatibility and Better Notifications
+// Simple Cart System - Bulletproof Version
 console.log('Cart.js loading...');
-
-// Check if we're in a server environment
-const isServerEnvironment = window.location.protocol === 'https:' || window.location.protocol === 'http:';
-console.log('Server environment detected:', isServerEnvironment);
 
 // Initialize cart from localStorage
 let cart = [];
 try {
     const savedCart = localStorage.getItem('117-cart');
-    console.log('Raw saved cart:', savedCart);
     cart = savedCart ? JSON.parse(savedCart) : [];
     console.log('Cart loaded from localStorage:', cart);
 } catch (error) {
@@ -17,58 +12,33 @@ try {
     cart = [];
 }
 
-// Create notification system
+// Simple notification function
 function showNotification(message, type = 'success') {
-    // Remove any existing notifications
-    const existingNotification = document.querySelector('.cart-notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-
-    // Create notification element
     const notification = document.createElement('div');
-    notification.className = `cart-notification fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
-    
-    // Set notification style based on type
-    if (type === 'success') {
-        notification.style.backgroundColor = '#00ff00';
-        notification.style.color = '#000000';
-    } else if (type === 'error') {
-        notification.style.backgroundColor = '#ff0000';
-        notification.style.color = '#ffffff';
-    }
-    
-    notification.innerHTML = `
-        <div class="flex items-center space-x-2">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-            <span class="font-semibold">${message}</span>
-            <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-sm opacity-70 hover:opacity-100">×</button>
-        </div>
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: ${type === 'success' ? '#00ff00' : '#ff0000'};
+        color: ${type === 'success' ? '#000000' : '#ffffff'};
+        padding: 15px 20px;
+        border-radius: 5px;
+        z-index: 10000;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     `;
-    
-    // Add to page
+    notification.textContent = message;
     document.body.appendChild(notification);
     
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Auto remove after 3 seconds
     setTimeout(() => {
         if (notification.parentElement) {
-            notification.style.transform = 'translateX(full)';
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.remove();
-                }
-            }, 300);
+            notification.remove();
         }
     }, 3000);
 }
 
 // Simple addToCart function
-function _addToCart(product, event = null) {
+function addToCart(product) {
     console.log('Adding to cart:', product);
     
     if (!product || !product.id) {
@@ -82,7 +52,6 @@ function _addToCart(product, event = null) {
     
     if (existingItem) {
         existingItem.quantity += 1;
-        console.log('Updated existing item quantity to:', existingItem.quantity);
         showNotification(`${product.name} quantity updated in cart!`);
     } else {
         cart.push({
@@ -92,47 +61,33 @@ function _addToCart(product, event = null) {
             image: product.image,
             quantity: 1
         });
-        console.log('Added new item to cart');
         showNotification(`${product.name} added to cart!`);
     }
     
-    console.log('Current cart after adding:', cart);
-    
-    // Save to localStorage with error handling
+    // Save to localStorage
     try {
         localStorage.setItem('117-cart', JSON.stringify(cart));
-        console.log('Cart saved to localStorage successfully');
+        console.log('Cart saved to localStorage');
     } catch (error) {
-        console.error('Error saving cart to localStorage:', error);
-        
-        // Fallback: try to save to sessionStorage
-        try {
-            sessionStorage.setItem('117-cart', JSON.stringify(cart));
-            console.log('Cart saved to sessionStorage as fallback');
-        } catch (sessionError) {
-            console.error('Error saving to sessionStorage:', sessionError);
-            showNotification('Error saving to cart. Please try again.', 'error');
-            return;
-        }
+        console.error('Error saving cart:', error);
+        showNotification('Error saving to cart', 'error');
+        return;
     }
     
-    // Update cart count display
+    // Update cart count
     updateCartCount();
     
-    // Add visual feedback to the button if event is provided or available
-    const buttonEvent = event || window.event;
-    if (buttonEvent && buttonEvent.target) {
-        const button = buttonEvent.target;
+    // Visual feedback
+    const button = event.target;
+    if (button) {
         const originalText = button.textContent;
-        const originalBg = button.style.backgroundColor;
-        
         button.textContent = 'Added!';
         button.style.backgroundColor = '#00ff00';
         button.style.color = '#000000';
         
         setTimeout(() => {
             button.textContent = originalText;
-            button.style.backgroundColor = originalBg;
+            button.style.backgroundColor = '';
             button.style.color = '';
         }, 1000);
     }
@@ -148,16 +103,11 @@ function removeFromCart(id) {
         showNotification(`${item.name} removed from cart`);
     }
     
-    // Save to localStorage with fallback
+    // Save to localStorage
     try {
         localStorage.setItem('117-cart', JSON.stringify(cart));
     } catch (error) {
-        console.error('Error saving cart to localStorage:', error);
-        try {
-            sessionStorage.setItem('117-cart', JSON.stringify(cart));
-        } catch (sessionError) {
-            console.error('Error saving to sessionStorage:', sessionError);
-        }
+        console.error('Error saving cart:', error);
     }
     
     updateCartCount();
@@ -179,21 +129,14 @@ function updateQuantity(id, newQuantity) {
     
     const item = cart.find(item => item.id === id);
     if (item) {
-        const oldQuantity = item.quantity;
         item.quantity = newQuantity;
-        
         showNotification(`${item.name} quantity updated to ${newQuantity}`);
         
-        // Save to localStorage with fallback
+        // Save to localStorage
         try {
             localStorage.setItem('117-cart', JSON.stringify(cart));
         } catch (error) {
-            console.error('Error saving cart to localStorage:', error);
-            try {
-                sessionStorage.setItem('117-cart', JSON.stringify(cart));
-            } catch (sessionError) {
-                console.error('Error saving to sessionStorage:', sessionError);
-            }
+            console.error('Error saving cart:', error);
         }
         
         updateCartCount();
@@ -211,19 +154,9 @@ function updateCartCount() {
     console.log('Updating cart count to:', count);
     
     const cartCountElements = document.querySelectorAll('#cart-count');
-    console.log('Found cart count elements:', cartCountElements.length);
-    
-    cartCountElements.forEach((element, index) => {
-        console.log(`Updating cart count element ${index}:`, element);
+    cartCountElements.forEach((element) => {
         if (element) {
             element.textContent = count;
-            
-            // Add animation to cart count
-            element.style.transform = 'scale(1.2)';
-            element.style.transition = 'transform 0.2s ease';
-            setTimeout(() => {
-                element.style.transform = 'scale(1)';
-            }, 200);
         }
     });
 }
@@ -290,10 +223,6 @@ window.showNotification = showNotification;
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing cart...');
-    console.log('Current cart at initialization:', cart);
-    console.log('Page URL:', window.location.href);
-    console.log('Protocol:', window.location.protocol);
-    
     updateCartCount();
     
     // If on cart page, render cart
@@ -301,18 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCart();
     }
     
-    // Highlight active nav link
-    const currentPage = window.location.pathname.split('/').pop();
-    document.querySelectorAll('nav a').forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('text-white', 'border-b-2', 'border-green-500');
-            link.classList.remove('text-gray-300');
-        }
-    });
-    
-    // Test cart functionality
     console.log('Cart system initialized successfully');
-    showNotification('Cart system loaded successfully!');
 });
 
 console.log('Cart.js loaded successfully!'); 
