@@ -1,6 +1,31 @@
 // Cart System - Complete Version
 let cart = JSON.parse(localStorage.getItem('117-cart')) || [];
 
+// Global Functions - Define these first so they're available immediately
+window.addToCart = function(product) {
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({...product, quantity: 1});
+    }
+    updateCart();
+    alert(`${product.name} added to cart!`);
+};
+
+window.removeFromCart = function(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateCart();
+};
+
+window.updateQuantity = function(id, newQty) {
+    const item = cart.find(item => item.id === id);
+    if (item && newQty > 0) {
+        item.quantity = newQty;
+        updateCart();
+    }
+};
+
 // Core Functions
 function updateCart() {
     localStorage.setItem('117-cart', JSON.stringify(cart));
@@ -52,31 +77,7 @@ function renderCart() {
         '₹' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 }
 
-// Global Functions
-window.addToCart = function(product) {
-    const existing = cart.find(item => item.id === product.id);
-    if (existing) {
-        existing.quantity++;
-    } else {
-        cart.push({...product, quantity: 1});
-    }
-    updateCart();
-    alert(`${product.name} added to cart!`);
-};
-
-window.removeFromCart = function(id) {
-    cart = cart.filter(item => item.id !== id);
-    updateCart();
-};
-
-window.updateQuantity = function(id, newQty) {
-    const item = cart.find(item => item.id === id);
-    if (item && newQty > 0) {
-        item.quantity = newQty;
-        updateCart();
-    }
-};
-
+// Make renderCart available globally
 window.renderCart = renderCart;
 
 // Initialize
@@ -91,4 +92,4 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.remove('text-gray-300');
         }
     });
-});
+}); 
