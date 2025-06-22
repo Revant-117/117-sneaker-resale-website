@@ -1,4 +1,4 @@
-// Simple Cart System with Server Compatibility
+// Simple Cart System with Server Compatibility and Better Notifications
 console.log('Cart.js loading...');
 
 // Check if we're in a server environment
@@ -17,13 +17,63 @@ try {
     cart = [];
 }
 
+// Create notification system
+function showNotification(message, type = 'success') {
+    // Remove any existing notifications
+    const existingNotification = document.querySelector('.cart-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `cart-notification fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+    
+    // Set notification style based on type
+    if (type === 'success') {
+        notification.style.backgroundColor = '#00ff00';
+        notification.style.color = '#000000';
+    } else if (type === 'error') {
+        notification.style.backgroundColor = '#ff0000';
+        notification.style.color = '#ffffff';
+    }
+    
+    notification.innerHTML = `
+        <div class="flex items-center space-x-2">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span class="font-semibold">${message}</span>
+            <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-sm opacity-70 hover:opacity-100">×</button>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.style.transform = 'translateX(full)';
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 300);
+        }
+    }, 3000);
+}
+
 // Simple addToCart function
 function addToCart(product) {
     console.log('Adding to cart:', product);
     
     if (!product || !product.id) {
         console.error('Invalid product data:', product);
-        alert('Error: Invalid product data');
+        showNotification('Error: Invalid product data', 'error');
         return;
     }
     
@@ -33,6 +83,7 @@ function addToCart(product) {
     if (existingItem) {
         existingItem.quantity += 1;
         console.log('Updated existing item quantity to:', existingItem.quantity);
+        showNotification(`${product.name} quantity updated in cart!`);
     } else {
         cart.push({
             id: product.id,
@@ -42,6 +93,7 @@ function addToCart(product) {
             quantity: 1
         });
         console.log('Added new item to cart');
+        showNotification(`${product.name} added to cart!`);
     }
     
     console.log('Current cart after adding:', cart);
@@ -59,7 +111,7 @@ function addToCart(product) {
             console.log('Cart saved to sessionStorage as fallback');
         } catch (sessionError) {
             console.error('Error saving to sessionStorage:', sessionError);
-            alert('Error saving to cart. Please try again.');
+            showNotification('Error saving to cart. Please try again.', 'error');
             return;
         }
     }
@@ -67,14 +119,33 @@ function addToCart(product) {
     // Update cart count display
     updateCartCount();
     
-    // Show success message
-    alert(product.name + ' added to cart!');
+    // Add visual feedback to the button
+    const button = event.target;
+    if (button) {
+        const originalText = button.textContent;
+        const originalBg = button.style.backgroundColor;
+        
+        button.textContent = 'Added!';
+        button.style.backgroundColor = '#00ff00';
+        button.style.color = '#000000';
+        
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.backgroundColor = originalBg;
+            button.style.color = '';
+        }, 1000);
+    }
 }
 
 // Remove item from cart
 function removeFromCart(id) {
     console.log('Removing from cart, id:', id);
+    const item = cart.find(item => item.id === id);
     cart = cart.filter(item => item.id !== id);
+    
+    if (item) {
+        showNotification(`${item.name} removed from cart`);
+    }
     
     // Save to localStorage with fallback
     try {
@@ -107,7 +178,10 @@ function updateQuantity(id, newQuantity) {
     
     const item = cart.find(item => item.id === id);
     if (item) {
+        const oldQuantity = item.quantity;
         item.quantity = newQuantity;
+        
+        showNotification(`${item.name} quantity updated to ${newQuantity}`);
         
         // Save to localStorage with fallback
         try {
@@ -142,6 +216,13 @@ function updateCartCount() {
         console.log(`Updating cart count element ${index}:`, element);
         if (element) {
             element.textContent = count;
+            
+            // Add animation to cart count
+            element.style.transform = 'scale(1.2)';
+            element.style.transition = 'transform 0.2s ease';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 200);
         }
     });
 }
@@ -203,6 +284,7 @@ window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateQuantity = updateQuantity;
 window.renderCart = renderCart;
+window.showNotification = showNotification;
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
@@ -226,6 +308,10 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.remove('text-gray-300');
         }
     });
+    
+    // Test cart functionality
+    console.log('Cart system initialized successfully');
+    showNotification('Cart system loaded successfully!');
 });
 
 console.log('Cart.js loaded successfully!'); 
