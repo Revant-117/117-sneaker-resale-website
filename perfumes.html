@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>117 • Watches</title>
+    <title>117 • Perfumes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/cart.js?v=1.3"></script>
+    <script src="js/cart.js?v=1.5"></script>
     <style>
         :root {
             --primary: #000000;
@@ -45,8 +45,8 @@
         }
         .product-image {
             width: 100%;
-            height: 300px; /* Adjusted height for clothing */
-            object-fit: contain; /* Changed for better clothing fit */
+            height: 300px;
+            object-fit: contain;
             border-radius: 8px;
         }
     </style>
@@ -89,21 +89,20 @@
     </nav>
 
     <main class="container mx-auto px-4 py-8">
-        <section id="watches-section">
-            <h2 class="text-2xl font-bold mb-6">Watches Collection</h2>
+        <section id="perfumes-section">
+            <h2 class="text-2xl font-bold mb-6">Perfumes</h2>
             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Watch products will be added here -->
                 <div class="product-card bg-gray-900 rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-04/CLASSIC-FUSION-TITANIUM-RACING-GREY-ON-RUBBER-45-MM.png?itok=xsh0UTeN" alt="Hublot Classic Fusion Racing Grey Titanium (45 mm)" class="product-image">
-                        <span class="price-tag">₹7,60,000</span>
+                        <img src="https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/tom-ford-beauty/68008124001/0/mzcdl2HEmD-28176_TomFord_BlackOrchidEauDeParfum100ml_WEB_b4868d824abf7adb24d7536c8daa0678f117f572_1523778236.png" alt="Tom Ford Black Orchid" class="product-image">
+                        <span class="price-tag">₹16,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Hublot Classic Fusion Racing Grey Titanium (45 mm)</h4>
+                    <h4 class="font-semibold text-lg mb-1">Tom Ford Black Orchid Eau De Parfum</h4>
                     <button onclick="addToCart({
-                        id: 301,
-                        name: 'Hublot Classic Fusion Racing Grey Titanium (45 mm)',
-                        price: 760000,
-                        image: 'https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-04/CLASSIC-FUSION-TITANIUM-RACING-GREY-ON-RUBBER-45-MM.png?itok=xsh0UTeN'
+                        id: 404,
+                        name: 'Tom Ford Black Orchid Eau De Parfum',
+                        price: 16999,
+                        image: 'https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/tom-ford-beauty/68008124001/0/mzcdl2HEmD-28176_TomFord_BlackOrchidEauDeParfum100ml_WEB_b4868d824abf7adb24d7536c8daa0678f117f572_1523778236.png'
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -111,15 +110,15 @@
 
                 <div class="product-card bg-gray-900 rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://www.rado.com/media/catalog/product/cache/af21745092e03eab5206bbb4f15452fb/c/a/cat_golden_horse_561_6102_3_070_r33102703__web_1.png" alt="Rado HyperChrome Classic Automatic" class="product-image">
-                        <span class="price-tag">₹2,05,900</span>
+                        <img src="https://images-static.nykaa.com/media/catalog/product/d/b/db992abDIORX00000885.jpg" alt="Dior Sauvage Elixir" class="product-image">
+                        <span class="price-tag">₹22,600</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Rado HyperChrome Classic Automatic</h4>
+                    <h4 class="font-semibold text-lg mb-1">Dior Sauvage Elixir</h4>
                     <button onclick="addToCart({
-                        id: 302,
-                        name: 'Rado HyperChrome Classic Automatic',
-                        price: 205900,
-                        image: 'https://www.rado.com/media/catalog/product/cache/af21745092e03eab5206bbb4f15452fb/c/a/cat_golden_horse_561_6102_3_070_r33102703__web_1.png'
+                        id: 405,
+                        name: 'Dior Sauvage Elixir',
+                        price: 22600,
+                        image: 'https://images-static.nykaa.com/media/catalog/product/d/b/db992abDIORX00000885.jpg'
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -127,67 +126,47 @@
 
                 <div class="product-card bg-gray-900 rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069" alt="Emporio Armani Rose Gold" class="product-image">
-                        <span class="price-tag">₹26,999</span>
+                        <img src="https://images-static.nykaa.com/media/catalog/product/d/b/db992ab3348901362832.jpg?tr=w-500" alt="Miss Dior Eau De Parfum" class="product-image">
+                        <span class="price-tag">₹14,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Emporio Armani Rose Gold</h4>
-                    <p class="text-gray-400 text-sm mb-3">Womens Watch</p>
+                    <h4 class="font-semibold text-lg mb-1">Miss Dior Eau De Parfum</h4>
                     <button onclick="addToCart({
-                        id: 304,
-                        name: 'Emporio Armani Rose Gold',
-                        price: 26999,
-                        image: 'https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069'
+                        id: 406,
+                        name: 'Miss Dior Eau De Parfum',
+                        price: 14999,
+                        image: 'https://images-static.nykaa.com/media/catalog/product/d/b/db992ab3348901362832.jpg?tr=w-500'
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
                 </div>
 
-                <!-- Product 4 -->
                 <div class="product-card bg-gray-900 rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png" alt="G-SHOCK G-Steel" class="product-image">
-                        <span class="price-tag">₹30,000</span>
+                        <img src="https://m.media-amazon.com/images/I/51zfP6BUgeL._UF1000,1000_QL80_.jpg" alt="Karl Lagerfeld Pour Homme" class="product-image">
+                        <span class="price-tag">₹7,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">G-SHOCK G-Steel</h4>
+                    <h4 class="font-semibold text-lg mb-1">Karl Lagerfeld Pour Homme Eau De Toilette</h4>
                     <button onclick="addToCart({
-                        id: 305,
-                        name: 'G-SHOCK G-Steel',
-                        price: 30000,
-                        image: 'https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png'
+                        id: 407,
+                        name: 'Karl Lagerfeld Pour Homme Eau De Toilette',
+                        price: 7999,
+                        image: 'https://m.media-amazon.com/images/I/51zfP6BUgeL._UF1000,1000_QL80_.jpg'
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
                 </div>
 
-                <!-- Product 5 -->
                 <div class="product-card bg-gray-900 rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg" alt="Michael Kors - MK7229" class="product-image">
-                        <span class="price-tag">₹22,999</span>
+                        <img src="https://www.perfumeaddicts.in/wp-content/uploads/2024/02/burberry-touch-pour-homme-for-men-100ml-edt-main-1.webp" alt="Burberry Touch Pour Homme" class="product-image">
+                        <span class="price-tag">₹3,299</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Michael Kors - MK7229</h4>
+                    <h4 class="font-semibold text-lg mb-1">Burberry Touch Pour Homme</h4>
                     <button onclick="addToCart({
-                        id: 306,
-                        name: 'Michael Kors - MK7229',
-                        price: 22999,
-                        image: 'https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg'
-                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
-                        Add to Cart
-                    </button>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
-                    <div class="relative mb-4">
-                        <img src="https://www.rado.com/media/catalog/product/t/r/truesquare_r27086752_sld_web.png" alt="RADO True Square Open Heart Diamonds" class="product-image">
-                        <span class="price-tag">₹3,32,100</span>
-                    </div>
-                    <h4 class="font-semibold text-lg mb-1">RADO True Square Open Heart Diamonds</h4>
-                    <button onclick="addToCart({
-                        id: 307,
-                        name: 'RADO True Square Open Heart Diamonds',
-                        price: 332100,
-                        image: 'https://www.rado.com/media/catalog/product/t/r/truesquare_r27086752_sld_web.png'
+                        id: 408,
+                        name: 'Burberry Touch Pour Homme',
+                        price: 3299,
+                        image: 'https://www.perfumeaddicts.in/wp-content/uploads/2024/02/burberry-touch-pour-homme-for-men-100ml-edt-main-1.webp'
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -196,7 +175,6 @@
         </section>
     </main>
 
-    <!-- Search functionality -->
     <script>
         document.getElementById('search-input').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
@@ -207,4 +185,4 @@
         });
     </script>
 </body>
-</html> 
+</html>

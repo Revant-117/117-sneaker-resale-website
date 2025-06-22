@@ -99,8 +99,16 @@
                     <a href="index.html" class="nav-link">Footwear</a>
                     <a href="clothing.html" class="nav-link">Clothing</a>
                     <a href="football.html" class="nav-link">Football</a>
-                    <a href="watches.html" class="nav-link">Watches</a>
-                    <a href="accessories.html" class="nav-link">Accessories</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
                     <a href="sale.html" class="nav-link active-tab">SALE</a>
                 </div>
             </div>
@@ -235,16 +243,16 @@
                 <!-- Sale Product 6 - Watches -->
                 <div class="product-card rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069" alt="Emporio Armani Connected" class="product-image">
+                        <img src="https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069" alt="Emporio Armani Rose Gold" class="product-image">
                         <div class="discount-badge">-55%</div>
                         <span class="price-tag">₹12,149</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Emporio Armani Connected - Rose Gold</h4>
+                    <h4 class="font-semibold text-lg mb-1">Emporio Armani Rose Gold</h4>
                     <p class="text-gray-400 text-sm mb-2">Womens Watch</p>
                     <p class="original-price mb-2">₹26,999</p>
                     <button onclick="addToCart({
                         id: 1006,
-                        name: 'Emporio Armani Connected - Rose Gold (SALE)',
+                        name: 'Emporio Armani Rose Gold (SALE)',
                         price: 12149,
                         image: 'https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069'
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
