@@ -1,6 +1,28 @@
 // Simple Cart System - Bulletproof Version
 console.log('Cart.js loading...');
 
+// Test if the script is loading
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Cart.js: DOM loaded successfully');
+    
+    // Test if cart link exists
+    const cartLink = document.querySelector('a[href="cart.html"]');
+    if (cartLink) {
+        console.log('Cart.js: Cart link found ✓');
+        cartLink.style.border = '2px solid red'; // Temporary visual indicator
+    } else {
+        console.error('Cart.js: Cart link NOT found!');
+    }
+    
+    // Test if cart count element exists
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        console.log('Cart.js: Cart count element found ✓');
+    } else {
+        console.error('Cart.js: Cart count element NOT found!');
+    }
+});
+
 // Initialize cart from localStorage
 let cart = [];
 try {
@@ -40,16 +62,13 @@ function showNotification(message, type = 'success') {
 // Simple addToCart function
 function addToCart(product) {
     console.log('Adding to cart:', product);
-    
     if (!product || !product.id) {
         console.error('Invalid product data:', product);
         showNotification('Error: Invalid product data', 'error');
         return;
     }
-    
     // Check if product already exists
     const existingItem = cart.find(item => item.id === product.id);
-    
     if (existingItem) {
         existingItem.quantity += 1;
         showNotification(`${product.name} quantity updated in cart!`);
@@ -63,8 +82,6 @@ function addToCart(product) {
         });
         showNotification(`${product.name} added to cart!`);
     }
-    
-    // Save to localStorage
     try {
         localStorage.setItem('117-cart', JSON.stringify(cart));
         console.log('Cart saved to localStorage');
@@ -73,18 +90,14 @@ function addToCart(product) {
         showNotification('Error saving to cart', 'error');
         return;
     }
-    
-    // Update cart count
     updateCartCount();
-    
     // Visual feedback
-    const button = event.target;
+    const button = event && event.target ? event.target : null;
     if (button) {
         const originalText = button.textContent;
         button.textContent = 'Added!';
         button.style.backgroundColor = '#00ff00';
         button.style.color = '#000000';
-        
         setTimeout(() => {
             button.textContent = originalText;
             button.style.backgroundColor = '';
