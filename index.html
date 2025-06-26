@@ -145,7 +145,23 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Samba OG</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11, 12</p>
-                    <button onclick="addToCart({id: 1, name: 'Adidas Samba OG', price: 22000, image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_00_standard.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1,
+                        name: 'Adidas Samba OG',
+                        price: 22000,
+                        image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_00_standard.jpg',
+                        size: document.getElementById('size-1').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 2 -->
                 <div class="product-card rounded-lg p-4">
@@ -155,7 +171,20 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 530 - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 10, 11, 12</p>
-                    <button onclick="addToCart({id: 2, name: 'New Balance 530 - White', price: 26999, image: 'https://images-cdn.ubuy.co.in/63574257c517ac09432a1c75-new-balance-retro-530-white-navy-mr530sg.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-2" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 2,
+                        name: 'New Balance 530 - White',
+                        price: 26999,
+                        image: 'https://images-cdn.ubuy.co.in/63574257c517ac09432a1c75-new-balance-retro-530-white-navy-mr530sg.jpg',
+                        size: document.getElementById('size-2').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 3 -->
                 <div class="product-card rounded-lg p-4">
@@ -165,7 +194,22 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy Boost 350 V2</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11, 12, 13</p>
-                    <button onclick="addToCart({id: 3, name: 'Yeezy Boost 350 V2', price: 18000, image: 'https://owp.klarna.com/product/640x640/3005441826/adidas-Yeezy-Boost-350-V2-Bone.jpg?ph=true'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-3" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 3,
+                        name: 'Yeezy Boost 350 V2',
+                        price: 18000,
+                        image: 'https://owp.klarna.com/product/640x640/3005441826/adidas-Yeezy-Boost-350-V2-Bone.jpg?ph=true',
+                        size: document.getElementById('size-3').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 4 -->
                 <div class="product-card rounded-lg p-4">
@@ -175,7 +219,22 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga Defender - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
-                    <button onclick="addToCart({id: 4, name: 'Balenciaga Defender - Black', price: 99999, image: 'https://cdn-img.poizonapp.com/pro-img/cut-img/20230801/c1fbc53f1a2046beb092758e4ac856ee.jpg?x-oss-process=image/format,webp/resize,w_800,h_800'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-4" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 4,
+                        name: 'Balenciaga Defender - Black',
+                        price: 99999,
+                        image: 'https://cdn-img.poizonapp.com/pro-img/cut-img/20230801/c1fbc53f1a2046beb092758e4ac856ee.jpg?x-oss-process=image/format,webp/resize,w_800,h_800',
+                        size: document.getElementById('size-4').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 5 -->
                 <div class="product-card rounded-lg p-4">
@@ -185,7 +244,21 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Tokyo</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
-                    <button onclick="addToCart({id: 1005, name: 'Adidas Tokyo', price: 8999, image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/db8ee5f7fa824ac9bb504e8182b4c560_9366/Tokyo_Shoes_White_JI3300_01_00_standard.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1005" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1005,
+                        name: 'Adidas Tokyo',
+                        price: 8999,
+                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/db8ee5f7fa824ac9bb504e8182b4c560_9366/Tokyo_Shoes_White_JI3300_01_00_standard.jpg',
+                        size: document.getElementById('size-1005').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 6 -->
                 <div class="product-card rounded-lg p-4">
@@ -195,7 +268,21 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 740 V2</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1006, name: 'New Balance 740 V2', price: 8999, image: 'https://lh6.googleusercontent.com/proxy/co8vdoVAK5Jq_z5hUG51ufEFjVIY_8Hces6dpAetwHnXOwqcOuyiOCu1mU8Qpx0RMqiEih4FpTMyz274yXRlRdYzQiPBulyK9DE1om_k8huo'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1006" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1006,
+                        name: 'New Balance 740 V2',
+                        price: 8999,
+                        image: 'https://lh6.googleusercontent.com/proxy/co8vdoVAK5Jq_z5hUG51ufEFjVIY_8Hces6dpAetwHnXOwqcOuyiOCu1mU8Qpx0RMqiEih4FpTMyz274yXRlRdYzQiPBulyK9DE1om_k8huo',
+                        size: document.getElementById('size-1006').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 7 -->
                 <div class="product-card rounded-lg p-4">
@@ -205,7 +292,22 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Max Dn8</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
-                    <button onclick="addToCart({id: 1007, name: 'Nike Air Max Dn8', price: 16999, image: 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/70466fe0-c158-4103-bf4a-041c5d464604/AIR+MAX+DN8.png'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1007" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1007,
+                        name: 'Nike Air Max Dn8',
+                        price: 16999,
+                        image: 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/70466fe0-c158-4103-bf4a-041c5d464604/AIR+MAX+DN8.png',
+                        size: document.getElementById('size-1007').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 8 -->
                 <div class="product-card rounded-lg p-4">
@@ -215,7 +317,21 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Converse X Tyle The Creator</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1008, name: 'Converse X Tyle The Creator', price: 14999, image: ''})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1008" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1008,
+                        name: 'Converse X Tyle The Creator',
+                        price: 14999,
+                        image: 'https://cdn.sneakers123.com/release/21706/converse-x-tyler-the-creator-one-star-purple-heart-162128c.jpg',
+                        size: document.getElementById('size-1008').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 9 -->
                 <div class="product-card rounded-lg p-4">
@@ -225,7 +341,21 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Maison Margiela Sprinter Shell</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1009, name: 'Maison Margiela Sprinter Shell', price: 109999, image: 'https://www.mytheresa.com/media/1094/1238/100/2e/P01020588.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1009" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1009,
+                        name: 'Maison Margiela Sprinter Shell',
+                        price: 109999,
+                        image: 'https://www.mytheresa.com/media/1094/1238/100/2e/P01020588.jpg',
+                        size: document.getElementById('size-1009').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 10 -->
                 <div class="product-card rounded-lg p-4">
@@ -235,17 +365,48 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Louis Vuitton Trainers</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1010, name: 'Louis Vuitton Trainers', price: 133999, image: 'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg?w=480&q=60&dpr=1&updated_at=1687889780&h=320'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1010" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1010,
+                        name: 'Louis Vuitton Trainers',
+                        price: 133999,
+                        image: 'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg?w=480&q=60&dpr=1&updated_at=1687889780&h=320',
+                        size: document.getElementById('size-1010').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 11 -->
                 <div class="product-card rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://agavostore.com/wp-content/uploads/2023/01/Balenciaga-Triple-S.jpg" alt="Balenciaga Triple S Black" class="product-image">
-                        <span class="price-tag">₹1,19,999</span>
+                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg" alt="Adidas Gazelle" class="product-image">
+                        <span class="price-tag">₹7,899</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Balenciaga Triple S Black</h4>
-                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
-                    <button onclick="addToCart({id: 1011, name: 'Balenciaga Triple S Black', price: 119999, image: 'https://agavostore.com/wp-content/uploads/2023/01/Balenciaga-Triple-S.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Gazelle - Red</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10, 11</p>
+                    <select id="size-11" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 11,
+                        name: 'Adidas Gazelle - Red',
+                        id: 1011,
+                        name: 'Balenciaga Triple S Black',
+                        price: 119999,
+                        image: 'https://agavostore.com/wp-content/uploads/2023/01/Balenciaga-Triple-S.jpg',
+                        size: document.getElementById('size-1011').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 12 -->
                 <div class="product-card rounded-lg p-4">
@@ -255,7 +416,20 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 5060</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1012, name: 'New Balance 5060', price: 16999, image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard_1_1924d611-a91b-4fc6-bd5f-e400c4b68bed.png?v=1742204703&width=1946'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1012" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1012,
+                        name: 'New Balance 5060',
+                        price: 16999,
+                        image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard_1_1924d611-a91b-4fc6-bd5f-e400c4b68bed.png?v=1742204703&width=1946',
+                        size: document.getElementById('size-1012').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 13 -->
                 <div class="product-card rounded-lg p-4">
@@ -265,7 +439,21 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Zoom Vomero 5</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
-                    <button onclick="addToCart({id: 1013, name: 'Nike Zoom Vomero 5', price: 11999, image: 'https://www.superkicks.in/cdn/shop/files/1_e60f0e82-31d2-4227-8e92-0184095e33d6.jpg?v=1719407945&width=1946'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1013" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1013,
+                        name: 'Nike Zoom Vomero 5',
+                        price: 11999,
+                        image: 'https://www.superkicks.in/cdn/shop/files/1_e60f0e82-31d2-4227-8e92-0184095e33d6.jpg?v=1719407945&width=1946',
+                        size: document.getElementById('size-1013').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 14 -->
                 <div class="product-card rounded-lg p-4">
@@ -275,7 +463,21 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Veja Campo</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1014, name: 'Veja Campo', price: 11999, image: 'https://cdn.afew-store.com/assets/42/420054/2400/veja-campo-extra-white-california-cp0503121b-footwear%20%3E%20sneaker-packshots-0.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1014" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1014,
+                        name: 'Veja Campo',
+                        price: 11999,
+                        image: 'https://cdn.afew-store.com/assets/42/420054/2400/veja-campo-extra-white-california-cp0503121b-footwear%20%3E%20sneaker-packshots-0.jpg',
+                        size: document.getElementById('size-1014').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 15 -->
                 <div class="product-card rounded-lg p-4">
@@ -285,7 +487,22 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Asics Gel 1130</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1015, name: 'Asics Gel 1130', price: 8999, image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRvw7ddcakbRpPiYdVXxt2kp4ZylNf7RmjPXGKIfXbsBPJ896vP_elJAksifadrpQiXxqNnFMBEW7oZUo0moQ7CU7VLBprc4JI_np2yzvAuV3CGckSlWyuanA'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1015" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1015,
+                        name: 'Asics Gel 1130',
+                        price: 8999,
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRvw7ddcakbRpPiYdVXxt2kp4ZylNf7RmjPXGKIfXbsBPJ896vP_elJAksifadrpQiXxqNnFMBEW7oZUo0moQ7CU7VLBprc4JI_np2yzvAuV3CGckSlWyuanA',
+                        size: document.getElementById('size-1015').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 16 -->
                 <div class="product-card rounded-lg p-4">
@@ -295,7 +512,20 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 990 V6</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1016, name: 'New Balance 990 V6', price: 10999, image: 'https://shop.uncrate.com/cdn/shop/files/new-balance-990-miusa-grey-21.jpg?v=1685995261'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1016" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1016,
+                        name: 'New Balance 990 V6',
+                        price: 10999,
+                        image: 'https://shop.uncrate.com/cdn/shop/files/new-balance-990-miusa-grey-21.jpg?v=1685995261',
+                        size: document.getElementById('size-1016').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 17 -->
                 <div class="product-card rounded-lg p-4">
@@ -305,17 +535,46 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Campus 00s</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1017, name: 'Adidas Campus 00s', price: 10999, image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ce738cbe5342421996feaf5001044964_9366/Campus_00s_Shoes_Grey_HQ8707_01_standard.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1017" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1017,
+                        name: 'Adidas Campus 00s',
+                        price: 10999,
+                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ce738cbe5342421996feaf5001044964_9366/Campus_00s_Shoes_Grey_HQ8707_01_standard.jpg',
+                        size: document.getElementById('size-1017').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 18 -->
                 <div class="product-card rounded-lg p-4">
                     <div class="relative mb-4">
                         <img src="https://assets.vans.eu/images/t_img/c_fill,g_center,f_auto,h_815,w_652,e_unsharp_mask:100/dpr_2.0/v1730405711/VN000CS0CX2-HERO/Knu-Skool-Shoes.png" alt="Van Knu Skool" class="product-image">
-                        <span class="price-tag">₹5,999</span>
+                        <span class="price-tag">₹8,999</span>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Van Knu Skool</h4>
-                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1018, name: 'Van Knu Skool', price: 5999, image: 'https://assets.vans.eu/images/t_img/c_fill,g_center,f_auto,h_815,w_652,e_unsharp_mask:100/dpr_2.0/v1730405711/VN000CS0CX2-HERO/Knu-Skool-Shoes.png'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-1018" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1018,
+                        name: 'Van Knu Skool',
+                        price: 8999,
+                        image: 'https://assets.vans.eu/images/t_img/c_fill,g_center,f_auto,h_815,w_652,e_unsharp_mask:100/dpr_2.0/v1730405711/VN000CS0CX2-HERO/Knu-Skool-Shoes.png',
+                        size: document.getElementById('size-1018').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 19 -->
                 <div class="product-card rounded-lg p-4">
@@ -330,12 +589,28 @@
                 <!-- Product 20 -->
                 <div class="product-card rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://lovellcdn.b-cdn.net/products/1190479.jpg?width=700" alt="Nike Air Max 90" class="product-image">
-                        <span class="price-tag">₹9,999</span>
+                        <img src="https://www.superkicks.in/cdn/shop/files/4_40_09c932ed-00c4-4abb-ac33-1ae44d08f06f.jpg?v=1746267121" alt="Nike Dunk Low Retro" class="product-image">
+                        <span class="price-tag">₹11,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Nike Air Max 90</h4>
-                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1020, name: 'Nike Air Max 90', price: 9999, image: 'https://lovellcdn.b-cdn.net/products/1190479.jpg?width=700'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <h4 class="font-semibold text-lg mb-1">Nike Dunk Low Retro</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11, 12</p>
+                    <select id="size-1020" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1020,
+                        name: 'Nike Dunk Low Retro',
+                        price: 11999,
+                        image: 'https://www.superkicks.in/cdn/shop/files/4_40_09c932ed-00c4-4abb-ac33-1ae44d08f06f.jpg?v=1746267121',
+                        size: document.getElementById('size-1020').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 21 -->
                 <div class="product-card rounded-lg p-4">
@@ -350,22 +625,50 @@
                 <!-- Product 22 -->
                 <div class="product-card rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5643ea9848e94c1da869fd176bd19128_9366/Superstar_II_Shoes_White_IH8659_01_standard.jpg" alt="Adidas Superstar" class="product-image">
-                        <span class="price-tag">₹6,999</span>
+                        <img src="https://www.radpresent.com/cdn/shop/products/Screenshot2023-02-16at8.53.14PM.png?v=1676553401" alt="Balenciaga Runner" class="product-image">
+                        <span class="price-tag">₹1,09,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Adidas Superstar</h4>
-                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
-                    <button onclick="addToCart({id: 1022, name: 'Adidas Superstar', price: 6999, image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5643ea9848e94c1da869fd176bd19128_9366/Superstar_II_Shoes_White_IH8659_01_standard.jpg'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga Runner</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-1022" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1022,
+                        name: 'Balenciaga Runner',
+                        price: 109999,
+                        image: 'https://www.radpresent.com/cdn/shop/products/Screenshot2023-02-16at8.53.14PM.png?v=1676553401',
+                        size: document.getElementById('size-1022').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product 23 -->
                 <div class="product-card rounded-lg p-4">
                     <div class="relative mb-4">
-                        <img src="https://static.nbastore.in/resized/500X500/652/jordan-luka-3-pf-motorsport-basketball-shoes-white-white-66dc67c3ab359.jpg?format=webp" alt="Jordan Luka 3 PF" class="product-image">
-                        <span class="price-tag">₹11,999</span>
+                        <img src="https://assets.solesense.com/en/images/products/500/balenciaga-x-pander-black-653870w2ra21000_1.jpg" alt="Balenciaga Xpander" class="product-image">
+                        <span class="price-tag">₹1,09,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Jordan Luka 3 PF</h4>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga Xpander</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
-                    <button onclick="addToCart({id: 1023, name: 'Jordan Luka 3 PF', price: 11999, image: 'https://static.nbastore.in/resized/500X500/652/jordan-luka-3-pf-motorsport-basketball-shoes-white-white-66dc67c3ab359.jpg?format=webp'})" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">Add to Cart</button>
+                    <select id="size-1023" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1023,
+                        name: 'Balenciaga Xpander',
+                        price: 109999,
+                        image: 'https://assets.solesense.com/en/images/products/500/balenciaga-x-pander-black-653870w2ra21000_1.jpg',
+                        size: document.getElementById('size-1023').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
                 </div>
                 <!-- Product: Nike Air Jordan 1 Travis Scott -->
                 <div class="product-card rounded-lg p-4">
@@ -392,11 +695,16 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">On Cloudmonster - White/Blue</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 10</p>
+                    <select id="size-8" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 8,
                         name: 'On Cloudmonster - White/Blue',
                         price: 14999,
-                        image: 'https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp'
+                        image: 'https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp',
+                        size: document.getElementById('size-8').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -409,11 +717,19 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Burberry Arthur Vintage - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-9" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 9,
                         name: 'Burberry Arthur Vintage - Black',
                         price: 119999,
-                        image: 'https://images.stockx.com/images/Burberry-Arthur-Archive-Beige-Black-Product.jpg'
+                        image: 'https://images.stockx.com/images/Burberry-Arthur-Archive-Beige-Black-Product.jpg',
+                        size: document.getElementById('size-9').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -426,11 +742,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Lacoste AGLT23</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-10" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 10,
                         name: 'Lacoste AGLT23',
                         price: 24999,
-                        image: 'https://cdn11.bigcommerce.com/s-hukvtympsj/images/stencil/original/products/19838/67360/lacoste-aglt23-ultra-m-off_white_navy-jeuli__68796.1739969492.jpg'
+                        image: 'https://cdn11.bigcommerce.com/s-hukvtympsj/images/stencil/original/products/19838/67360/lacoste-aglt23-ultra-m-off_white_navy-jeuli__68796.1739969492.jpg',
+                        size: document.getElementById('size-10').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -460,11 +783,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Stan Smith - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-12" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 12,
                         name: 'Adidas Stan Smith - White',
                         price: 6999,
-                        image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg'
+                        image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg',
+                        size: document.getElementById('size-12').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -477,11 +807,19 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Birkenstock Milano Natural Leather</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
+                    <select id="size-13" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 13,
                         name: 'Birkenstock Milano Natural Leather',
                         price: 7999,
-                        image: 'https://www.birkenstock.in/cdn/shop/products/34193_side_6f143189-212f-46b8-a14e-0cc553d86a0f.jpg?v=1659782890&width=1500'
+                        image: 'https://www.birkenstock.in/cdn/shop/products/34193_side_6f143189-212f-46b8-a14e-0cc553d86a0f.jpg?v=1659782890&width=1500',
+                        size: document.getElementById('size-13').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -494,11 +832,19 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">HOKA Clifton 9</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-15" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 15,
                         name: 'HOKA Clifton 9',
                         price: 22999,
-                        image: 'https://www.runningxpert.com/media/catalog/product/1/1/1127895-bvr.jpg'
+                        image: 'https://www.runningxpert.com/media/catalog/product/1/1/1127895-bvr.jpg',
+                        size: document.getElementById('size-15').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -511,11 +857,17 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga Speed Knit Sock</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-16" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 16,
                         name: 'Balenciaga Speed Knit Sock - Triple Black',
                         price: 122999,
-                        image: 'https://www.crepslocker.com/cdn/shop/products/IMG_8962_434c6e48-4e01-46e2-9e9c-fa749168c99b.jpg?v=1652089398'
+                        image: 'https://www.crepslocker.com/cdn/shop/products/IMG_8962_434c6e48-4e01-46e2-9e9c-fa749168c99b.jpg?v=1652089398',
+                        size: document.getElementById('size-16').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -528,11 +880,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas SL72 OG</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-17" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 17,
                         name: 'Adidas SL72 OG',
                         price: 8999,
-                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1b6eef32e1f64f1ca9541e282d22d556_9366/SL_72_OG_Shoes_Black_JH7390_01_standard.jpg'
+                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1b6eef32e1f64f1ca9541e282d22d556_9366/SL_72_OG_Shoes_Black_JH7390_01_standard.jpg',
+                        size: document.getElementById('size-17').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -545,11 +904,16 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan 1 Chicago Lost&Found</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10</p>
+                    <select id="size-18" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 18,
                         name: 'Nike Air Jordan 1 High OG Chicago Lost and Found',
                         price: 22999,
-                        image: 'https://images.laced.com/products/01bf16ad-3b97-4dba-b450-0791ea495cfd.jpg?auto=format&fit=max&w=3840&q=75'
+                        image: 'https://images.laced.com/products/01bf16ad-3b97-4dba-b450-0791ea495cfd.jpg?auto=format&fit=max&w=3840&q=75',
+                        size: document.getElementById('size-18').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -562,11 +926,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">CROCS Salehe Bembury - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-19" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 19,
                         name: 'CROCS Salehe Bembury - Black',
                         price: 8999,
-                        image: 'https://d2cva83hdk3bwc.cloudfront.net/crocs-x-salehe-bembury-pollex-clog-sasquatch-1.jpg'
+                        image: 'https://d2cva83hdk3bwc.cloudfront.net/crocs-x-salehe-bembury-pollex-clog-sasquatch-1.jpg',
+                        size: document.getElementById('size-19').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -579,11 +950,19 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan 3 Mocha</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-20" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 20,
                         name: 'Air Jordan 3 Mocha',
                         price: 42999,
-                        image: 'https://images.stockx.com/images/Air-Jordan-3-Retro-Mocha-2018-Product.png?fit=fill&bg=FFFFFF&w=1200&h=857&q=60&dpr=1&trim=color&updated_at=1738193358'
+                        image: 'https://images.stockx.com/images/Air-Jordan-3-Retro-Mocha-2018-Product.png?fit=fill&bg=FFFFFF&w=1200&h=857&q=60&dpr=1&trim=color&updated_at=1738193358',
+                        size: document.getElementById('size-20').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -596,11 +975,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Max 97 Pure Platinum</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-21" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 21,
                         name: 'Nike Air Max 97 Pure Platinum',
                         price: 19999,
-                        image: 'https://pufferreds.com/cdn/shop/products/Nike-Air-Max-97--Pure-Platinum--Nike-1671782608.jpg?v=1671782609'
+                        image: 'https://pufferreds.com/cdn/shop/products/Nike-Air-Max-97--Pure-Platinum--Nike-1671782608.jpg?v=1671782609',
+                        size: document.getElementById('size-21').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -613,11 +999,17 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga 3XL</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-22" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 22,
                         name: 'Balenciaga 3XL',
                         price: 98999,
-                        image: 'https://balenciaga.dam.kering.com/m/6f889dcc9cc9b0af/Medium-734734W3XL49710_F.jpg?v=7'
+                        image: 'https://balenciaga.dam.kering.com/m/6f889dcc9cc9b0af/Medium-734734W3XL49710_F.jpg?v=7',
+                        size: document.getElementById('size-22').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -630,11 +1022,19 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy 350 V2 - Pirate Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-23" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 23,
                         name: 'Yeezy 350 V2 - Pirate Black',
                         price: 16999,
-                        image: 'https://www.kershkicks.co.uk/cdn/shop/files/cc8abcbf-cabf-4f97-bfe3-7a447fa5bc99_jpg.webp?v=1745404030&width=533'
+                        image: 'https://www.kershkicks.co.uk/cdn/shop/files/cc8abcbf-cabf-4f97-bfe3-7a447fa5bc99_jpg.webp?v=1745404030&width=533',
+                        size: document.getElementById('size-23').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -645,13 +1045,20 @@
                         <img src="https://www.superkicks.in/cdn/shop/files/1_d513a1ee-98e0-4884-bdf6-d2d465b10edd.jpg?v=1684761287" alt="Nike Air Force - 1'07" class="product-image">
                         <span class="price-tag">₹7,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Nike Air Force - 1\'07</h4>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Force - 1'07</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-24" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 24,
                         name: 'Nike Air Force - 1\'07',
                         price: 7999,
-                        image: 'https://www.superkicks.in/cdn/shop/files/1_d513a1ee-98e0-4884-bdf6-d2d465b10edd.jpg?v=1684761287'
+                        image: 'https://www.superkicks.in/cdn/shop/files/1_d513a1ee-98e0-4884-bdf6-d2d465b10edd.jpg?v=1684761287',
+                        size: document.getElementById('size-24').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -664,11 +1071,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy 700 V3 - Copper Fade</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-25" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 25,
                         name: 'Yeezy 700 V3 - Copper Fade',
                         price: 24999,
-                        image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard10_e0f3ac57-26ad-4e11-a3b2-f6ca11a2df16.png?v=1749557482&width=1946'
+                        image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard10_e0f3ac57-26ad-4e11-a3b2-f6ca11a2df16.png?v=1749557482&width=1946',
+                        size: document.getElementById('size-25').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -681,11 +1095,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Adizero Adios Pro 4</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-26" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 26,
                         name: 'Adidas Adizero Adios Pro 4',
                         price: 71999,
-                        image: 'https://www.misterrunning.com/images/2024-media-09/jr1163_A.jpg'
+                        image: 'https://www.misterrunning.com/images/2024-media-09/jr1163_A.jpg',
+                        size: document.getElementById('size-26').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -696,13 +1117,21 @@
                         <img src="https://limitededt.com/cdn/shop/files/1_fe38aa69-2974-45e9-b90f-500355ac73b9_800x.jpg?v=1711431975" alt="Adidas Forum Low CL - White Core Black" class="product-image">
                         <span class="price-tag">₹12,999</span>
                     </div>
-                    <h4 class="font-semibold text-lg mb-1">Adidas Forum Low CL - White Core Black</h4>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Forum Low CL</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-27" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 27,
                         name: 'Adidas Forum Low CL - White Core Black',
                         price: 12999,
-                        image: 'https://limitededt.com/cdn/shop/files/1_fe38aa69-2974-45e9-b90f-500355ac73b9_800x.jpg?v=1711431975'
+                        image: 'https://limitededt.com/cdn/shop/files/1_fe38aa69-2974-45e9-b90f-500355ac73b9_800x.jpg?v=1711431975',
+                        size: document.getElementById('size-27').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -715,11 +1144,17 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Dior Jordan - Low</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
+                    <select id="size-28" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 28,
                         name: 'Nike Dior Jordan - Low',
                         price: 15999,
-                        image: 'https://10hillsstudio.com/cdn/shop/files/Air-Jordan-1-Retro-Low-Dior-resized-img01.png?v=1735301149'
+                        image: 'https://10hillsstudio.com/cdn/shop/files/Air-Jordan-1-Retro-Low-Dior-resized-img01.png?v=1735301149',
+                        size: document.getElementById('size-28').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -732,11 +1167,17 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">BALLY Saber Loafers - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-29" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 29,
                         name: 'BALLY Saber Loafers - Black',
                         price: 58999,
-                        image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-jtNE2VJA6oPX-Xhwm-kYbcg6xeCeDUIy3pa23z4DIGCFcoTj3QR7VSk_967VZahItLCAwyUsUwZRp2KJWeI-4ELBMkapEzvfqiL7fygI9htwE9deK-jbEU8'
+                        image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-jtNE2VJA6oPX-Xhwm-kYbcg6xeCeDUIy3pa23z4DIGCFcoTj3QR7VSk_967VZahItLCAwyUsUwZRp2KJWeI-4ELBMkapEzvfqiL7fygI9htwE9deK-jbEU8',
+                        size: document.getElementById('size-29').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -749,11 +1190,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balmain Unicorn Sneakers - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-30" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 30,
                         name: 'Balmain Unicorn Sneakers - Black',
                         price: 100000,
-                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTF9HAr4wBi2On3vaEhw-ZcTbkuM7t2-0w1uN9GGW6qIfnxqujXWEvz0qELByP2zg2f992i2ynp9jHV4qrXyA934L9bieR44xgHRtH82CWzsD1_PeDgy4Vw454'
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTF9HAr4wBi2On3vaEhw-ZcTbkuM7t2-0w1uN9GGW6qIfnxqujXWEvz0qELByP2zg2f992i2ynp9jHV4qrXyA934L9bieR44xgHRtH82CWzsD1_PeDgy4Vw454',
+                        size: document.getElementById('size-30').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -766,11 +1214,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 - Women</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9</p>
+                    <select id="size-31" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 31,
                         name: 'Nike Air Force 1 - Women',
                         price: 9599,
-                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPv6MajM4_ynoewF3e-jU3NyJYoVXcGmlRkJN74pXx4mMYrLE48HiCG7iT8I_ykd0uP8SBlIOFsIzTjqaJreAfReijQHSWloOmYeuJo_dA6hfpWjnLjogicic'
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPv6MajM4_ynoewF3e-jU3NyJYoVXcGmlRkJN74pXx4mMYrLE48HiCG7iT8I_ykd0uP8SBlIOFsIzTjqaJreAfReijQHSWloOmYeuJo_dA6hfpWjnLjogicic',
+                        size: document.getElementById('size-31').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -783,11 +1238,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy 700 V3 Arzareth</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-32" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 32,
                         name: 'Yeezy 700 V3 Arzareth',
                         price: 9999,
-                        image: 'https://www.svpsports.ca/cdn/shop/files/adidas---Unisex-Yeezy-700-V3-Shoes-_G54850__01.jpg?v=1731349391&width=2400'
+                        image: 'https://www.svpsports.ca/cdn/shop/files/adidas---Unisex-Yeezy-700-V3-Shoes-_G54850__01.jpg?v=1731349391&width=2400',
+                        size: document.getElementById('size-32').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -800,11 +1262,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Dunk Low - Off White & Retro</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-33" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 33,
                         name: 'Nike Dunk Low - Off White & Retro',
                         price: 8999,
-                        image: 'https://limitededt.in/cdn/shop/files/DV0831-108_1.jpg?v=1748370653'
+                        image: 'https://limitededt.in/cdn/shop/files/DV0831-108_1.jpg?v=1748370653',
+                        size: document.getElementById('size-33').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -817,11 +1286,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Dunk Low - Aster Pink</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9</p>
+                    <select id="size-34" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 34,
                         name: 'Nike Dunk Low - Aster Pink',
                         price: 7999,
-                        image: 'https://www.superkicks.in/cdn/shop/files/5_30326c89-68e3-496e-a211-08abf7caf9c2.jpg?v=1723451236&width=1946'
+                        image: 'https://www.superkicks.in/cdn/shop/files/5_30326c89-68e3-496e-a211-08abf7caf9c2.jpg?v=1723451236&width=1946',
+                        size: document.getElementById('size-34').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -834,11 +1310,19 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Feroza Mercedes AMG</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-35" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 35,
                         name: 'Adidas Feroza Mercedes AMG',
                         price: 10999,
-                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba67c42900a245b48c87e3085c72af99_9366/ADIDAS_FEROZA_MERCEDES_AMG_PETRONAS_F1_TEAM_SHOES_Black_JQ3272_01_00_standard.jpg'
+                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba67c42900a245b48c87e3085c72af99_9366/ADIDAS_FEROZA_MERCEDES_AMG_PETRONAS_F1_TEAM_SHOES_Black_JQ3272_01_00_standard.jpg',
+                        size: document.getElementById('size-35').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -851,11 +1335,18 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Alphafly 3</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-36" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 36,
                         name: 'Nike Alphafly 3',
                         price: 22999,
-                        image: 'https://solemotive.com/cdn/shop/files/Nike-Air-Zoom-Alphafly-Next-3-OLY-Womens-FOOTWEAR-12.jpg?v=1721840996'
+                        image: 'https://solemotive.com/cdn/shop/files/Nike-Air-Zoom-Alphafly-Next-3-OLY-Womens-FOOTWEAR-12.jpg?v=1721840996',
+                        size: document.getElementById('size-36').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>
@@ -868,11 +1359,68 @@
                     </div>
                     <h4 class="font-semibold text-lg mb-1">PUMA Speedcat OG - Red & White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-37" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <button onclick="addToCart({
                         id: 37,
                         name: 'PUMA Speedcat OG - Red & White',
                         price: 9999,
-                        image: 'https://www.superkicks.in/cdn/shop/files/1_5dfee5fb-b0e9-43c3-86c6-0d9ffac4e433.jpg?v=1725957115'
+                        image: 'https://www.superkicks.in/cdn/shop/files/1_5dfee5fb-b0e9-43c3-86c6-0d9ffac4e433.jpg?v=1725957115',
+                        size: document.getElementById('size-37').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <!-- Product: Nike Air Force 1 Low Retro -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/MSQ2_1048833_01.jpga_d378dbf1-0e0a-4d4c-82ff-7483793f6163.jpg?v=1735292097" alt="Nike Air Force 1 X Ambush" class="product-image">
+                        <span class="price-tag">₹43,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 X Ambush</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11, 12</p>
+                    <select id="size-1019" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1019,
+                        name: 'Nike Air Force 1 X Ambush',
+                        price: 43999,
+                        image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/MSQ2_1048833_01.jpga_d378dbf1-0e0a-4d4c-82ff-7483793f6163.jpg?v=1735292097',
+                        size: document.getElementById('size-1019').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <!-- Product: Nike Air Max 90 -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://lovellcdn.b-cdn.net/products/1190479.jpg?width=700" alt="Nike Air Max 90" class="product-image">
+                        <span class="price-tag">₹9,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Max 90</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-1021" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1021,
+                        name: 'Nike Air Max 90',
+                        price: 9999,
+                        image: 'https://lovellcdn.b-cdn.net/products/1190479.jpg?width=700',
+                        size: document.getElementById('size-1021').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>

@@ -68,7 +68,7 @@ function addToCart(product) {
         return;
     }
     // Check if product already exists
-    const existingItem = cart.find(item => item.id === product.id);
+    const existingItem = cart.find(item => item.id === product.id && (!product.size || item.size === product.size));
     if (existingItem) {
         existingItem.quantity += 1;
         showNotification(`${product.name} quantity updated in cart!`);
@@ -78,7 +78,8 @@ function addToCart(product) {
             name: product.name,
             price: product.price,
             image: product.image,
-            quantity: 1
+            quantity: 1,
+            ...(product.size ? { size: product.size } : {})
         });
         showNotification(`${product.name} added to cart!`);
     }
@@ -202,6 +203,7 @@ function renderCart() {
                 <div class="flex-1">
                     <h3 class="font-bold text-lg">${item.name}</h3>
                     <p class="text-gray-400 mb-2">₹${item.price.toLocaleString('en-IN')}</p>
+                    ${item.size ? `<p class='text-gray-300 mb-2'>Size: <span class='font-semibold'>${item.size}</span></p>` : ''}
                     <div class="flex items-center space-x-3">
                         <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})" 
                                 class="bg-gray-800 px-3 py-1 rounded-l hover:bg-gray-700">
