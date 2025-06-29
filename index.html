@@ -6,7 +6,7 @@
     <title>117 • Premium Sneaker Resale</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/cart.js?v=1.5"></script>
+    <script src="js/cart.js?v=2.0"></script>
     <style>
         :root {
             --primary: #000000;
@@ -1421,6 +1421,29 @@
                         price: 9999,
                         image: 'https://lovellcdn.b-cdn.net/products/1190479.jpg?width=700',
                         size: document.getElementById('size-1021').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <!-- Product: Jordan 4 Retro Bred -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.kershkicks.co.uk/cdn/shop/files/4fb80aa0-5fd7-4db5-bfd8-8cf66ebd5278_jpg.webp?v=1745402395" alt="Jordan 4 Retro Bred" class="product-image">
+                        <span class="price-tag">₹24,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Jordan 4 Retro Bred</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-1020-j4bred" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1020,
+                        name: 'Jordan 4 Retro Bred',
+                        price: 24999,
+                        image: 'https://www.kershkicks.co.uk/cdn/shop/files/4fb80aa0-5fd7-4db5-bfd8-8cf66ebd5278_jpg.webp?v=1745402395',
+                        size: document.getElementById('size-1020-j4bred').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
                     </button>

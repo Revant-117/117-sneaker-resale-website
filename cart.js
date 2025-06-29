@@ -1,4 +1,4 @@
-// Simple Cart System - Bulletproof Version
+// Simple Cart System - Bulletproof Version for GitHub Pages
 console.log('Cart.js loading...');
 
 // Test if the script is loading
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartLink = document.querySelector('a[href="cart.html"]');
     if (cartLink) {
         console.log('Cart.js: Cart link found ✓');
-        cartLink.style.border = '2px solid red'; // Temporary visual indicator
     } else {
         console.error('Cart.js: Cart link NOT found!');
     }
@@ -21,14 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Cart.js: Cart count element NOT found!');
     }
+    
+    // Test localStorage availability
+    try {
+        localStorage.setItem('test', 'test');
+        localStorage.removeItem('test');
+        console.log('Cart.js: localStorage is available ✓');
+    } catch (error) {
+        console.error('Cart.js: localStorage is NOT available!', error);
+    }
 });
 
-// Initialize cart from localStorage
+// Initialize cart from localStorage with better error handling
 let cart = [];
 try {
     const savedCart = localStorage.getItem('117-cart');
-    cart = savedCart ? JSON.parse(savedCart) : [];
-    console.log('Cart loaded from localStorage:', cart);
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        console.log('Cart loaded from localStorage:', cart);
+    } else {
+        console.log('No saved cart found, starting with empty cart');
+        cart = [];
+    }
 } catch (error) {
     console.error('Error loading cart from localStorage:', error);
     cart = [];
@@ -59,51 +72,65 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Simple addToCart function
-function addToCart(product) {
+// Simple addToCart function with better error handling
+function addToCart(product, event) {
     console.log('Adding to cart:', product);
-    if (!product || !product.id) {
+    
+    // Validate product data
+    if (!product || !product.id || !product.name || !product.price) {
         console.error('Invalid product data:', product);
         showNotification('Error: Invalid product data', 'error');
-        return;
+        return false;
     }
-    // Check if product already exists
-    const existingItem = cart.find(item => item.id === product.id && (!product.size || item.size === product.size));
-    if (existingItem) {
-        existingItem.quantity += 1;
-        showNotification(`${product.name} quantity updated in cart!`);
-    } else {
-        cart.push({
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            image: product.image,
-            quantity: 1,
-            ...(product.size ? { size: product.size } : {})
-        });
-        showNotification(`${product.name} added to cart!`);
-    }
+    
     try {
-        localStorage.setItem('117-cart', JSON.stringify(cart));
-        console.log('Cart saved to localStorage');
+        // Check if product already exists
+        const existingItem = cart.find(item => item.id === product.id && (!product.size || item.size === product.size));
+        if (existingItem) {
+            existingItem.quantity += 1;
+            showNotification(`${product.name} quantity updated in cart!`);
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                quantity: 1,
+                ...(product.size ? { size: product.size } : {})
+            });
+            showNotification(`${product.name} added to cart!`);
+        }
+        
+        // Save to localStorage
+        try {
+            localStorage.setItem('117-cart', JSON.stringify(cart));
+            console.log('Cart saved to localStorage');
+        } catch (storageError) {
+            console.error('Error saving cart to localStorage:', storageError);
+            showNotification('Warning: Cart may not persist between sessions', 'error');
+        }
+        
+        updateCartCount();
+        
+        // Visual feedback
+        const button = event && event.target ? event.target : null;
+        if (button) {
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#00ff00';
+            button.style.color = '#000000';
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+                button.style.color = '';
+            }, 1000);
+        }
+        
+        return true;
     } catch (error) {
-        console.error('Error saving cart:', error);
-        showNotification('Error saving to cart', 'error');
-        return;
-    }
-    updateCartCount();
-    // Visual feedback
-    const button = event && event.target ? event.target : null;
-    if (button) {
-        const originalText = button.textContent;
-        button.textContent = 'Added!';
-        button.style.backgroundColor = '#00ff00';
-        button.style.color = '#000000';
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.backgroundColor = '';
-            button.style.color = '';
-        }, 1000);
+        console.error('Error in addToCart:', error);
+        showNotification('Error adding item to cart', 'error');
+        return false;
     }
 }
 
