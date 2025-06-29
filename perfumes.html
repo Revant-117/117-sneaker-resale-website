@@ -88,6 +88,84 @@
     </nav>
 
     <main class="container mx-auto px-4 py-8">
+        <!-- Filter Section -->
+        <section class="mb-8">
+            <div class="bg-gray-900 rounded-lg p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white">Filters</h3>
+                    <button id="filter-toggle" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition flex items-center space-x-2">
+                        <span>Hide Filters</span>
+                        <i class="fas fa-chevron-up" id="filter-icon"></i>
+                    </button>
+                </div>
+                
+                <div id="filter-content">
+                    <!-- Price Range -->
+                    <div class="mb-6">
+                        <label class="block text-white font-semibold mb-2">Price Range: ₹<span id="price-min">0</span> - ₹<span id="price-max">50000</span></label>
+                        <div class="flex items-center space-x-4">
+                            <input type="range" id="price-slider" min="0" max="50000" value="0" class="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider">
+                            <input type="range" id="price-slider-max" min="0" max="50000" value="50000" class="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider">
+                        </div>
+                    </div>
+
+                    <!-- Brand Filters -->
+                    <div class="mb-6">
+                        <label class="block text-white font-semibold mb-2">Brands</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Chanel">
+                                <span class="ml-2">Chanel</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Dior">
+                                <span class="ml-2">Dior</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Tom Ford">
+                                <span class="ml-2">Tom Ford</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Creed">
+                                <span class="ml-2">Creed</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Prada">
+                                <span class="ml-2">Prada</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Louis Vuitton">
+                                <span class="ml-2">Louis Vuitton</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Thalgo">
+                                <span class="ml-2">Thalgo</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sort Options -->
+                    <div class="mb-4">
+                        <label class="block text-white font-semibold mb-2">Sort By</label>
+                        <select id="sort-select" class="bg-gray-800 text-white px-3 py-2 rounded-lg border border-gray-700">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name: A to Z</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter Actions -->
+                    <div class="flex space-x-4">
+                        <button id="clear-filters" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition">
+                            Clear All Filters
+                        </button>
+                        <span id="filter-count" class="text-white self-center">Showing all products</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="perfumes-section">
             <h2 class="text-2xl font-bold mb-6">Perfumes</h2>
             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -400,6 +478,168 @@
         }
 
         console.log('Inline cart system loaded successfully!');
+    </script>
+
+    <script>
+        // Product Filter System
+        console.log('Product filter system loading...');
+
+        // Product data with metadata for filtering
+        const products = [
+            { id: 901, name: 'Chanel N°5', price: 12999, brand: 'Chanel', element: null },
+            { id: 902, name: 'Dior Sauvage', price: 9999, brand: 'Dior', element: null },
+            { id: 903, name: 'Tom Ford Tobacco Vanille', price: 26999, brand: 'Tom Ford', element: null },
+            { id: 904, name: 'Creed Aventus', price: 34999, brand: 'Creed', element: null },
+            { id: 905, name: 'Prada Paradoxe', price: 12799, brand: 'Prada', element: null },
+            { id: 906, name: 'LV Les Sables Roses', price: 39999, brand: 'Louis Vuitton', element: null },
+            { id: 907, name: 'Chanel Chance', price: 17999, brand: 'Chanel', element: null },
+            { id: 908, name: 'Bleu De Chanel Deodorant', price: 6999, brand: 'Chanel', element: null },
+            { id: 909, name: 'Miss Dior', price: 19999, brand: 'Dior', element: null },
+            { id: 910, name: 'Thalgo Brume De Soin', price: 8999, brand: 'Thalgo', element: null }
+        ];
+
+        // Initialize product elements
+        function initializeProducts() {
+            products.forEach(product => {
+                const element = document.querySelector(`[onclick*="id: ${product.id}"]`).closest('.product-card');
+                product.element = element;
+            });
+        }
+
+        // Get filter values
+        function getFilterValues() {
+            const minPrice = parseInt(document.getElementById('price-slider').value);
+            const maxPrice = parseInt(document.getElementById('price-slider-max').value);
+            const selectedBrands = Array.from(document.querySelectorAll('.brand-filter:checked')).map(cb => cb.value);
+            const sortBy = document.getElementById('sort-select').value;
+            
+            return { minPrice, maxPrice, selectedBrands, sortBy };
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const { minPrice, maxPrice, selectedBrands, sortBy } = getFilterValues();
+            
+            let filteredProducts = products.filter(product => {
+                // Price filter
+                if (product.price < minPrice || product.price > maxPrice) return false;
+                
+                // Brand filter - show all if no brands selected
+                if (selectedBrands.length > 0 && !selectedBrands.includes(product.brand)) return false;
+                
+                return true;
+            });
+
+            // Sort products
+            switch (sortBy) {
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                default:
+                    // Keep original order
+                    break;
+            }
+
+            // Update display
+            products.forEach(product => {
+                const isVisible = filteredProducts.some(fp => fp.id === product.id);
+                product.element.style.display = isVisible ? 'block' : 'none';
+            });
+
+            // Update filter count
+            const countElement = document.getElementById('filter-count');
+            countElement.textContent = `Showing ${filteredProducts.length} of ${products.length} products`;
+        }
+
+        // Initialize filters
+        function initializeFilters() {
+            // Price slider event listeners
+            const minSlider = document.getElementById('price-slider');
+            const maxSlider = document.getElementById('price-slider-max');
+            const minDisplay = document.getElementById('price-min');
+            const maxDisplay = document.getElementById('price-max');
+
+            minSlider.addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                const maxValue = parseInt(maxSlider.value);
+                if (value > maxValue) {
+                    maxSlider.value = value;
+                    maxDisplay.textContent = value.toLocaleString();
+                }
+                minDisplay.textContent = value.toLocaleString();
+                applyFilters();
+            });
+
+            maxSlider.addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                const minValue = parseInt(minSlider.value);
+                if (value < minValue) {
+                    minSlider.value = value;
+                    minDisplay.textContent = value.toLocaleString();
+                }
+                maxDisplay.textContent = value.toLocaleString();
+                applyFilters();
+            });
+
+            // Brand filter event listeners
+            document.querySelectorAll('.brand-filter').forEach(checkbox => {
+                checkbox.addEventListener('change', applyFilters);
+            });
+
+            // Sort event listener
+            document.getElementById('sort-select').addEventListener('change', applyFilters);
+
+            // Clear filters button
+            document.getElementById('clear-filters').addEventListener('click', () => {
+                // Reset price sliders
+                minSlider.value = 0;
+                maxSlider.value = 50000;
+                minDisplay.textContent = '0';
+                maxDisplay.textContent = '50000';
+
+                // Reset checkboxes - uncheck all
+                document.querySelectorAll('.brand-filter').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+
+                // Reset sort
+                document.getElementById('sort-select').value = 'default';
+
+                // Apply filters
+                applyFilters();
+            });
+
+            // Toggle filter section
+            const filterToggle = document.getElementById('filter-toggle');
+            const filterContent = document.getElementById('filter-content');
+            const filterIcon = document.getElementById('filter-icon');
+            
+            filterToggle.addEventListener('click', () => {
+                const isHidden = filterContent.style.display === 'none';
+                filterContent.style.display = isHidden ? 'block' : 'none';
+                filterToggle.querySelector('span').textContent = isHidden ? 'Hide Filters' : 'Show Filters';
+                filterIcon.className = isHidden ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+            });
+        }
+
+        // Initialize everything when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeProducts();
+                initializeFilters();
+                applyFilters(); // Show all products initially
+            });
+        } else {
+            initializeProducts();
+            initializeFilters();
+            applyFilters(); // Show all products initially
+        }
     </script>
 </body>
 </html> 

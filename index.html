@@ -206,6 +206,66 @@
             margin-bottom: 40px;
             border-radius: 12px;
         }
+
+        /* Range Slider Styling */
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-track {
+            background: #374151;
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #00ff00;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            background: #00cc00;
+        }
+
+        .slider::-moz-range-track {
+            background: #374151;
+            height: 8px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .slider::-moz-range-thumb {
+            background: #00ff00;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider::-moz-range-thumb:hover {
+            background: #00cc00;
+        }
+
+        /* Checkbox Styling */
+        input[type="checkbox"] {
+            accent-color: #00ff00;
+        }
+
+        /* Filter Panel Animation */
+        #filter-panel {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -256,6 +316,175 @@
                 <button class="checkout-btn px-6 py-3 rounded-lg font-bold">
                     Shop Latest Drops
                 </button>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="mb-8">
+            <div class="bg-gray-900 rounded-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-white">Filters</h3>
+                    <button id="toggle-filters" class="text-green-500 hover:text-green-400 transition">
+                        <i class="fas fa-filter"></i> Toggle Filters
+                    </button>
+                </div>
+                
+                <!-- Filter Panel -->
+                <div id="filter-panel" class="bg-gray-900 rounded-lg p-6 mb-8 hidden">
+                    <!-- Price Range -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-white">Price Range</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm text-gray-300">
+                                <span>₹<span id="min-price">0</span></span>
+                                <span>₹<span id="max-price">720000</span></span>
+                            </div>
+                            <input type="range" id="price-min" min="0" max="720000" value="0" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider">
+                            <input type="range" id="price-max" min="0" max="720000" value="720000" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider">
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-white">Brand</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Nike" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Nike</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Adidas" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Adidas</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="New Balance" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">New Balance</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Balenciaga" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Balenciaga</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Yeezy" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Yeezy</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Jordan" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Jordan</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Converse" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Converse</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Maison Margiela" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Maison Margiela</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Louis Vuitton" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Louis Vuitton</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Veja" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Veja</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Asics" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Asics</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Vans" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Vans</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="HOKA" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">HOKA</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="CROCS" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">CROCS</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Birkenstock" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Birkenstock</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="PUMA" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">PUMA</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="BALLY" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">BALLY</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Balmain" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Balmain</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Scarosso" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">Scarosso</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Size Filter -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-white">Size</h4>
+                        <div class="grid grid-cols-3 md:grid-cols-4 gap-2">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="6" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">6</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="7" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">7</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="8" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">8</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="9" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">9</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="10" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">10</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="11" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">11</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="12" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">12</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="size-filter" value="13" class="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500">
+                                <span class="text-gray-300">13</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sort Options -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-white">Sort By</h4>
+                        <select id="sort-select" class="w-full bg-gray-800 text-white rounded-lg px-3 py-2 border border-gray-700 focus:border-green-500 focus:outline-none">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                        </select>
+                    </div>
+
+                    <!-- Reset Filters -->
+                    <div class="flex justify-center">
+                        <button id="reset-filters" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
+                            Reset All Filters
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1574,17 +1803,79 @@
                         Add to Cart
                     </button>
                 </div>
+                <!-- Product: Scarosso Renato Loafers -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw7391bb43/images/zoom/RENATOLOAF_BLACALF_01.jpg?strip=false" alt="Scarosso Renato Loafers" class="product-image">
+                        <span class="price-tag">₹49,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Scarosso Renato Loafers</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
+                    <select id="size-38" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 38,
+                        name: 'Scarosso Renato Loafers',
+                        price: 49999,
+                        image: 'https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw7391bb43/images/zoom/RENATOLOAF_BLACALF_01.jpg?strip=false',
+                        size: document.getElementById('size-38').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <!-- Product: Yeezy 450 Utility Black -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard1_3fe62b48-4e46-4fc3-8e30-82759cb69c32.png?v=1749557519" alt="Yeezy 450 Utility Black" class="product-image">
+                        <span class="price-tag">₹11,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Yeezy 450 Utility Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-39" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 39,
+                        name: 'Yeezy 450 Utility Black',
+                        price: 11999,
+                        image: 'https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard1_3fe62b48-4e46-4fc3-8e30-82759cb69c32.png?v=1749557519',
+                        size: document.getElementById('size-39').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <!-- Product: Yeezy Slide Slate Grey -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://sa-sneakers.ch/cdn/shop/files/Adidas-Yeezy-Slide-Slate-Grey_-SA-Sneakers-74870882.png?v=1702718992" alt="Yeezy Slide Slate Grey" class="product-image">
+                        <span class="price-tag">₹8,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Yeezy Slide Slate Grey</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-40" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 40,
+                        name: 'Yeezy Slide Slate Grey',
+                        price: 8999,
+                        image: 'https://sa-sneakers.ch/cdn/shop/files/Adidas-Yeezy-Slide-Slate-Grey_-SA-Sneakers-74870882.png?v=1702718992',
+                        size: document.getElementById('size-40').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
             </div>
         </section>
     </main>
-    <script>
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            document.querySelectorAll('.product-card').forEach(card => {
-                const name = card.querySelector('h4').textContent.toLowerCase();
-                card.style.display = name.includes(term) ? 'block' : 'none';
-            });
-        });
-    </script>
+    <script src="js/index-filter.js"></script>
 </body>
 </html> 

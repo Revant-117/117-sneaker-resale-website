@@ -48,6 +48,45 @@
             object-fit: cover;
             border-radius: 8px;
         }
+
+        /* Range Slider Styling */
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-track {
+            background: #374151;
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #00ff00;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-track {
+            background: #374151;
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        .slider::-moz-range-thumb {
+            background: #00ff00;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -90,10 +129,81 @@
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <section id="football-section">
-            <h2 class="text-2xl font-bold mb-6">Football Collection</h2>
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold">Football Collection</h2>
+                <div class="flex items-center space-x-4">
+                    <span id="results-count" class="text-gray-400 text-sm">19 products found</span>
+                    <button id="toggle-filters" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition">
+                        <i class="fas fa-filter mr-2"></i>
+                        Filters <i class="fas fa-chevron-down ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Panel -->
+            <div id="filter-panel" class="bg-gray-900 rounded-lg p-6 mb-8 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Price Range -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Price Range</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-300 mb-2">Min Price: <span id="min-price-display">₹0</span></label>
+                                <input type="range" id="min-price" min="0" max="35000" value="0" step="1000" class="slider w-full">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-300 mb-2">Max Price: <span id="max-price-display">₹35,000</span></label>
+                                <input type="range" id="max-price" min="0" max="35000" value="35000" step="1000" class="slider w-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filters -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Brands</h3>
+                        <div id="brand-filters" class="space-y-2 max-h-40 overflow-y-auto">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Size Filters -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Sizes</h3>
+                        <div id="size-filters" class="space-y-2 max-h-40 overflow-y-auto">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Categories</h3>
+                        <div id="category-filters" class="space-y-2 max-h-40 overflow-y-auto">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sort and Reset -->
+                <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700">
+                    <div class="flex items-center space-x-4">
+                        <label class="text-sm text-gray-300">Sort by:</label>
+                        <select id="sort-select" class="bg-gray-800 text-white px-3 py-1 rounded-lg text-sm border border-gray-600">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                        </select>
+                    </div>
+                    <button id="reset-filters" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition">
+                        Reset All Filters
+                    </button>
+                </div>
+            </div>
+
             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Product 1 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="105">
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/d7a05137-69bd-4e56-825b-498f5617360c/PHANTOM+GX+ELITE+FG+SE.png" alt="Nike Phantom GX - Purple" class="product-image">
                         <span class="price-tag">₹23,999</span>
@@ -117,7 +227,7 @@
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="106">
                     <div class="relative mb-4">
                         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/107744/03/sv01/fnd/IND/fmt/png/ULTRA-ULTIMATE-FG/AG-Football-Boots" alt="PUMA Ultra - Orange" class="product-image">
                         <span class="price-tag">₹9,999</span>
@@ -142,7 +252,7 @@
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="107">
                     <div class="relative mb-4">
                         <img src="https://m.media-amazon.com/images/I/71PmAXZSXNL.jpg" alt="Nike Air Zoom - White" class="product-image">
                         <span class="price-tag">₹13,999</span>
@@ -167,7 +277,7 @@
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="108">
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/3f5dec25-5062-4afa-84de-5345165b2c46/ZM+SUPERFLY+10+ELITE+MDS+FG.png" alt="Nike Superfly Elite 10" class="product-image">
                         <span class="price-tag">₹15,999</span>
@@ -192,7 +302,7 @@
                 </div>
 
                 <!-- Product 5 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="109">
                     <div class="relative mb-4">
                         <img src="https://www.nike.ae/dw/image/v2/BDVB_PRD/on/demandware.static/-/Sites-akeneo-master-catalog/default/dwfde94e59/nk/2f1/9/6/1/0/1/2f196101_347d_4bf5_a86a_a816577eda22.jpg?sw=2000&sh=2000" alt="Nike Mercurial Vapor 16 - Light Blue" class="product-image">
                         <span class="price-tag">₹14,999</span>
@@ -216,7 +326,7 @@
                 </div>
                 
                 <!-- Product 1 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="101">
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/ba8ff125-f8a6-4ff5-846c-70f02f0f20b5/custom-nike-mercurial-vapor-16-elite-by-you.png" alt="Nike Mercurial" class="product-image">
                         <span class="price-tag">₹16,999</span>
@@ -243,7 +353,7 @@
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="102">
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/d29358ba-e4cc-46d8-bab6-d5104427057f/mercurial-vapor-16-academy-kylian-mbappe-multi-ground-low-top-football-boot-WsTDpS.png" alt="Nike Mercurial KM" class="product-image">
                         <span class="price-tag">₹18,999</span>
@@ -268,7 +378,7 @@
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="103">
                     <div class="relative mb-4">
                         <img src="https://lovellcdn.b-cdn.net/products/2009032.jpg?width=700" alt="Mizuno Morelia" class="product-image">
                         <span class="price-tag">₹29,999</span>
@@ -294,7 +404,7 @@
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="104">
                     <div class="relative mb-4">
                         <img src="https://thumblr.uniid.it/product/238788/7d7c9bf828a9.jpg?width=3840&format=webp&q=75" alt="Adidas Copa Sense" class="product-image">
                         <span class="price-tag">₹6,500</span>
@@ -320,7 +430,7 @@
                 </div>
                 
                 <!-- New Product 1 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="110">
                     <div class="relative mb-4">
                         <img src="https://lovellcdn.b-cdn.net/products/2315320.jpg?width=700" alt="Adidas Predator Elite" class="product-image">
                         <span class="price-tag">₹18,999</span>
@@ -345,7 +455,7 @@
                 </div>
 
                 <!-- New Product 2 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="111">
                     <div class="relative mb-4">
                         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/107730/03/sv01/fnd/IND/fmt/png/Future-7-ULTIMATE-FG/AG-Football-Boots" alt="Puma Future 7 Ultimate" class="product-image">
                         <span class="price-tag">₹21,999</span>
@@ -369,7 +479,7 @@
                 </div>
 
                 <!-- New Product 3 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="112">
                     <div class="relative mb-4">
                         <img src="https://m.media-amazon.com/images/I/318s-GINPRL._SY900_.jpg" alt="New Balance Tekela V4+ Pro" class="product-image">
                         <span class="price-tag">₹19,999</span>
@@ -393,7 +503,7 @@
                 </div>
 
                 <!-- New Balance 442 - Black -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="113">
                     <div class="relative mb-4">
                         <img src="https://thumblr.uniid.it/product/237381/ab90677b87ec.jpg?width=3840&format=webp&q=75" alt="New Balance 442 - Black" class="product-image">
                         <span class="price-tag">₹4,999</span>
@@ -419,7 +529,7 @@
                 </div>
 
                 <!-- PUMA King Ultimate - White -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="114">
                     <div class="relative mb-4">
                         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/107097/01/sv01/fnd/IND/fmt/png/KING-ULTIMATE-Football-Boots" alt="PUMA King Ultimate - White" class="product-image">
                         <span class="price-tag">₹11,999</span>
@@ -445,7 +555,7 @@
                 </div>
 
                 <!-- Nike Phantom GX - Orange & Black -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="115">
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/da6002d9-42e6-4714-b3dd-0bee9bb60f81/PHANTOM+GX+ACADEMY+FG%2FMG.png" alt="Nike Phantom GX - Orange & Black" class="product-image">
                         <span class="price-tag">₹6,999</span>
@@ -471,7 +581,7 @@
                 </div>
 
                 <!-- Nike United Mercurial Vapor 16 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="116">
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/edebecd5-2575-49df-b73e-ee11d9bb8107/ZM+VAPOR+16+ELITE+FG+NU1.png" alt="Nike United Mercurial Vapor 16" class="product-image">
                         <span class="price-tag">₹10,999</span>
@@ -495,7 +605,7 @@
                 </div>
 
                 <!-- Adidas X Crazyfast - Green -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="117">
                     <div class="relative mb-4">
                         <img src="https://gambol.in/cdn/shop/files/20_b6abc5b1-dad2-40e1-8795-1914b385f80c_1080x.png?v=1706100754" alt="Adidas X Crazyfast - Green" class="product-image">
                         <span class="price-tag">₹5,999</span>
@@ -520,7 +630,7 @@
                 </div>
 
                 <!-- Nike Zoom Mercurial Superfly 9 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="118">
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/6a21b16e-6647-45f3-ae73-bc770ab7a7cf/ZOOM+SUPERFLY+9+ELITE+MR+FG.png" alt="Nike Zoom Mercurial Superfly 9" class="product-image">
                         <span class="price-tag">₹8,999</span>
@@ -545,7 +655,7 @@
                 </div>
 
                 <!-- Mizuno Alpha Elite - Blue -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="119">
                     <div class="relative mb-4">
                         <img src="https://tha.mizuno.com/cdn/shop/files/SH_P1GA246227_00_d31f963c-8bcf-4b0d-a3d8-7dd44d125ab3.png?v=1728387003" alt="Mizuno Alpha Elite - Blue" class="product-image">
                         <span class="price-tag">₹11,999</span>
@@ -571,16 +681,7 @@
         </section>
     </main>
 
-    <!-- Search functionality -->
-    <script>
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            document.querySelectorAll('.product-card').forEach(card => {
-                const name = card.querySelector('h4').textContent.toLowerCase();
-                card.style.display = name.includes(term) ? 'block' : 'none';
-            });
-        });
-    </script>
+    <script src="js/football-filter.js"></script>
 
     <!-- Inline Cart System -->
     <script>

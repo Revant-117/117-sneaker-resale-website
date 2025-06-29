@@ -175,6 +175,38 @@
             object-fit: contain;
             border-radius: 8px;
         }
+        /* Filter styles */
+        .filter-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: #374151;
+            outline: none;
+            margin: 10px 0;
+        }
+        .filter-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+        }
+        .filter-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: none;
+        }
+        .filter-panel {
+            background: #1a1a1a;
+            border: 1px solid #374151;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -215,11 +247,81 @@
     </nav>
 
     <main class="container mx-auto px-4 py-8">
+        <!-- Filter Section -->
+        <div class="mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Bags</h2>
+                <button id="toggle-filters" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition">
+                    <span>Filters</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <!-- Filter Panel -->
+            <div id="filter-panel" class="filter-panel p-6 mb-6 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Price Range -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-500">Price Range</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-300 mb-2">Min Price: <span id="min-price-display">₹0</span></label>
+                                <input type="range" id="min-price" min="0" max="500000" value="0" step="1000" class="filter-slider w-full">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-300 mb-2">Max Price: <span id="max-price-display">₹5,00,000</span></label>
+                                <input type="range" id="max-price" min="0" max="500000" value="500000" step="1000" class="filter-slider w-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-500">Brand</h3>
+                        <div id="brand-filters" class="space-y-2">
+                            <!-- Brand checkboxes will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-500">Category</h3>
+                        <div id="category-filters" class="space-y-2">
+                            <!-- Category checkboxes will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Sort Options -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-500">Sort By</h3>
+                        <select id="sort-select" class="w-full bg-gray-800 text-white border border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:border-green-500">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Reset Button -->
+                <div class="mt-6 pt-4 border-t border-gray-700">
+                    <button id="reset-filters" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition">
+                        Reset All Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="mb-4">
+                <p id="results-count" class="text-gray-400">12 products found</p>
+            </div>
+        </div>
+
         <section id="bags-section">
-            <h2 class="text-2xl font-bold mb-6">Bags</h2>
             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Product 1: Louis Vuitton CarryAll -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="401">
                     <div class="relative mb-4">
                         <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton--M46203_PM2_Front%20view.jpg?wid=750&hei=870" alt="Louis Vuitton CarryAll" class="product-image">
                         <span class="price-tag">₹2,49,999</span>
@@ -236,7 +338,7 @@
                 </div>
 
                 <!-- Product 2: BOSS Handbag -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="402">
                     <div class="relative mb-4">
                         <img src="https://n.nordstrommedia.com/it/aff72709-8098-4e04-9222-34d6fa32478c.jpeg?h=368&w=240&dpr=2" alt="BOSS Handbag" class="product-image">
                         <span class="price-tag">₹29,999</span>
@@ -253,7 +355,7 @@
                 </div>
 
                 <!-- Product 3: Louis Vuitton Getaway -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="403">
                     <div class="relative mb-4">
                         <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-getaway-backpack--M46792_PM2_Front%20view.jpg" alt="Louis Vuitton Getaway" class="product-image">
                         <span class="price-tag">₹3,99,999</span>
@@ -270,7 +372,7 @@
                 </div>
 
                 <!-- Product 4: Michael Kors Voyager -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="404">
                     <div class="relative mb-4">
                         <img src="https://www.cheekspakistan.com/cdn/shop/files/35T0GCFT3B-0200_1_grande.jpg?v=1690964776" alt="Michael Kors Voyager" class="product-image">
                         <span class="price-tag">₹27,999</span>
@@ -287,7 +389,7 @@
                 </div>
 
                 <!-- Product 5: COACH Rowan Satchel -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="405">
                     <div class="relative mb-4">
                         <img src="https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/192878/1874334/ch280_imaa8_a0__25717.1718280138.jpg?c=1" alt="COACH Rowan Satchel" class="product-image">
                         <span class="price-tag">₹16,999</span>
@@ -304,7 +406,7 @@
                 </div>
 
                 <!-- Product 6: Marc Jacobs TOTE Bag -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="406">
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20250203/G84L/67a0d2c02960820c49577dca/-1117Wx1400H-469122353-black-MODEL.jpg" alt="Marc Jacobs TOTE Bag" class="product-image">
                         <span class="price-tag">₹42,999</span>
@@ -321,7 +423,7 @@
                 </div>
 
                 <!-- Product 7: Hermes Gold Madame -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="407">
                     <div class="relative mb-4">
                         <img src="https://goluxuryindia.com/cdn/shop/files/PhotoRoom-20240626_014755_1.png?v=1719346712" alt="Hermes Gold Madame" class="product-image">
                         <span class="price-tag">₹2,44,999</span>
@@ -338,7 +440,7 @@
                 </div>
 
                 <!-- Product 8: Kate Spade Bleeker -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="408">
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20230824/ka42/64e77b63afa4cf41f577ef7d/-473Wx593H-410392901-001-MODEL.jpg" alt="Kate Spade Bleeker" class="product-image">
                         <span class="price-tag">₹16,999</span>
@@ -355,7 +457,7 @@
                 </div>
 
                 <!-- Product 9: Emporio Armani Plaque -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="409">
                     <div class="relative mb-4">
                         <img src="https://imagescdn.thecollective.in/img/app/product/1/1028480-14434341.jpg?asp=true&crop=500&auto=format" alt="Emporio Armani Plaque" class="product-image">
                         <span class="price-tag">₹8,999</span>
@@ -372,7 +474,7 @@
                 </div>
 
                 <!-- Product 10: COACH Signature Charter -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="410">
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20230427/ay0Y/644a9d4cd55b7d0c63851ecb/-1117Wx1400H-410382005-nu3-MODEL.jpg" alt="COACH Signature Charter" class="product-image">
                         <span class="price-tag">₹37,999</span>
@@ -389,7 +491,7 @@
                 </div>
 
                 <!-- Product 11: Michael Kors BEX -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="411">
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20240227/7nQI/65de275d05ac7d77bb80ace3/-1117Wx1400H-410477129-149-MODEL.jpg" alt="Michael Kors BEX" class="product-image">
                         <span class="price-tag">₹17,999</span>
@@ -406,7 +508,7 @@
                 </div>
 
                 <!-- Product 12: BALLY Backpack - Blue (Original) -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="412">
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20220720/4FGn/62d81808f997dd03e2e3a8aa/-473Wx593H-410312868-u507p-MODEL.jpg" alt="BALLY Backpack - Blue" class="product-image">
                         <span class="price-tag">₹65,000</span>
@@ -425,14 +527,6 @@
         </section>
     </main>
 
-    <script>
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            document.querySelectorAll('.product-card').forEach(card => {
-                const name = card.querySelector('h4').textContent.toLowerCase();
-                card.style.display = name.includes(term) ? 'block' : 'none';
-            });
-        });
-    </script>
+    <script src="js/bags-filter.js"></script>
 </body>
 </html> 

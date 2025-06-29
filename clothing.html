@@ -175,6 +175,45 @@
             object-fit: contain;
             border-radius: 8px;
         }
+
+        /* Range Slider Styling */
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-track {
+            background: #374151;
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #00ff00;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-track {
+            background: #374151;
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        .slider::-moz-range-thumb {
+            background: #00ff00;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -216,10 +255,81 @@
 
     <main class="container mx-auto px-4 py-8">
         <section id="clothing-section">
-            <h2 class="text-2xl font-bold mb-6">Clothing Collection</h2>
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold">Clothing Collection</h2>
+                <div class="flex items-center space-x-4">
+                    <span id="results-count" class="text-gray-400 text-sm">10 products found</span>
+                    <button id="toggle-filters" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition">
+                        <i class="fas fa-filter mr-2"></i>
+                        Filters <i class="fas fa-chevron-down ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Panel -->
+            <div id="filter-panel" class="bg-gray-900 rounded-lg p-6 mb-8 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Price Range -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Price Range</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-300 mb-2">Min Price: <span id="min-price-display">₹0</span></label>
+                                <input type="range" id="min-price" min="0" max="300000" value="0" step="1000" class="slider w-full">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-300 mb-2">Max Price: <span id="max-price-display">₹3,00,000</span></label>
+                                <input type="range" id="max-price" min="0" max="300000" value="300000" step="1000" class="slider w-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filters -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Brands</h3>
+                        <div id="brand-filters" class="space-y-2 max-h-40 overflow-y-auto">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Size Filters -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Sizes</h3>
+                        <div id="size-filters" class="space-y-2 max-h-40 overflow-y-auto">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-400">Categories</h3>
+                        <div id="category-filters" class="space-y-2 max-h-40 overflow-y-auto">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sort and Reset -->
+                <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700">
+                    <div class="flex items-center space-x-4">
+                        <label class="text-sm text-gray-300">Sort by:</label>
+                        <select id="sort-select" class="bg-gray-800 text-white px-3 py-1 rounded-lg text-sm border border-gray-600">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                        </select>
+                    </div>
+                    <button id="reset-filters" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition">
+                        Reset All Filters
+                    </button>
+                </div>
+            </div>
+
             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Product 1 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="201">
                     <div class="relative mb-4">
                         <img src="https://cdn.shopify.com/s/files/1/0569/1224/8947/files/JE9278_BLACK-4_300x.jpg?v=1730371947%201x" alt="Y-3 Hoodie" class="product-image">
                         <span class="price-tag">₹12,000</span>
@@ -244,7 +354,7 @@
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="202">
                     <div class="relative mb-4">
                         <img src="https://balenciaga.dam.kering.com/m/c3fca444d06af3e/Small-739784TQVQ81073_X.jpg?v=1" alt="Balenciaga ZW - Black" class="product-image">
                         <span class="price-tag">₹55,999</span>
@@ -267,7 +377,7 @@
                     </button>
                 </div>                
                 <!-- Product 3 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="203">
                     <div class="relative mb-4">
                         <img src="https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp" alt="Almost Gods Patched Boxy Tee" class="product-image">
                         <span class="price-tag">₹6,999</span>
@@ -294,7 +404,7 @@
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="204">
                     <div class="relative mb-4">
                         <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true" alt="Versace Barocco Polo - Grey" class="product-image">
                         <span class="price-tag">₹73,999</span>
@@ -319,7 +429,7 @@
                 </div>
 
                 <!-- Product 5 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="205">
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q" alt="Burberry Horseferry - Black" class="product-image">
                         <span class="price-tag">₹37,999</span>
@@ -343,7 +453,7 @@
                 </div>
 
                 <!-- Product 6 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="206">
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug" alt="Balmain Flocked Shorts - Black" class="product-image">
                         <span class="price-tag">₹12,999</span>
@@ -368,7 +478,7 @@
                 </div>
 
                 <!-- Product 7 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="207">
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTPymnfgn6ddK8mdX5sogGa_ls_1KEQ7LfU27BuWDfHqBi8-epgLRwNeN0BVk2y8KkJDHeKy3Ltk6aUXcXnJiPvxnMGyzkgrheS1R0iap7sAJtFydyL2reQX2Y" alt="Balenciaga Large Cargo Pants" class="product-image">
                         <span class="price-tag">₹2,44,999</span>
@@ -392,7 +502,7 @@
                 </div>
 
                 <!-- Product 8 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="208">
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSkK01rYtoedxdjDP7RnYaDAdjjCPLTxVDNnmUIvPyxeIRf2a67_84rLg54zspZgeiYC-hEqmsvEdOA162Gt9g_Jb5EUq4Mf1Amt9W6u1pTqnC7kXg72ve6sg" alt="D&G Chennile Jacquard Hoodie" class="product-image">
                         <span class="price-tag">₹1,33,999</span>
@@ -417,7 +527,7 @@
                 </div>
 
                 <!-- Product 9 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="209">
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbMKV_fp7B34v7cwoJejN2y-Buo2AQZ93hUfsjh91mVztM-p16KKmhUsH-MKyPWEfGEuGnpqWTYkGpJAYKnmSbr823S6DDtIoRhRx2tDTloHp-A61AQJb_gQ" alt="Balmain Women's Tee - Black" class="product-image">
                         <span class="price-tag">₹42,999</span>
@@ -441,7 +551,7 @@
                 </div>
 
                 <!-- Product 10 -->
-                <div class="product-card bg-gray-900 rounded-lg p-4">
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="210">
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT-hR1mrk2Xn3xXGQnwrojxI9S6nBgjrufhcuI10uGOkAOFF2DE15Eto0vzmuKZbp8mGOhKcp9naAUrskGirF0WCqg787m5ard39SfWveuQ17Rcrr4hTQmdtIU" alt="Loro Piana Open-Knit Silk Top" class="product-image">
                         <span class="price-tag">₹1,32,999</span>
@@ -468,15 +578,6 @@
         </section>
     </main>
 
-    <!-- Search functionality -->
-    <script>
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            document.querySelectorAll('.product-card').forEach(card => {
-                const name = card.querySelector('h4').textContent.toLowerCase();
-                card.style.display = name.includes(term) ? 'block' : 'none';
-            });
-        });
-    </script>
+    <script src="js/clothing-filter.js"></script>
 </body>
 </html>
