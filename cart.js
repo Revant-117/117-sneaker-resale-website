@@ -212,7 +212,7 @@ function initialize() {
     console.log('Cart initialized successfully!');
 }
 
-// Make functions globally available
+// Make functions globally available IMMEDIATELY
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateQuantity = updateQuantity;
