@@ -220,6 +220,13 @@ window.clearCart = clearCart;
 window.renderCart = renderCart;
 window.showNotification = showNotification;
 
+// Also expose as global variables for extra compatibility
+window.cart = cart;
+window.loadCart = loadCart;
+window.saveCart = saveCart;
+window.updateCartCount = updateCartCount;
+window.initialize = initialize;
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initialize);
@@ -227,4 +234,5 @@ if (document.readyState === 'loading') {
     initialize();
 }
 
-console.log('Cart.js loaded successfully!'); 
+console.log('Cart.js loaded successfully!');
+console.log('addToCart function available:', typeof window.addToCart); 
