@@ -6,7 +6,6 @@
     <title>117 • Football</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/cart.js?v=4.1"></script>
     <style>
         :root {
             --primary: #000000;
@@ -581,6 +580,135 @@
                 card.style.display = name.includes(term) ? 'block' : 'none';
             });
         });
+    </script>
+
+    <!-- Inline Cart System -->
+    <script>
+        // Inline Cart System - Guaranteed to Work
+        console.log('Inline cart system loading...');
+
+        // Global cart array
+        let cart = [];
+
+        // Load cart from localStorage
+        function loadCart() {
+            try {
+                const saved = localStorage.getItem('117-cart');
+                if (saved) {
+                    cart = JSON.parse(saved);
+                    console.log('Cart loaded:', cart);
+                }
+            } catch (error) {
+                console.error('Error loading cart:', error);
+                cart = [];
+            }
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            try {
+                localStorage.setItem('117-cart', JSON.stringify(cart));
+                console.log('Cart saved');
+            } catch (error) {
+                console.error('Error saving cart:', error);
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: ${type === 'success' ? '#00ff00' : '#ff0000'};
+                color: ${type === 'success' ? '#000000' : '#ffffff'};
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                font-weight: bold;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                font-family: Arial, sans-serif;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+
+        // Add to cart function
+        function addToCart(product) {
+            console.log('Adding to cart:', product);
+            
+            if (!product || !product.id || !product.name || !product.price) {
+                showNotification('Error: Invalid product data', 'error');
+                return;
+            }
+            
+            // Check if product already exists
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+                showNotification(`${product.name} quantity updated!`);
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1,
+                    size: product.size || null
+                });
+                showNotification(`${product.name} added to cart!`);
+            }
+            
+            saveCart();
+            updateCartCount();
+            
+            // Visual feedback
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#00ff00';
+            button.style.color = '#000000';
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+                button.style.color = '';
+            }, 1000);
+        }
+
+        // Update cart count display
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCountElements = document.querySelectorAll('#cart-count');
+            cartCountElements.forEach(element => {
+                if (element) {
+                    element.textContent = count;
+                }
+            });
+        }
+
+        // Initialize
+        function initialize() {
+            console.log('Initializing cart...');
+            loadCart();
+            updateCartCount();
+            console.log('Cart initialized successfully!');
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initialize);
+        } else {
+            initialize();
+        }
+
+        console.log('Inline cart system loaded successfully!');
     </script>
 </body>
 </html>
