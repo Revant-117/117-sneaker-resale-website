@@ -3,10 +3,1866 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Bags</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link active-tab">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="bags-section">
+            <h2 class="text-2xl font-bold mb-6">Bags</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1: Louis Vuitton CarryAll -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton--M46203_PM2_Front%20view.jpg?wid=750&hei=870" alt="Louis Vuitton CarryAll" class="product-image">
+                        <span class="price-tag">₹2,49,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Louis Vuitton CarryAll</h4>
+                    <button onclick="addToCart({
+                        id: 401,
+                        name: 'Louis Vuitton CarryAll',
+                        price: 249999,
+                        image: 'https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton--M46203_PM2_Front%20view.jpg?wid=750&hei=870'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 2: BOSS Handbag -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://n.nordstrommedia.com/it/aff72709-8098-4e04-9222-34d6fa32478c.jpeg?h=368&w=240&dpr=2" alt="BOSS Handbag" class="product-image">
+                        <span class="price-tag">₹29,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">BOSS Handbag</h4>
+                    <button onclick="addToCart({
+                        id: 402,
+                        name: 'BOSS Handbag',
+                        price: 29999,
+                        image: 'https://n.nordstrommedia.com/it/aff72709-8098-4e04-9222-34d6fa32478c.jpeg?h=368&w=240&dpr=2'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 3: Louis Vuitton Getaway -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-getaway-backpack--M46792_PM2_Front%20view.jpg" alt="Louis Vuitton Getaway" class="product-image">
+                        <span class="price-tag">₹3,99,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Louis Vuitton Getaway</h4>
+                    <button onclick="addToCart({
+                        id: 403,
+                        name: 'Louis Vuitton Getaway',
+                        price: 399999,
+                        image: 'https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-getaway-backpack--M46792_PM2_Front%20view.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4: Michael Kors Voyager -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.cheekspakistan.com/cdn/shop/files/35T0GCFT3B-0200_1_grande.jpg?v=1690964776" alt="Michael Kors Voyager" class="product-image">
+                        <span class="price-tag">₹27,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Michael Kors Voyager</h4>
+                    <button onclick="addToCart({
+                        id: 404,
+                        name: 'Michael Kors Voyager',
+                        price: 27999,
+                        image: 'https://www.cheekspakistan.com/cdn/shop/files/35T0GCFT3B-0200_1_grande.jpg?v=1690964776'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 5: COACH Rowan Satchel -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/192878/1874334/ch280_imaa8_a0__25717.1718280138.jpg?c=1" alt="COACH Rowan Satchel" class="product-image">
+                        <span class="price-tag">₹16,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">COACH Rowan Satchel</h4>
+                    <button onclick="addToCart({
+                        id: 405,
+                        name: 'COACH Rowan Satchel',
+                        price: 16999,
+                        image: 'https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/192878/1874334/ch280_imaa8_a0__25717.1718280138.jpg?c=1'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 6: Marc Jacobs TOTE Bag -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.ajio.com/medias/sys_master/root/20250203/G84L/67a0d2c02960820c49577dca/-1117Wx1400H-469122353-black-MODEL.jpg" alt="Marc Jacobs TOTE Bag" class="product-image">
+                        <span class="price-tag">₹42,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Marc Jacobs TOTE Bag</h4>
+                    <button onclick="addToCart({
+                        id: 406,
+                        name: 'Marc Jacobs TOTE Bag',
+                        price: 42999,
+                        image: 'https://assets.ajio.com/medias/sys_master/root/20250203/G84L/67a0d2c02960820c49577dca/-1117Wx1400H-469122353-black-MODEL.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 7: Hermes Gold Madame -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://goluxuryindia.com/cdn/shop/files/PhotoRoom-20240626_014755_1.png?v=1719346712" alt="Hermes Gold Madame" class="product-image">
+                        <span class="price-tag">₹2,44,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Hermes Gold Madame</h4>
+                    <button onclick="addToCart({
+                        id: 407,
+                        name: 'Hermes Gold Madame',
+                        price: 244999,
+                        image: 'https://goluxuryindia.com/cdn/shop/files/PhotoRoom-20240626_014755_1.png?v=1719346712'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 8: Kate Spade Bleeker -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.ajio.com/medias/sys_master/root/20230824/ka42/64e77b63afa4cf41f577ef7d/-473Wx593H-410392901-001-MODEL.jpg" alt="Kate Spade Bleeker" class="product-image">
+                        <span class="price-tag">₹16,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Kate Spade Bleeker</h4>
+                    <button onclick="addToCart({
+                        id: 408,
+                        name: 'Kate Spade Bleeker',
+                        price: 16999,
+                        image: 'https://assets.ajio.com/medias/sys_master/root/20230824/ka42/64e77b63afa4cf41f577ef7d/-473Wx593H-410392901-001-MODEL.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 9: Emporio Armani Plaque -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://imagescdn.thecollective.in/img/app/product/1/1028480-14434341.jpg?asp=true&crop=500&auto=format" alt="Emporio Armani Plaque" class="product-image">
+                        <span class="price-tag">₹8,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Emporio Armani Plaque</h4>
+                    <button onclick="addToCart({
+                        id: 409,
+                        name: 'Emporio Armani Plaque',
+                        price: 8999,
+                        image: 'https://imagescdn.thecollective.in/img/app/product/1/1028480-14434341.jpg?asp=true&crop=500&auto=format'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 10: COACH Signature Charter -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.ajio.com/medias/sys_master/root/20230427/ay0Y/644a9d4cd55b7d0c63851ecb/-1117Wx1400H-410382005-nu3-MODEL.jpg" alt="COACH Signature Charter" class="product-image">
+                        <span class="price-tag">₹37,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">COACH Signature Charter</h4>
+                    <button onclick="addToCart({
+                        id: 410,
+                        name: 'COACH Signature Charter',
+                        price: 37999,
+                        image: 'https://assets.ajio.com/medias/sys_master/root/20230427/ay0Y/644a9d4cd55b7d0c63851ecb/-1117Wx1400H-410382005-nu3-MODEL.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 11: Michael Kors BEX -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.ajio.com/medias/sys_master/root/20240227/7nQI/65de275d05ac7d77bb80ace3/-1117Wx1400H-410477129-149-MODEL.jpg" alt="Michael Kors BEX" class="product-image">
+                        <span class="price-tag">₹17,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Michael Kors BEX</h4>
+                    <button onclick="addToCart({
+                        id: 411,
+                        name: 'Michael Kors BEX',
+                        price: 17999,
+                        image: 'https://assets.ajio.com/medias/sys_master/root/20240227/7nQI/65de275d05ac7d77bb80ace3/-1117Wx1400H-410477129-149-MODEL.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 12: BALLY Backpack - Blue (Original) -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.ajio.com/medias/sys_master/root/20220720/4FGn/62d81808f997dd03e2e3a8aa/-473Wx593H-410312868-u507p-MODEL.jpg" alt="BALLY Backpack - Blue" class="product-image">
+                        <span class="price-tag">₹65,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">BALLY Backpack - Blue</h4>
+                    <button onclick="addToCart({
+                        id: 412,
+                        name: 'BALLY Backpack - Blue',
+                        price: 65000,
+                        image: 'https://assets.ajio.com/medias/sys_master/root/20220720/4FGn/62d81808f997dd03e2e3a8aa/-473Wx593H-410312868-u507p-MODEL.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Your Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .cart-item {
+            border-bottom: 1px solid #333;
+        }
+        .checkout-btn {
+            background-color: var(--accent);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (Same as other pages) -->
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search..." 
+                           class="bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Your Cart</h1>
+        
+        <div id="cart-items" class="mb-8 space-y-6">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        
+        <div class="border-t border-gray-700 pt-6">
+            <div class="flex justify-between text-xl font-bold mb-6">
+                <span>Total:</span>
+                <span id="cart-total">₹0</span>
+            </div>
+            <div class="flex space-x-4 mb-4">
+                <button onclick="clearCart()" 
+                        class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition">
+                    Clear Cart
+                </button>
+                <button id="checkout-btn" 
+                        class="checkout-btn flex-1 py-3 rounded-lg font-bold hover:bg-opacity-90 transition">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart-Specific Functions -->
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render cart items on page load
+            renderCart();
+            
+            // Checkout button handler
+            document.getElementById('checkout-btn').addEventListener('click', () => {
+                alert('Checkout functionality would go here!');
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Clothing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link active-tab">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="clothing-section">
+            <h2 class="text-2xl font-bold mb-6">Clothing Collection</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://cdn.shopify.com/s/files/1/0569/1224/8947/files/JE9278_BLACK-4_300x.jpg?v=1730371947%201x" alt="Y-3 Hoodie" class="product-image">
+                        <span class="price-tag">₹12,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Y-3 Hoodie</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
+                    <select id="size-201" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 201,
+                        name: 'Y-3 Hoodie',
+                        price: 12000,
+                        image: 'https://cdn.shopify.com/s/files/1/0569/1224/8947/files/JE9278_BLACK-4_300x.jpg?v=1730371947%201x',
+                        size: document.getElementById('size-201').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://balenciaga.dam.kering.com/m/c3fca444d06af3e/Small-739784TQVQ81073_X.jpg?v=1" alt="Balenciaga ZW - Black" class="product-image">
+                        <span class="price-tag">₹55,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga ZW - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <select id="size-202" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 202,
+                        name: 'Balenciaga ZW - Black',
+                        price: 55999,
+                        image: 'https://balenciaga.dam.kering.com/m/c3fca444d06af3e/Small-739784TQVQ81073_X.jpg?v=1',
+                        size: document.getElementById('size-202').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>                
+                <!-- Product 3 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp" alt="Almost Gods Patched Boxy Tee" class="product-image">
+                        <span class="price-tag">₹6,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Almost Gods Patched Boxy Tee</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: XS, S, M, L</p>
+
+                    <select id="size-203" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+
+                    <button onclick="addToCart({
+                        id: 203,
+                        name: 'Almost Gods Patched Boxy Tee',
+                        price: 6999,
+                        image: 'https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp',
+                        size: document.getElementById('size-203').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true" alt="Versace Barocco Polo - Grey" class="product-image">
+                        <span class="price-tag">₹73,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Versace Barocco Polo - Grey</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M , L,  XL</p>
+                    <select id="size-204" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 204,
+                        name: 'Versace Barocco Polo - Grey',
+                        price: 73999,
+                        image: 'https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true',
+                        size: document.getElementById('size-204').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q" alt="Burberry Horseferry - Black" class="product-image">
+                        <span class="price-tag">₹37,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Burberry Horseferry - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <select id="size-205" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 205,
+                        name: 'Burberry Horseferry - Black',
+                        price: 37999,
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q',
+                        size: document.getElementById('size-205').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug" alt="Balmain Flocked Shorts - Black" class="product-image">
+                        <span class="price-tag">₹12,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balmain Flocked Shorts - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
+                    <select id="size-206" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 206,
+                        name: 'Balmain Flocked Shorts - Black',
+                        price: 12999,
+                        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug',
+                        size: document.getElementById('size-206').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTPymnfgn6ddK8mdX5sogGa_ls_1KEQ7LfU27BuWDfHqBi8-epgLRwNeN0BVk2y8KkJDHeKy3Ltk6aUXcXnJiPvxnMGyzkgrheS1R0iap7sAJtFydyL2reQX2Y" alt="Balenciaga Large Cargo Pants" class="product-image">
+                        <span class="price-tag">₹2,44,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balenciaga Large Cargo Pants</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <select id="size-207" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 207,
+                        name: 'Balenciaga Large Cargo Pants',
+                        price: 244999,
+                        image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTPymnfgn6ddK8mdX5sogGa_ls_1KEQ7LfU27BuWDfHqBi8-epgLRwNeN0BVk2y8KkJDHeKy3Ltk6aUXcXnJiPvxnMGyzkgrheS1R0iap7sAJtFydyL2reQX2Y',
+                        size: document.getElementById('size-207').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSkK01rYtoedxdjDP7RnYaDAdjjCPLTxVDNnmUIvPyxeIRf2a67_84rLg54zspZgeiYC-hEqmsvEdOA162Gt9g_Jb5EUq4Mf1Amt9W6u1pTqnC7kXg72ve6sg" alt="D&G Chennile Jacquard Hoodie" class="product-image">
+                        <span class="price-tag">₹1,33,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">D&G Chennile Jacquard Hoodie</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
+                    <select id="size-208" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 208,
+                        name: 'D&G Chennile Jacquard Hoodie',
+                        price: 133999,
+                        image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSkK01rYtoedxdjDP7RnYaDAdjjCPLTxVDNnmUIvPyxeIRf2a67_84rLg54zspZgeiYC-hEqmsvEdOA162Gt9g_Jb5EUq4Mf1Amt9W6u1pTqnC7kXg72ve6sg',
+                        size: document.getElementById('size-208').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbMKV_fp7B34v7cwoJejN2y-Buo2AQZ93hUfsjh91mVztM-p16KKmhUsH-MKyPWEfGEuGnpqWTYkGpJAYKnmSbr823S6DDtIoRhRx2tDTloHp-A61AQJb_gQ" alt="Balmain Women's Tee - Black" class="product-image">
+                        <span class="price-tag">₹42,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balmain Women's Tee - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <select id="size-209" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 209,
+                        name: 'Balmain Women\'s Tee - Black',
+                        price: 42999,
+                        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbMKV_fp7B34v7cwoJejN2y-Buo2AQZ93hUfsjh91mVztM-p16KKmhUsH-MKyPWEfGEuGnpqWTYkGpJAYKnmSbr823S6DDtIoRhRx2tDTloHp-A61AQJb_gQ',
+                        size: document.getElementById('size-209').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT-hR1mrk2Xn3xXGQnwrojxI9S6nBgjrufhcuI10uGOkAOFF2DE15Eto0vzmuKZbp8mGOhKcp9naAUrskGirF0WCqg787m5ard39SfWveuQ17Rcrr4hTQmdtIU" alt="Loro Piana Open-Knit Silk Top" class="product-image">
+                        <span class="price-tag">₹1,32,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Loro Piana Open-Knit Silk Top</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: XS, S, M, L</p>
+                    <select id="size-210" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 210,
+                        name: 'Loro Piana Open-Knit Silk Top',
+                        price: 132999,
+                        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT-hR1mrk2Xn3xXGQnwrojxI9S6nBgjrufhcuI10uGOkAOFF2DE15Eto0vzmuKZbp8mGOhKcp9naAUrskGirF0WCqg787m5ard39SfWveuQ17Rcrr4hTQmdtIU',
+                        size: document.getElementById('size-210').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Search functionality -->
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Football</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link active-tab">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <section id="football-section">
+            <h2 class="text-2xl font-bold mb-6">Football Collection</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/d7a05137-69bd-4e56-825b-498f5617360c/PHANTOM+GX+ELITE+FG+SE.png" alt="Nike Phantom GX - Purple" class="product-image">
+                        <span class="price-tag">₹23,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Phantom GX - Purple</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
+                    <select id="size-105" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 105,
+                        name: 'Nike Phantom GX - Purple',
+                        price: 23999,
+                        image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/d7a05137-69bd-4e56-825b-498f5617360c/PHANTOM+GX+ELITE+FG+SE.png',
+                        size: document.getElementById('size-105').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/107744/03/sv01/fnd/IND/fmt/png/ULTRA-ULTIMATE-FG/AG-Football-Boots" alt="PUMA Ultra - Orange" class="product-image">
+                        <span class="price-tag">₹9,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">PUMA Ultra - Orange</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-106" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 106,
+                        name: 'PUMA Ultra - Orange',
+                        price: 9999,
+                        image: 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/107744/03/sv01/fnd/IND/fmt/png/ULTRA-ULTIMATE-FG/AG-Football-Boots',
+                        size: document.getElementById('size-106').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://m.media-amazon.com/images/I/71PmAXZSXNL.jpg" alt="Nike Air Zoom - White" class="product-image">
+                        <span class="price-tag">₹13,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Zoom - White</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-107" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 107,
+                        name: 'Nike Air Zoom - White',
+                        price: 13999,
+                        image: 'https://m.media-amazon.com/images/I/71PmAXZSXNL.jpg',
+                        size: document.getElementById('size-107').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/3f5dec25-5062-4afa-84de-5345165b2c46/ZM+SUPERFLY+10+ELITE+MDS+FG.png" alt="Nike Superfly Elite 10" class="product-image">
+                        <span class="price-tag">₹15,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Superfly Elite 10</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-108" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 108,
+                        name: 'Nike Superfly Elite 10',
+                        price: 15999,
+                        image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/3f5dec25-5062-4afa-84de-5345165b2c46/ZM+SUPERFLY+10+ELITE+MDS+FG.png',
+                        size: document.getElementById('size-108').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.nike.ae/dw/image/v2/BDVB_PRD/on/demandware.static/-/Sites-akeneo-master-catalog/default/dwfde94e59/nk/2f1/9/6/1/0/1/2f196101_347d_4bf5_a86a_a816577eda22.jpg?sw=2000&sh=2000" alt="Nike Mercurial Vapor 16 - Light Blue" class="product-image">
+                        <span class="price-tag">₹14,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor 16 - Light Blue</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
+                    <select id="size-109" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 109,
+                        name: 'Nike Mercurial Vapor 16 - Light Blue',
+                        price: 14999,
+                        image: 'https://www.nike.ae/dw/image/v2/BDVB_PRD/on/demandware.static/-/Sites-akeneo-master-catalog/default/dwfde94e59/nk/2f1/9/6/1/0/1/2f196101_347d_4bf5_a86a_a816577eda22.jpg?sw=2000&sh=2000',
+                        size: document.getElementById('size-109').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                
+                <!-- Product 1 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/ba8ff125-f8a6-4ff5-846c-70f02f0f20b5/custom-nike-mercurial-vapor-16-elite-by-you.png" alt="Nike Mercurial" class="product-image">
+                        <span class="price-tag">₹16,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10, 11</p>
+                    <select id="size-101" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 101,
+                        name: 'Nike Mercurial Vapor',
+                        price: 16999,
+                        image: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/ba8ff125-f8a6-4ff5-846c-70f02f0f20b5/custom-nike-mercurial-vapor-16-elite-by-you.png',
+                        size: document.getElementById('size-101').value
+                    })" class="add-to-cart-btn bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/d29358ba-e4cc-46d8-bab6-d5104427057f/mercurial-vapor-16-academy-kylian-mbappe-multi-ground-low-top-football-boot-WsTDpS.png" alt="Nike Mercurial KM" class="product-image">
+                        <span class="price-tag">₹18,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor Pro 16 - Kylian Mbappe</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-102" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 102,
+                        name: 'Nike Mercurial Vapor Pro 16 - Kylian Mbappe',
+                        price: 18999,
+                        image: 'https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/d29358ba-e4cc-46d8-bab6-d5104427057f/mercurial-vapor-16-academy-kylian-mbappe-multi-ground-low-top-football-boot-WsTDpS.png',
+                        size: document.getElementById('size-102').value
+                    })" class="add-to-cart-btn bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://lovellcdn.b-cdn.net/products/2009032.jpg?width=700" alt="Mizuno Morelia" class="product-image">
+                        <span class="price-tag">₹29,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Mizuno Morelia Neo IV Elite</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-103" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 103,
+                        name: 'Mizuno Morelia Neo IV Elite',
+                        price: 29999,
+                        image: 'https://lovellcdn.b-cdn.net/products/2009032.jpg?width=700',
+                        size: document.getElementById('size-103').value
+                    })" class="add-to-cart-btn bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://thumblr.uniid.it/product/238788/7d7c9bf828a9.jpg?width=3840&format=webp&q=75" alt="Adidas Copa Sense" class="product-image">
+                        <span class="price-tag">₹6,500</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Copa Sense - White</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-104" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 104,
+                        name: 'Adidas Copa Sense - White',
+                        price: 6500,
+                        image: 'https://thumblr.uniid.it/product/238788/7d7c9bf828a9.jpg?width=3840&format=webp&q=75',
+                        size: document.getElementById('size-104').value
+                    })" class="add-to-cart-btn bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                
+                <!-- New Product 1 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://lovellcdn.b-cdn.net/products/2315320.jpg?width=700" alt="Adidas Predator Elite" class="product-image">
+                        <span class="price-tag">₹18,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Predator Elite</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-110" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 110,
+                        name: 'Adidas Predator Elite',
+                        price: 18999,
+                        image: 'https://lovellcdn.b-cdn.net/products/2315320.jpg?width=700',
+                        size: document.getElementById('size-110').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- New Product 2 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/107730/03/sv01/fnd/IND/fmt/png/Future-7-ULTIMATE-FG/AG-Football-Boots" alt="Puma Future 7 Ultimate" class="product-image">
+                        <span class="price-tag">₹21,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Puma Future 7 Ultimate</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-111" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 111,
+                        name: 'Puma Future 7 Ultimate',
+                        price: 21999,
+                        image: 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/107730/03/sv01/fnd/IND/fmt/png/Future-7-ULTIMATE-FG/AG-Football-Boots',
+                        size: document.getElementById('size-111').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- New Product 3 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://m.media-amazon.com/images/I/318s-GINPRL._SY900_.jpg" alt="New Balance Tekela V4+ Pro" class="product-image">
+                        <span class="price-tag">₹19,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">New Balance Tekela V4+ Pro</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
+                    <select id="size-112" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 112,
+                        name: 'New Balance Tekela V4+ Pro',
+                        price: 19999,
+                        image: 'https://m.media-amazon.com/images/I/318s-GINPRL._SY900_.jpg',
+                        size: document.getElementById('size-112').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- New Balance 442 - Black -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://thumblr.uniid.it/product/237381/ab90677b87ec.jpg?width=3840&format=webp&q=75" alt="New Balance 442 - Black" class="product-image">
+                        <span class="price-tag">₹4,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">New Balance 442 - Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
+                    <select id="size-113" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 113,
+                        name: 'New Balance 442 - Black',
+                        price: 4999,
+                        image: 'https://thumblr.uniid.it/product/237381/ab90677b87ec.jpg?width=3840&format=webp&q=75',
+                        size: document.getElementById('size-113').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- PUMA King Ultimate - White -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/107097/01/sv01/fnd/IND/fmt/png/KING-ULTIMATE-Football-Boots" alt="PUMA King Ultimate - White" class="product-image">
+                        <span class="price-tag">₹11,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">PUMA King Ultimate - White</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
+                    <select id="size-114" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 114,
+                        name: 'PUMA King Ultimate - White',
+                        price: 11999,
+                        image: 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/107097/01/sv01/fnd/IND/fmt/png/KING-ULTIMATE-Football-Boots',
+                        size: document.getElementById('size-114').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Nike Phantom GX - Orange & Black -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/da6002d9-42e6-4714-b3dd-0bee9bb60f81/PHANTOM+GX+ACADEMY+FG%2FMG.png" alt="Nike Phantom GX - Orange & Black" class="product-image">
+                        <span class="price-tag">₹6,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Phantom GX - Orange & Black</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
+                    <select id="size-115" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 115,
+                        name: 'Nike Phantom GX - Orange & Black',
+                        price: 6999,
+                        image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/da6002d9-42e6-4714-b3dd-0bee9bb60f81/PHANTOM+GX+ACADEMY+FG%2FMG.png',
+                        size: document.getElementById('size-115').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Nike United Mercurial Vapor 16 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/edebecd5-2575-49df-b73e-ee11d9bb8107/ZM+VAPOR+16+ELITE+FG+NU1.png" alt="Nike United Mercurial Vapor 16" class="product-image">
+                        <span class="price-tag">₹10,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike United Mercurial Vapor 16</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-116" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 116,
+                        name: 'Nike United Mercurial Vapor 16',
+                        price: 10999,
+                        image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/edebecd5-2575-49df-b73e-ee11d9bb8107/ZM+VAPOR+16+ELITE+FG+NU1.png',
+                        size: document.getElementById('size-116').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Adidas X Crazyfast - Green -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://gambol.in/cdn/shop/files/20_b6abc5b1-dad2-40e1-8795-1914b385f80c_1080x.png?v=1706100754" alt="Adidas X Crazyfast - Green" class="product-image">
+                        <span class="price-tag">₹5,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas X Crazyfast - Green</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-117" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 117,
+                        name: 'Adidas X Crazyfast - Green',
+                        price: 5999,
+                        image: 'https://gambol.in/cdn/shop/files/20_b6abc5b1-dad2-40e1-8795-1914b385f80c_1080x.png?v=1706100754',
+                        size: document.getElementById('size-117').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Nike Zoom Mercurial Superfly 9 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/6a21b16e-6647-45f3-ae73-bc770ab7a7cf/ZOOM+SUPERFLY+9+ELITE+MR+FG.png" alt="Nike Zoom Mercurial Superfly 9" class="product-image">
+                        <span class="price-tag">₹8,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Zoom Mercurial Superfly 9</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
+                    <select id="size-118" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 118,
+                        name: 'Nike Zoom Mercurial Superfly 9',
+                        price: 8999,
+                        image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/6a21b16e-6647-45f3-ae73-bc770ab7a7cf/ZOOM+SUPERFLY+9+ELITE+MR+FG.png',
+                        size: document.getElementById('size-118').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Mizuno Alpha Elite - Blue -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://tha.mizuno.com/cdn/shop/files/SH_P1GA246227_00_d31f963c-8bcf-4b0d-a3d8-7dd44d125ab3.png?v=1728387003" alt="Mizuno Alpha Elite - Blue" class="product-image">
+                        <span class="price-tag">₹11,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Mizuno Alpha Elite - Blue</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
+                    <select id="size-119" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 119,
+                        name: 'Mizuno Alpha Elite - Blue',
+                        price: 11999,
+                        image: 'https://tha.mizuno.com/cdn/shop/files/SH_P1GA246227_00_d31f963c-8bcf-4b0d-a3d8-7dd44d125ab3.png?v=1728387003',
+                        size: document.getElementById('size-119').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Search functionality -->
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1595950654141-411471141d1a?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dramatic Glitch Effect Styles */
+        .glitch-logo {
+            position: relative;
+            display: inline-block;
+            animation: mainGlitch 4s infinite;
+            overflow: hidden;
+        }
+
+        .glitch-logo::before,
+        .glitch-logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('logo.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.9;
+        }
+
+        .glitch-logo::before {
+            animation: glitchLayer1 3s infinite;
+            filter: hue-rotate(0deg) saturate(2) contrast(1.5);
+            z-index: -2;
+        }
+
+        .glitch-logo::after {
+            animation: glitchLayer2 2.5s infinite;
+            filter: hue-rotate(180deg) saturate(2) contrast(1.5);
+            z-index: -1;
+        }
+
+        /* Main glitch animation with zoom */
+        @keyframes mainGlitch {
+            0%, 100% { 
+                transform: scale(1) translate(0);
+                filter: contrast(1) brightness(1);
+            }
+            5% { 
+                transform: scale(1.1) translate(-2px, 1px);
+                filter: contrast(1.3) brightness(1.2);
+            }
+            10% { 
+                transform: scale(0.95) translate(2px, -1px);
+                filter: contrast(0.8) brightness(0.9);
+            }
+            15% { 
+                transform: scale(1.05) translate(-1px, 2px);
+                filter: contrast(1.5) brightness(1.1);
+            }
+            20% { 
+                transform: scale(1) translate(0);
+                filter: contrast(1) brightness(1);
+            }
+            25% { 
+                transform: scale(1.15) translate(3px, -2px);
+                filter: contrast(1.4) brightness(1.3);
+            }
+            30% { 
+                transform: scale(0.9) translate(-3px, 2px);
+                filter: contrast(0.7) brightness(0.8);
+            }
+            35% { 
+                transform: scale(1.08) translate(1px, -3px);
+                filter: contrast(1.6) brightness(1.2);
+            }
+            40% { 
+                transform: scale(1) translate(0);
+                filter: contrast(1) brightness(1);
+            }
+            45% { 
+                transform: scale(1.12) translate(-2px, -1px);
+                filter: contrast(1.2) brightness(1.1);
+            }
+            50% { 
+                transform: scale(0.92) translate(2px, 1px);
+                filter: contrast(0.9) brightness(0.9);
+            }
+            55% { 
+                transform: scale(1.06) translate(-1px, -2px);
+                filter: contrast(1.4) brightness(1.3);
+            }
+            60% { 
+                transform: scale(1) translate(0);
+                filter: contrast(1) brightness(1);
+            }
+            65% { 
+                transform: scale(1.18) translate(3px, 2px);
+                filter: contrast(1.5) brightness(1.4);
+            }
+            70% { 
+                transform: scale(0.88) translate(-3px, -2px);
+                filter: contrast(0.6) brightness(0.7);
+            }
+            75% { 
+                transform: scale(1.1) translate(1px, 3px);
+                filter: contrast(1.7) brightness(1.5);
+            }
+            80% { 
+                transform: scale(1) translate(0);
+                filter: contrast(1) brightness(1);
+            }
+            85% { 
+                transform: scale(1.14) translate(-2px, 3px);
+                filter: contrast(1.3) brightness(1.2);
+            }
+            90% { 
+                transform: scale(0.94) translate(2px, -3px);
+                filter: contrast(0.8) brightness(0.8);
+            }
+            95% { 
+                transform: scale(1.04) translate(-1px, 1px);
+                filter: contrast(1.6) brightness(1.4);
+            }
+        }
+
+        /* First glitch layer */
+        @keyframes glitchLayer1 {
+            0%, 100% { 
+                transform: translate(0) scale(1);
+                opacity: 0.9;
+                clip-path: inset(0 0 0 0);
+            }
+            10% { 
+                transform: translate(-4px, 2px) scale(1.02);
+                opacity: 1;
+                clip-path: inset(10% 0 20% 0);
+            }
+            20% { 
+                transform: translate(4px, -2px) scale(0.98);
+                opacity: 0.7;
+                clip-path: inset(0 15% 0 25%);
+            }
+            30% { 
+                transform: translate(-2px, 4px) scale(1.05);
+                opacity: 1;
+                clip-path: inset(25% 0 5% 0);
+            }
+            40% { 
+                transform: translate(2px, -4px) scale(0.95);
+                opacity: 0.6;
+                clip-path: inset(0 5% 0 15%);
+            }
+            50% { 
+                transform: translate(-3px, 1px) scale(1.03);
+                opacity: 1;
+                clip-path: inset(15% 0 25% 0);
+            }
+            60% { 
+                transform: translate(3px, -1px) scale(0.97);
+                opacity: 0.8;
+                clip-path: inset(0 20% 0 10%);
+            }
+            70% { 
+                transform: translate(-1px, 3px) scale(1.06);
+                opacity: 1;
+                clip-path: inset(5% 0 15% 0);
+            }
+            80% { 
+                transform: translate(1px, -3px) scale(0.94);
+                opacity: 0.5;
+                clip-path: inset(0 10% 0 20%);
+            }
+            90% { 
+                transform: translate(-4px, 3px) scale(1.04);
+                opacity: 1;
+                clip-path: inset(20% 0 0 0);
+            }
+        }
+
+        /* Second glitch layer */
+        @keyframes glitchLayer2 {
+            0%, 100% { 
+                transform: translate(0) scale(1);
+                opacity: 0.9;
+                clip-path: inset(0 0 0 0);
+            }
+            15% { 
+                transform: translate(4px, -2px) scale(1.03);
+                opacity: 1;
+                clip-path: inset(0 20% 0 10%);
+            }
+            25% { 
+                transform: translate(-4px, 2px) scale(0.97);
+                opacity: 0.6;
+                clip-path: inset(15% 0 25% 0);
+            }
+            35% { 
+                transform: translate(2px, 4px) scale(1.06);
+                opacity: 1;
+                clip-path: inset(0 5% 0 15%);
+            }
+            45% { 
+                transform: translate(-2px, -4px) scale(0.94);
+                opacity: 0.7;
+                clip-path: inset(25% 0 5% 0);
+            }
+            55% { 
+                transform: translate(3px, 1px) scale(1.02);
+                opacity: 1;
+                clip-path: inset(0 15% 0 25%);
+            }
+            65% { 
+                transform: translate(-3px, -1px) scale(0.98);
+                opacity: 0.5;
+                clip-path: inset(10% 0 20% 0);
+            }
+            75% { 
+                transform: translate(1px, 3px) scale(1.05);
+                opacity: 1;
+                clip-path: inset(0 10% 0 20%);
+            }
+            85% { 
+                transform: translate(-1px, -3px) scale(0.95);
+                opacity: 0.8;
+                clip-path: inset(20% 0 0 0);
+            }
+            95% { 
+                transform: translate(4px, -3px) scale(1.01);
+                opacity: 1;
+                clip-path: inset(5% 0 15% 0);
+            }
+        }
+
+        /* Scan lines effect */
+        .glitch-logo::before {
+            background-image: 
+                linear-gradient(transparent 50%, rgba(0, 255, 0, 0.1) 50%),
+                url('logo.png');
+            background-size: 100% 4px, contain;
+            background-repeat: repeat-y, no-repeat;
+        }
+
+        /* Digital noise effect */
+        .glitch-logo::after {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                url('logo.png');
+            background-size: 100% 100%, 100% 100%, contain;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+        }
+
+        /* Intense hover effect */
+        .glitch-logo:hover {
+            animation: intenseGlitch 0.5s infinite;
+        }
+
+        .glitch-logo:hover::before {
+            animation: intenseGlitchLayer1 0.3s infinite;
+        }
+
+        .glitch-logo:hover::after {
+            animation: intenseGlitchLayer2 0.4s infinite;
+        }
+
+        @keyframes intenseGlitch {
+            0%, 100% { 
+                transform: scale(1.2) translate(0);
+                filter: contrast(2) brightness(1.5) saturate(2);
+            }
+            25% { 
+                transform: scale(0.8) translate(-5px, 3px);
+                filter: contrast(0.5) brightness(0.5) saturate(0.5);
+            }
+            50% { 
+                transform: scale(1.3) translate(5px, -3px);
+                filter: contrast(3) brightness(2) saturate(3);
+            }
+            75% { 
+                transform: scale(0.7) translate(-3px, -5px);
+                filter: contrast(0.3) brightness(0.3) saturate(0.3);
+            }
+        }
+
+        @keyframes intenseGlitchLayer1 {
+            0%, 100% { 
+                transform: translate(-8px, 4px) scale(1.1);
+                opacity: 1;
+                clip-path: inset(0 0 0 0);
+            }
+            50% { 
+                transform: translate(8px, -4px) scale(0.9);
+                opacity: 0.3;
+                clip-path: inset(50% 0 0 0);
+            }
+        }
+
+        @keyframes intenseGlitchLayer2 {
+            0%, 100% { 
+                transform: translate(8px, -4px) scale(1.1);
+                opacity: 1;
+                clip-path: inset(0 0 0 0);
+            }
+            50% { 
+                transform: translate(-8px, 4px) scale(0.9);
+                opacity: 0.3;
+                clip-path: inset(0 0 50% 0);
+            }
+        }
+
+        /* Digital distortion effect */
+        .glitch-logo img {
+            filter: contrast(1.3) brightness(1.2) saturate(1.1);
+            transition: all 0.3s ease;
+        }
+
+        .glitch-logo:hover img {
+            filter: contrast(2) brightness(1.5) saturate(1.8);
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html">
+                    <img src="logo.png" alt="117 Logo" class="h-10">
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link active-tab">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-white text-center py-20">
+        <div class="container mx-auto">
+            <div class="glitch-logo mx-auto mb-4">
+                <img src="logo.png" alt="117 Logo" class="h-32">
+            </div>
+            <h1 class="text-5xl font-bold mb-4">The Pinnacle of Hype.</h1>
+            <p class="text-xl max-w-2xl mx-auto">Exclusive sneakers, designer clothing, and elite accessories. Curated for the discerning collector.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <section id="featured-products">
+            <h2 class="text-3xl font-bold mb-8 text-center">Featured Collections</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+
+                <!-- Featured Footwear -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://images.stockx.com/images/Burberry-Arthur-Archive-Beige-Black-Product.jpg" alt="Burberry Arthur Vintage" class="product-image">
+                            <span class="price-tag">₹84,999</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Burberry Arthur Vintage - Black</h4>
+                        <p class="text-gray-400 text-sm mb-3">Footwear</p>
+                    </div>
+                    <a href="index.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Clothing -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true" alt="Versace Barocco Polo - Grey" class="product-image">
+                            <span class="price-tag">₹73,999</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Versace Barocco Polo - Grey</h4>
+                        <p class="text-gray-400 text-sm mb-3">Clothing</p>
+                    </div>
+                     <a href="clothing.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Football -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/d29358ba-e4cc-46d8-bab6-d5104427057f/mercurial-vapor-16-academy-kylian-mbappe-multi-ground-low-top-football-boot-WsTDpS.png" alt="Mercurial Vapor Pro 16 - Kylian Mbappe" class="product-image">
+                            <span class="price-tag">₹18,999</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor Pro 16 - Kylian Mbappe</h4>
+                        <p class="text-gray-400 text-sm mb-3">Football</p>
+                    </div>
+                    <a href="football.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Watch -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-04/CLASSIC-FUSION-TITANIUM-RACING-GREY-ON-RUBBER-45-MM.png?itok=xsh0UTeN" alt="Hublot Classic Fusion Racing Grey" class="product-image">
+                            <span class="price-tag">₹7,60,000</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">Hublot Classic Fusion Racing Grey</h4>
+                        <p class="text-gray-400 text-sm mb-3">Watches</p>
+                    </div>
+                    <a href="watches.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+                <!-- Featured Accessory -->
+                <div class="product-card bg-gray-900 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://assets.ajio.com/medias/sys_master/root/20220720/4FGn/62d81808f997dd03e2e3a8aa/-473Wx593H-410312868-u507p-MODEL.jpg" alt="BALLY Backpack - Blue" class="product-image">
+                            <span class="price-tag">₹65,000</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-1">BALLY Backpack - Blue</h4>
+                        <p class="text-gray-400 text-sm mb-3">Accessories</p>
+                    </div>
+                    <a href="accessories.html" class="text-center w-full bg-green-500 text-black font-bold py-2 rounded-full hover:bg-green-400 transition">View Collection</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-center py-6 mt-12">
+        <p>&copy; 2025 117. All Rights Deserved.</p>
+    </footer>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>117 • Premium Sneaker Resale</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/cart.js?v=2.0"></script>
+    <script src="js/cart.js?v=3.1"></script>
     <style>
         :root {
             --primary: #000000;
@@ -1470,3 +3326,1188 @@
 </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Perfumes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link active-tab">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="perfumes-section">
+            <h2 class="text-2xl font-bold mb-6">Perfumes</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/tom-ford-beauty/68008124001/0/mzcdl2HEmD-28176_TomFord_BlackOrchidEauDeParfum100ml_WEB_b4868d824abf7adb24d7536c8daa0678f117f572_1523778236.png" alt="Tom Ford Black Orchid" class="product-image">
+                        <span class="price-tag">₹16,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Tom Ford Black Orchid</h4>
+                    <button onclick="addToCart({
+                        id: 404,
+                        name: 'Tom Ford Black Orchid',
+                        price: 16999,
+                        image: 'https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/tom-ford-beauty/68008124001/0/mzcdl2HEmD-28176_TomFord_BlackOrchidEauDeParfum100ml_WEB_b4868d824abf7adb24d7536c8daa0678f117f572_1523778236.png'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/d/b/db992abDIORX00000885.jpg" alt="Dior Sauvage Elixir" class="product-image">
+                        <span class="price-tag">₹22,600</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Dior Sauvage Elixir</h4>
+                    <button onclick="addToCart({
+                        id: 405,
+                        name: 'Dior Sauvage Elixir',
+                        price: 22600,
+                        image: 'https://images-static.nykaa.com/media/catalog/product/d/b/db992abDIORX00000885.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images-static.nykaa.com/media/catalog/product/d/b/db992ab3348901362832.jpg?tr=w-500" alt="Miss Dior Eau De Parfum" class="product-image">
+                        <span class="price-tag">₹14,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Miss Dior Eau De Parfum</h4>
+                    <button onclick="addToCart({
+                        id: 406,
+                        name: 'Miss Dior Eau De Parfum',
+                        price: 14999,
+                        image: 'https://images-static.nykaa.com/media/catalog/product/d/b/db992ab3348901362832.jpg?tr=w-500'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://m.media-amazon.com/images/I/51zfP6BUgeL._UF1000,1000_QL80_.jpg" alt="Karl Lagerfeld Pour Homme" class="product-image">
+                        <span class="price-tag">₹7,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Karl Lagerfeld Pour Homme</h4>
+                    <button onclick="addToCart({
+                        id: 407,
+                        name: 'Karl Lagerfeld Pour Homme',
+                        price: 7999,
+                        image: 'https://m.media-amazon.com/images/I/51zfP6BUgeL._UF1000,1000_QL80_.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.perfumeaddicts.in/wp-content/uploads/2024/02/burberry-touch-pour-homme-for-men-100ml-edt-main-1.webp" alt="Burberry Touch Pour Homme" class="product-image">
+                        <span class="price-tag">₹3,299</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Burberry Touch Pour Homme</h4>
+                    <button onclick="addToCart({
+                        id: 408,
+                        name: 'Burberry Touch Pour Homme',
+                        price: 3299,
+                        image: 'https://www.perfumeaddicts.in/wp-content/uploads/2024/02/burberry-touch-pour-homme-for-men-100ml-edt-main-1.webp'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • SALE - Up to 70% Off</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load cart system first -->
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .sale-price {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff0000;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+            background-color: var(--secondary);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .sale-banner {
+            background: linear-gradient(45deg, #ff0000, #ff6b6b);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        .discount-badge {
+            background-color: #ff0000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link active-tab">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search sale items..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Sale Banner -->
+        <section class="sale-banner">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🔥 MEGA SALE 🔥</h1>
+            <p class="text-xl mb-2">Up to 70% Off on Premium Items</p>
+            <p class="text-lg">Limited Time Only - Don't Miss Out!</p>
+        </section>
+
+        <!-- Sale Products -->
+        <section id="sale-section">
+            <h2 class="text-2xl font-bold mb-6">Sale Items</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- Sale Product 1 - Footwear -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.superkicks.in/cdn/shop/files/DD8959-103-5.jpg?v=1690284836" alt="Nike Air Force 1 '07" class="product-image">
+                        <div class="discount-badge">-40%</div>
+                        <span class="price-tag">₹4,799</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 '07</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: 7, 8, 9, 10</p>
+                    <select id="size-1001" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1001,
+                        name: 'Nike Air Force 1 \'07 (SALE)',
+                        price: 4799,
+                        image: 'https://www.superkicks.in/cdn/shop/files/DD8959-103-5.jpg?v=1690284836',
+                        size: document.getElementById('size-1001').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 2 - Clothing -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp" alt="Almost Gods Patched Boxy Tee" class="product-image">
+                        <div class="discount-badge">-50%</div>
+                        <span class="price-tag">₹3,499</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Almost Gods Patched Boxy Tee</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: XS, S, M, L</p>
+                    <p class="original-price mb-2">₹6,999</p>
+                    <select id="size-1002" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1002,
+                        name: 'Almost Gods Patched Boxy Tee (SALE)',
+                        price: 3499,
+                        image: 'https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp',
+                        size: document.getElementById('size-1002').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 3 - Watches -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png" alt="G-SHOCK G-Steel" class="product-image">
+                        <div class="discount-badge">-35%</div>
+                        <span class="price-tag">₹19,500</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">G-SHOCK G-Steel</h4>
+                    <p class="text-gray-400 text-sm mb-2">Limited Stock</p>
+                    <p class="original-price mb-2">₹30,000</p>
+                    <button onclick="addToCart({
+                        id: 1003,
+                        name: 'G-SHOCK G-Steel (SALE)',
+                        price: 19500,
+                        image: 'https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 4 - Footwear -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg" alt="Adidas Gazelle" class="product-image">
+                        <div class="discount-badge">-45%</div>
+                        <span class="price-tag">₹4,344</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Gazelle - Red</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: 6, 7, 8, 9, 10, 11</p>
+                    <p class="original-price mb-2">₹7,899</p>
+                    <select id="size-1004" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1004,
+                        name: 'Adidas Gazelle - Red (SALE)',
+                        price: 4344,
+                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg',
+                        size: document.getElementById('size-1004').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 5 - Clothing -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug" alt="Balmain Flocked Shorts" class="product-image">
+                        <div class="discount-badge">-60%</div>
+                        <span class="price-tag">₹5,199</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Balmain Flocked Shorts - Black</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: S, M, L, XL</p>
+                    <p class="original-price mb-2">₹12,999</p>
+                    <select id="size-1005" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1005,
+                        name: 'Balmain Flocked Shorts - Black (SALE)',
+                        price: 5199,
+                        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug',
+                        size: document.getElementById('size-1005').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 6 - Watches -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069" alt="Emporio Armani Rose Gold" class="product-image">
+                        <div class="discount-badge">-55%</div>
+                        <span class="price-tag">₹12,149</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Emporio Armani Rose Gold</h4>
+                    <p class="text-gray-400 text-sm mb-2">Womens Watch</p>
+                    <p class="original-price mb-2">₹26,999</p>
+                    <button onclick="addToCart({
+                        id: 1006,
+                        name: 'Emporio Armani Rose Gold (SALE)',
+                        price: 12149,
+                        image: 'https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 7 - Footwear -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg" alt="Adidas Stan Smith" class="product-image">
+                        <div class="discount-badge">-30%</div>
+                        <span class="price-tag">₹6,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Stan Smith</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: 7, 8, 9, 10, 11</p>
+                    <p class="original-price mb-2">₹9,999</p>
+                    <select id="size-1007" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1007,
+                        name: 'Adidas Stan Smith (SALE)',
+                        price: 6999,
+                        image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg',
+                        size: document.getElementById('size-1007').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 8 - Clothing -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q" alt="Burberry Horseferry" class="product-image">
+                        <div class="discount-badge">-65%</div>
+                        <span class="price-tag">₹13,299</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Burberry Horseferry - Black</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: S, M, L</p>
+                    <p class="original-price mb-2">₹37,999</p>
+                    <select id="size-1008" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1008,
+                        name: 'Burberry Horseferry - Black (SALE)',
+                        price: 13299,
+                        image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q',
+                        size: document.getElementById('size-1008').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 9 - Watches -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg" alt="Michael Kors MK7229" class="product-image">
+                        <div class="discount-badge">-70%</div>
+                        <span class="price-tag">₹6,899</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Michael Kors - MK7229</h4>
+                    <p class="text-gray-400 text-sm mb-2">Ladies Watch</p>
+                    <p class="original-price mb-2">₹22,999</p>
+                    <button onclick="addToCart({
+                        id: 1009,
+                        name: 'Michael Kors - MK7229 (SALE)',
+                        price: 6899,
+                        image: 'https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 10 - Footwear -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp" alt="On Cloudmonster" class="product-image">
+                        <div class="discount-badge">-25%</div>
+                        <span class="price-tag">₹11,249</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">On Cloudmonster - White/Blue</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: 8, 10</p>
+                    <p class="original-price mb-2">₹14,999</p>
+                    <select id="size-1010" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1010,
+                        name: 'On Cloudmonster - White/Blue (SALE)',
+                        price: 11249,
+                        image: 'https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp',
+                        size: document.getElementById('size-1010').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Sale Product 11 - Clothing -->
+                <div class="product-card rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLwociKS1AUIgyDnhtcTISfnn5QZjoMWwNw&s" alt="Y-3 Hoodie" class="product-image">
+                        <div class="discount-badge">-40%</div>
+                        <span class="price-tag">₹7,200</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Y-3 Hoodie</h4>
+                    <p class="text-gray-400 text-sm mb-2">Sizes: S, M, L, XL</p>
+                    <p class="original-price mb-2">₹12,000</p>
+                    <select id="size-1011" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 1011,
+                        name: 'Y-3 Hoodie (SALE)',
+                        price: 7200,
+                        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLwociKS1AUIgyDnhtcTISfnn5QZjoMWwNw&s',
+                        size: document.getElementById('size-1011').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Search functionality -->
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                const productName = product.querySelector('h4').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Socks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link active-tab">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="socks-section">
+            <h2 class="text-2xl font-bold mb-6">Socks</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXXDZ8ZwZdmdB1l-qmlQIKqv9XuKRPqJRrL3ocNC_RL6OrUmiQQLqTewgEN0hEPMd1UoHlO4rGjMD84oFBUiQrOvYKZ6fVzGqLaYtWUTwRrzmAylcg9vPG-Q" alt="Nike Multiplier Crew Socks - White" class="product-image">
+                        <span class="price-tag">₹699</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Nike Multiplier Crew Socks - White</h4>
+                    <p class="text-gray-400 text-sm mb-3">Size: 7-12</p>
+                    <button onclick="addToCart({
+                        id: 401,
+                        name: 'Nike Multiplier Crew Socks - White',
+                        price: 699,
+                        image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXXDZ8ZwZdmdB1l-qmlQIKqv9XuKRPqJRrL3ocNC_RL6OrUmiQQLqTewgEN0hEPMd1UoHlO4rGjMD84oFBUiQrOvYKZ6fVzGqLaYtWUTwRrzmAylcg9vPG-Q'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://gfx.r-gol.com/media/res/products/9/189009/465x605/iu2656_1.webp" alt="Adidas Originals Socks - White" class="product-image">
+                        <span class="price-tag">₹1,299</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Adidas Originals Socks - White</h4>
+                    <p class="text-gray-400 text-sm mb-3">Size: 8-12</p>
+                    <button onclick="addToCart({
+                        id: 402,
+                        name: 'Adidas Originals Socks - White',
+                        price: 1299,
+                        image: 'https://gfx.r-gol.com/media/res/products/9/189009/465x605/iu2656_1.webp'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.superkicks.in/cdn/shop/products/1-2-47.jpg?v=1675967338" alt="Air Jordan Max Everyday" class="product-image">
+                        <span class="price-tag">₹699</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Air Jordan Max Everyday</h4>
+                    <p class="text-gray-400 text-sm mb-3">Size: 8-12</p>
+                    <button onclick="addToCart({
+                        id: 403,
+                        name: 'Air Jordan Max Everyday',
+                        price: 699,
+                        image: 'https://www.superkicks.in/cdn/shop/products/1-2-47.jpg?v=1675967338'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Sunglasses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link active-tab">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="sunglasses-section">
+            <h2 class="text-2xl font-bold mb-6">Sunglasses</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://images-magento.shoppersstop.com/pub/media/catalog/product/4782419_base/4782419_base_NoColour/4782419_base_NoColour_alt1.jpg_2000Wx3000H" alt="RayBan Aviator Sunglasses" class="product-image">
+                        <span class="price-tag">₹9,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">RayBan Aviator Sunglasses</h4>
+                    <button onclick="addToCart({
+                        id: 501,
+                        name: 'RayBan Aviator Sunglasses',
+                        price: 9999,
+                        image: 'https://images-magento.shoppersstop.com/pub/media/catalog/product/4782419_base/4782419_base_NoColour/4782419_base_NoColour_alt1.jpg_2000Wx3000H'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw8bd59d7e/original/90_O4361-OGB18753_ONUL_20_Medusa~Biggie~Sunglasses--Versace-online-store_2_0.jpg?sw=850&q=85&strip=true" alt="Versace Medusa Biggie - Black" class="product-image">
+                        <span class="price-tag">₹35,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Versace Medusa Biggie - Black</h4>
+                    <button onclick="addToCart({
+                        id: 502,
+                        name: 'Versace Medusa Biggie - Black',
+                        price: 35999,
+                        image: 'https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw8bd59d7e/original/90_O4361-OGB18753_ONUL_20_Medusa~Biggie~Sunglasses--Versace-online-store_2_0.jpg?sw=850&q=85&strip=true'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://img.tatacliq.com/images/i17//437Wx649H/MP000000021894832_437Wx649H_202404121617471.jpeg" alt="Tommy Hilfiger Wayfarer" class="product-image">
+                        <span class="price-tag">₹5,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Tommy Hilfiger Wayfarer</h4>
+                    <button onclick="addToCart({
+                        id: 503,
+                        name: 'Tommy Hilfiger Wayfarer',
+                        price: 5999,
+                        image: 'https://img.tatacliq.com/images/i17//437Wx649H/MP000000021894832_437Wx649H_202404121617471.jpeg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://cdn.poizon.com/pro-img/cut-img/20240318/d91e50b2eb7245b0b854e2ba6a6764bb.png?x-oss-process=image/format,webp/resize,w_750" alt="Louis Vuitton Cyclone" class="product-image">
+                        <span class="price-tag">₹44,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Louis Vuitton Cyclone</h4>
+                    <button onclick="addToCart({
+                        id: 504,
+                        name: 'Louis Vuitton Cyclone',
+                        price: 44999,
+                        image: 'https://cdn.poizon.com/pro-img/cut-img/20240318/d91e50b2eb7245b0b854e2ba6a6764bb.png?x-oss-process=image/format,webp/resize,w_750'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.vijayopticians.com/cdn/shop/files/6_a0306b3d-2073-498e-9f19-a44fb576c68a.jpg?v=1746539922" alt="Saint Laurent 757" class="product-image">
+                        <span class="price-tag">₹23,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Saint Laurent 757</h4>
+                    <button onclick="addToCart({
+                        id: 505,
+                        name: 'Saint Laurent 757',
+                        price: 23999,
+                        image: 'https://www.vijayopticians.com/cdn/shop/files/6_a0306b3d-2073-498e-9f19-a44fb576c68a.jpg?v=1746539922'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.chanel.com/images/t_one/t_fashion/b_rgb:F7F7F7,e_brightness:-3/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_428/square-sunglasses-black-acetate-acetate-packshot-extra-a71305x08101s2214-8853776203806.jpg" alt="Channel Square Sunglasses - Women" class="product-image">
+                        <span class="price-tag">₹45,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Channel Square Sunglasses - Women</h4>
+                    <button onclick="addToCart({
+                        id: 506,
+                        name: 'Channel Square Sunglasses - Women',
+                        price: 45999,
+                        image: 'https://www.chanel.com/images/t_one/t_fashion/b_rgb:F7F7F7,e_brightness:-3/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_428/square-sunglasses-black-acetate-acetate-packshot-extra-a71305x08101s2214-8853776203806.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Watches</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cart.js?v=3.1"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px; /* Adjusted height for clothing */
+            object-fit: contain; /* Changed for better clothing fit */
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link active-tab">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="watches-section">
+            <h2 class="text-2xl font-bold mb-6">Watches Collection</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Watch products will be added here -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-04/CLASSIC-FUSION-TITANIUM-RACING-GREY-ON-RUBBER-45-MM.png?itok=xsh0UTeN" alt="Hublot Classic Fusion Racing Grey" class="product-image">
+                        <span class="price-tag">₹7,60,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Hublot Classic Fusion Racing Grey</h4>
+                    <button onclick="addToCart({
+                        id: 301,
+                        name: 'Hublot Classic Fusion Racing Grey',
+                        price: 760000,
+                        image: 'https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-04/CLASSIC-FUSION-TITANIUM-RACING-GREY-ON-RUBBER-45-MM.png?itok=xsh0UTeN'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.rado.com/media/catalog/product/cache/af21745092e03eab5206bbb4f15452fb/c/a/cat_golden_horse_561_6102_3_070_r33102703__web_1.png" alt="Rado HyperChrome Classic" class="product-image">
+                        <span class="price-tag">₹2,05,900</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Rado HyperChrome Classic</h4>
+                    <button onclick="addToCart({
+                        id: 302,
+                        name: 'Rado HyperChrome Classic',
+                        price: 205900,
+                        image: 'https://www.rado.com/media/catalog/product/cache/af21745092e03eab5206bbb4f15452fb/c/a/cat_golden_horse_561_6102_3_070_r33102703__web_1.png'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069" alt="Emporio Armani Rose Gold" class="product-image">
+                        <span class="price-tag">₹26,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Emporio Armani Rose Gold</h4>
+                    <button onclick="addToCart({
+                        id: 304,
+                        name: 'Emporio Armani Rose Gold',
+                        price: 26999,
+                        image: 'https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png" alt="G-SHOCK G-Steel" class="product-image">
+                        <span class="price-tag">₹30,000</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">G-SHOCK G-Steel</h4>
+                    <button onclick="addToCart({
+                        id: 305,
+                        name: 'G-SHOCK G-Steel',
+                        price: 30000,
+                        image: 'https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg" alt="Michael Kors - MK7229" class="product-image">
+                        <span class="price-tag">₹22,999</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Michael Kors - MK7229</h4>
+                    <button onclick="addToCart({
+                        id: 306,
+                        name: 'Michael Kors - MK7229',
+                        price: 22999,
+                        image: 'https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://www.rado.com/media/catalog/product/t/r/truesquare_r27086752_sld_web.png" alt="RADO Open Heart Diamonds" class="product-image">
+                        <span class="price-tag">₹3,32,100</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">RADO Open Heart Diamonds</h4>
+                    <button onclick="addToCart({
+                        id: 307,
+                        name: 'RADO Open Heart Diamonds',
+                        price: 332100,
+                        image: 'https://www.rado.com/media/catalog/product/t/r/truesquare_r27086752_sld_web.png'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Search functionality -->
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html> 
