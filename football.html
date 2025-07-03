@@ -106,6 +106,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -118,6 +119,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -207,6 +211,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/d7a05137-69bd-4e56-825b-498f5617360c/PHANTOM+GX+ELITE+FG+SE.png" alt="Nike Phantom GX - Purple" class="product-image">
                         <span class="price-tag">₹23,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="105" onclick="toggleFavourite(event, 105)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Phantom GX - Purple</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
@@ -231,6 +238,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/107744/03/sv01/fnd/IND/fmt/png/ULTRA-ULTIMATE-FG/AG-Football-Boots" alt="PUMA Ultra - Orange" class="product-image">
                         <span class="price-tag">₹9,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="106" onclick="toggleFavourite(event, 106)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">PUMA Ultra - Orange</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -256,6 +266,9 @@
                     <div class="relative mb-4">
                         <img src="https://m.media-amazon.com/images/I/71PmAXZSXNL.jpg" alt="Nike Air Zoom - White" class="product-image">
                         <span class="price-tag">₹13,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="107" onclick="toggleFavourite(event, 107)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Zoom - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -281,6 +294,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/3f5dec25-5062-4afa-84de-5345165b2c46/ZM+SUPERFLY+10+ELITE+MDS+FG.png" alt="Nike Superfly Elite 10" class="product-image">
                         <span class="price-tag">₹15,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="108" onclick="toggleFavourite(event, 108)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Superfly Elite 10</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -306,6 +322,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.nike.ae/dw/image/v2/BDVB_PRD/on/demandware.static/-/Sites-akeneo-master-catalog/default/dwfde94e59/nk/2f1/9/6/1/0/1/2f196101_347d_4bf5_a86a_a816577eda22.jpg?sw=2000&sh=2000" alt="Nike Mercurial Vapor 16 - Light Blue" class="product-image">
                         <span class="price-tag">₹14,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="109" onclick="toggleFavourite(event, 109)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor 16 - Light Blue</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
@@ -330,6 +349,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/ba8ff125-f8a6-4ff5-846c-70f02f0f20b5/custom-nike-mercurial-vapor-16-elite-by-you.png" alt="Nike Mercurial" class="product-image">
                         <span class="price-tag">₹16,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="101" onclick="toggleFavourite(event, 101)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10, 11</p>
@@ -357,6 +379,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/d29358ba-e4cc-46d8-bab6-d5104427057f/mercurial-vapor-16-academy-kylian-mbappe-multi-ground-low-top-football-boot-WsTDpS.png" alt="Nike Mercurial KM" class="product-image">
                         <span class="price-tag">₹18,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="102" onclick="toggleFavourite(event, 102)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor Pro 16 - KM</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -382,6 +407,9 @@
                     <div class="relative mb-4">
                         <img src="https://lovellcdn.b-cdn.net/products/2009032.jpg?width=700" alt="Mizuno Morelia" class="product-image">
                         <span class="price-tag">₹29,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="103" onclick="toggleFavourite(event, 103)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Mizuno Morelia Neo IV Elite</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -408,6 +436,9 @@
                     <div class="relative mb-4">
                         <img src="https://thumblr.uniid.it/product/238788/7d7c9bf828a9.jpg?width=3840&format=webp&q=75" alt="Adidas Copa Sense" class="product-image">
                         <span class="price-tag">₹6,500</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="104" onclick="toggleFavourite(event, 104)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Copa Sense - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -434,6 +465,9 @@
                     <div class="relative mb-4">
                         <img src="https://lovellcdn.b-cdn.net/products/2315320.jpg?width=700" alt="Adidas Predator Elite" class="product-image">
                         <span class="price-tag">₹18,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="110" onclick="toggleFavourite(event, 110)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Predator Elite</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -459,6 +493,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/107730/03/sv01/fnd/IND/fmt/png/Future-7-ULTIMATE-FG/AG-Football-Boots" alt="Puma Future 7 Ultimate" class="product-image">
                         <span class="price-tag">₹21,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="111" onclick="toggleFavourite(event, 111)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Puma Future 7 Ultimate</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -483,6 +520,9 @@
                     <div class="relative mb-4">
                         <img src="https://m.media-amazon.com/images/I/318s-GINPRL._SY900_.jpg" alt="New Balance Tekela V4+ Pro" class="product-image">
                         <span class="price-tag">₹19,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="112" onclick="toggleFavourite(event, 112)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance Tekela V4+ Pro</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
@@ -507,6 +547,9 @@
                     <div class="relative mb-4">
                         <img src="https://thumblr.uniid.it/product/237381/ab90677b87ec.jpg?width=3840&format=webp&q=75" alt="New Balance 442 - Black" class="product-image">
                         <span class="price-tag">₹4,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="113" onclick="toggleFavourite(event, 113)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 442 - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
@@ -533,6 +576,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/107097/01/sv01/fnd/IND/fmt/png/KING-ULTIMATE-Football-Boots" alt="PUMA King Ultimate - White" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="114" onclick="toggleFavourite(event, 114)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">PUMA King Ultimate - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -559,6 +605,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/da6002d9-42e6-4714-b3dd-0bee9bb60f81/PHANTOM+GX+ACADEMY+FG%2FMG.png" alt="Nike Phantom GX - Orange & Black" class="product-image">
                         <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="115" onclick="toggleFavourite(event, 115)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Phantom GX - Orange & Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
@@ -585,6 +634,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/edebecd5-2575-49df-b73e-ee11d9bb8107/ZM+VAPOR+16+ELITE+FG+NU1.png" alt="Nike United Mercurial Vapor 16" class="product-image">
                         <span class="price-tag">₹10,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="116" onclick="toggleFavourite(event, 116)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike United Mercurial Vapor 16</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -609,6 +661,9 @@
                     <div class="relative mb-4">
                         <img src="https://gambol.in/cdn/shop/files/20_b6abc5b1-dad2-40e1-8795-1914b385f80c_1080x.png?v=1706100754" alt="Adidas X Crazyfast - Green" class="product-image">
                         <span class="price-tag">₹5,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="117" onclick="toggleFavourite(event, 117)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas X Crazyfast - Green</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -634,6 +689,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/6a21b16e-6647-45f3-ae73-bc770ab7a7cf/ZOOM+SUPERFLY+9+ELITE+MR+FG.png" alt="Nike Zoom Mercurial Superfly 9" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="118" onclick="toggleFavourite(event, 118)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Zoom Mercurial Superfly 9</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -659,6 +717,9 @@
                     <div class="relative mb-4">
                         <img src="https://tha.mizuno.com/cdn/shop/files/SH_P1GA246227_00_d31f963c-8bcf-4b0d-a3d8-7dd44d125ab3.png?v=1728387003" alt="Mizuno Alpha Elite - Blue" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="119" onclick="toggleFavourite(event, 119)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Mizuno Alpha Elite - Blue</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -683,6 +744,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/5477ee47-0f7b-4ce8-ad2b-82c27aa313fb/ZM+SUPERFLY+10+ELITE+FG.png" alt="Nike Mercurial Superfly 10 Elite" class="product-image">
                         <span class="price-tag">₹23,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2001" onclick="toggleFavourite(event, 2001)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Mercurial Superfly 10 Elite</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -707,6 +771,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/1af865ac-7c24-4556-b57d-0b14ca90ccb5/ZOOM+VAPOR+15+ELITE+FG+AS.png" alt="Nike Mercurial Vapor 15" class="product-image">
                         <span class="price-tag">₹23,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2002" onclick="toggleFavourite(event, 2002)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Mercurial Vapor 15</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -731,6 +798,9 @@
                     <div class="relative mb-4">
                         <img src="https://i.ebayimg.com/images/g/iAoAAOSwq2pkv4L6/s-l400.jpg" alt="Mizuno Alpha Pro - White" class="product-image">
                         <span class="price-tag">₹25,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2003" onclick="toggleFavourite(event, 2003)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Mizuno Alpha Pro - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -755,6 +825,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/107687/01/sv01/fnd/IND/fmt/png/ULTRA-5-MATCH-FG/AG-Football-Boots" alt="PUMA Ultra - Purple" class="product-image">
                         <span class="price-tag">₹3,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2004" onclick="toggleFavourite(event, 2004)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">PUMA Ultra - Purple</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1301,6 +1374,44 @@
         }
 
         console.log('Inline cart system loaded successfully!');
+    </script>
+
+    <script>
+        // Favourites system for football
+        let favourites = [];
+        function loadFavourites() {
+            try {
+                const saved = localStorage.getItem('117-favourites');
+                if (saved) { favourites = JSON.parse(saved); }
+            } catch (error) { favourites = []; }
+        }
+        function saveFavourites() {
+            try { localStorage.setItem('117-favourites', JSON.stringify(favourites)); } catch (error) {}
+        }
+        function isFavourite(productId) { return favourites.includes(productId); }
+        function toggleFavourite(event, productId) {
+            event.preventDefault();
+            const idx = favourites.indexOf(productId);
+            if (idx === -1) { favourites.push(productId); } else { favourites.splice(idx, 1); }
+            saveFavourites();
+            updateFavouriteIcons();
+        }
+        function updateFavouriteIcons() {
+            document.querySelectorAll('.favourite-btn').forEach(btn => {
+                const pid = parseInt(btn.getAttribute('data-product-id'));
+                const icon = btn.querySelector('i');
+                if (isFavourite(pid)) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => { loadFavourites(); updateFavouriteIcons(); });
     </script>
 </body>
 </html>

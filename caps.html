@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>117 • Caps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff00;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: white;
+        }
+        .search-bar:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid var(--accent);
+            color: white !important;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black py-4 px-6 border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="home.html"><img src="logo.png" alt="117 Logo" class="h-10"></a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Footwear</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="football.html" class="nav-link">Football</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link active-tab">Accessories <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute hidden group-hover:block bg-black border-gray-800 rounded-md mt-2 shadow-lg z-10">
+                            <a href="watches.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Watches</a>
+                            <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
+                            <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
+                            <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
+                            <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                        </div>
+                    </div>
+                    <a href="sale.html" class="nav-link">SALE</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search..." 
+                           class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
+                <a href="cart.html" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Filter Section -->
+        <section class="mb-8">
+            <div class="bg-gray-900 rounded-lg p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white">Filters</h3>
+                    <button id="filter-toggle" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition flex items-center space-x-2">
+                        <span>Hide Filters</span>
+                        <i class="fas fa-chevron-up" id="filter-icon"></i>
+                    </button>
+                </div>
+                
+                <div id="filter-content" style="display: none;">
+                    <!-- Price Range -->
+                    <div class="mb-6">
+                        <label class="block text-white font-semibold mb-2">Price Range: ₹<span id="price-min">0</span> - ₹<span id="price-max">20,000</span></label>
+                        <div class="flex items-center space-x-4">
+                            <input type="range" id="price-slider" min="0" max="20000" value="0" class="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider">
+                            <input type="range" id="price-slider-max" min="0" max="20000" value="20000" class="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider">
+                        </div>
+                    </div>
+
+                    <!-- Brand Filters -->
+                    <div class="mb-6">
+                        <label class="block text-white font-semibold mb-2">Brands</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="BAPE">
+                                <span class="ml-2">BAPE</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Emporio Armani">
+                                <span class="ml-2">Emporio Armani</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Nike">
+                                <span class="ml-2">Nike</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Adidas">
+                                <span class="ml-2">Adidas</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="New Era">
+                                <span class="ml-2">New Era</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Supreme">
+                                <span class="ml-2">Supreme</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Palace">
+                                <span class="ml-2">Palace</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Carhartt">
+                                <span class="ml-2">Carhartt</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="MLB">
+                                <span class="ml-2">MLB</span>
+                            </label>
+                            <label class="flex items-center text-white cursor-pointer">
+                                <input type="checkbox" class="brand-filter" value="Gucci">
+                                <span class="ml-2">Gucci</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sort Options -->
+                    <div class="mb-4">
+                        <label class="block text-white font-semibold mb-2">Sort By</label>
+                        <select id="sort-select" class="bg-gray-800 text-white px-3 py-2 rounded-lg border border-gray-700">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name: A to Z</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter Actions -->
+                    <div class="flex space-x-4">
+                        <button id="clear-filters" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition">
+                            Clear All Filters
+                        </button>
+                        <span id="filter-count" class="text-white self-center">Showing all products</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="caps-section">
+            <h2 class="text-2xl font-bold mb-6">Caps</h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1: BAPE Lorry Cap -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://int.bape.com/cdn/shop/files/MRBCPM304801OBKX-pdp-1.jpg?v=1746670172&width=700" alt="BAPE Lorry Cap" class="product-image">
+                        <span class="price-tag">₹13,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2101" onclick="toggleFavourite(event, 2101)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">BAPE Lorry Cap</h4>
+                    <button onclick="addToCart({
+                        id: 2101,
+                        name: 'BAPE Lorry Cap',
+                        price: 13999,
+                        image: 'https://int.bape.com/cdn/shop/files/MRBCPM304801OBKX-pdp-1.jpg?v=1746670172&width=700'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 2: Emporio Armani Baseball Cap -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://assets.ajio.com/medias/sys_master/root/20211006/x5uT/615cd6b6aeb2692b85af7d46/-1117Wx1400H-410254430-00020-MODEL.jpg" alt="Emporio Armani Baseball Cap" class="product-image">
+                        <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2102" onclick="toggleFavourite(event, 2102)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Emporio Armani Baseball Cap</h4>
+                    <button onclick="addToCart({
+                        id: 2102,
+                        name: 'Emporio Armani Baseball Cap',
+                        price: 8999,
+                        image: 'https://assets.ajio.com/medias/sys_master/root/20211006/x5uT/615cd6b6aeb2692b85af7d46/-1117Wx1400H-410254430-00020-MODEL.jpg'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 3: Gucci Baseball Cap -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/100181/1015949/200035_KQWBG_9791_001_100_0000_Light-Casquette-de-base-ball-avec-dtail-bande-Web_1__03565.1701429609.jpg?c=1" alt="Gucci Baseball Cap" class="product-image">
+                        <span class="price-tag">₹39,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2103" onclick="toggleFavourite(event, 2103)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Gucci Baseball Cap</h4>
+                    <button onclick="addToCart({
+                        id: 2103,
+                        name: 'Gucci Baseball Cap',
+                        price: 39999,
+                        image: 'https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/100181/1015949/200035_KQWBG_9791_001_100_0000_Light-Casquette-de-base-ball-avec-dtail-bande-Web_1__03565.1701429609.jpg?c=1'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product 4: Yankees MLB Patch Up -->
+                <div class="product-card bg-gray-900 rounded-lg p-4">
+                    <div class="relative mb-4">
+                        <img src="https://scssports.in/cdn/shop/files/60503506_535x.jpg?v=1728886380" alt="Yankees MLB Patch Up" class="product-image">
+                        <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2104" onclick="toggleFavourite(event, 2104)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Yankees MLB Patch Up</h4>
+                    <button onclick="addToCart({
+                        id: 2104,
+                        name: 'Yankees MLB Patch Up',
+                        price: 6999,
+                        image: 'https://scssports.in/cdn/shop/files/60503506_535x.jpg?v=1728886380'
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+
+    <script>
+        // Inline Cart System - Guaranteed to Work
+        console.log('Inline cart system loading...');
+
+        // Global cart array
+        let cart = [];
+
+        // Load cart from localStorage
+        function loadCart() {
+            try {
+                const saved = localStorage.getItem('117-cart');
+                if (saved) {
+                    cart = JSON.parse(saved);
+                    console.log('Cart loaded:', cart);
+                }
+            } catch (error) {
+                console.error('Error loading cart:', error);
+                cart = [];
+            }
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            try {
+                localStorage.setItem('117-cart', JSON.stringify(cart));
+                console.log('Cart saved');
+            } catch (error) {
+                console.error('Error saving cart:', error);
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: ${type === 'success' ? '#00ff00' : '#ff0000'};
+                color: ${type === 'success' ? '#000000' : '#ffffff'};
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                font-weight: bold;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                font-family: Arial, sans-serif;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+
+        // Add to cart function
+        function addToCart(product) {
+            console.log('Adding to cart:', product);
+            
+            if (!product || !product.id || !product.name || !product.price) {
+                showNotification('Error: Invalid product data', 'error');
+                return;
+            }
+            
+            // Check if product already exists
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+                showNotification(`${product.name} quantity updated!`);
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1,
+                    size: product.size || null
+                });
+                showNotification(`${product.name} added to cart!`);
+            }
+            
+            saveCart();
+            updateCartCount();
+            
+            // Visual feedback
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#00ff00';
+            button.style.color = '#000000';
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+                button.style.color = '';
+            }, 1000);
+        }
+
+        // Update cart count display
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCountElements = document.querySelectorAll('#cart-count');
+            cartCountElements.forEach(element => {
+                if (element) {
+                    element.textContent = count;
+                }
+            });
+        }
+
+        // Initialize
+        function initialize() {
+            console.log('Initializing cart...');
+            loadCart();
+            updateCartCount();
+            console.log('Cart initialized successfully!');
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initialize);
+        } else {
+            initialize();
+        }
+
+        console.log('Inline cart system loaded successfully!');
+    </script>
+
+    <script>
+        // Product Filter System
+        console.log('Product filter system loading...');
+
+        // Product data with metadata for filtering
+        const products = [
+            {
+                id: 2101,
+                name: 'BAPE Lorry Cap',
+                price: 13999,
+                brand: 'BAPE',
+                element: null
+            },
+            {
+                id: 2102,
+                name: 'Emporio Armani Baseball Cap',
+                price: 8999,
+                brand: 'Emporio Armani',
+                element: null
+            },
+            {
+                id: 2103,
+                name: 'Gucci Baseball Cap',
+                price: 39999,
+                brand: 'Gucci',
+                element: null
+            },
+            {
+                id: 2104,
+                name: 'Yankees MLB Patch Up',
+                price: 6999,
+                brand: 'MLB',
+                element: null
+            }
+            // Add more caps here as you expand your catalog
+        ];
+
+        // Initialize product elements
+        function initializeProducts() {
+            products.forEach(product => {
+                const element = document.querySelector(`[onclick*="id: ${product.id}"]`).closest('.product-card');
+                product.element = element;
+            });
+        }
+
+        // Get filter values
+        function getFilterValues() {
+            const minPrice = parseInt(document.getElementById('price-slider').value);
+            const maxPrice = parseInt(document.getElementById('price-slider-max').value);
+            const selectedBrands = Array.from(document.querySelectorAll('.brand-filter:checked')).map(cb => cb.value);
+            const sortBy = document.getElementById('sort-select').value;
+            
+            return { minPrice, maxPrice, selectedBrands, sortBy };
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const { minPrice, maxPrice, selectedBrands, sortBy } = getFilterValues();
+            
+            let filteredProducts = products.filter(product => {
+                // Price filter
+                if (product.price < minPrice || product.price > maxPrice) return false;
+                
+                // Brand filter - show all if no brands selected
+                if (selectedBrands.length > 0 && !selectedBrands.includes(product.brand)) return false;
+                
+                return true;
+            });
+
+            // Sort products
+            switch (sortBy) {
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                default:
+                    // Keep original order
+                    break;
+            }
+
+            // Update display
+            products.forEach(product => {
+                const isVisible = filteredProducts.some(fp => fp.id === product.id);
+                product.element.style.display = isVisible ? 'block' : 'none';
+            });
+
+            // Update filter count
+            const countElement = document.getElementById('filter-count');
+            countElement.textContent = `Showing ${filteredProducts.length} of ${products.length} products`;
+        }
+
+        // Initialize filters
+        function initializeFilters() {
+            // Price slider event listeners
+            const minSlider = document.getElementById('price-slider');
+            const maxSlider = document.getElementById('price-slider-max');
+            const minDisplay = document.getElementById('price-min');
+            const maxDisplay = document.getElementById('price-max');
+
+            minSlider.addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                const maxValue = parseInt(maxSlider.value);
+                if (value > maxValue) {
+                    maxSlider.value = value;
+                    maxDisplay.textContent = value.toLocaleString();
+                }
+                minDisplay.textContent = value.toLocaleString();
+                applyFilters();
+            });
+
+            maxSlider.addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                const minValue = parseInt(minSlider.value);
+                if (value < minValue) {
+                    minSlider.value = value;
+                    minDisplay.textContent = value.toLocaleString();
+                }
+                maxDisplay.textContent = value.toLocaleString();
+                applyFilters();
+            });
+
+            // Brand filter event listeners
+            document.querySelectorAll('.brand-filter').forEach(checkbox => {
+                checkbox.addEventListener('change', applyFilters);
+            });
+
+            // Sort event listener
+            document.getElementById('sort-select').addEventListener('change', applyFilters);
+
+            // Clear filters button
+            document.getElementById('clear-filters').addEventListener('click', () => {
+                // Reset price sliders
+                minSlider.value = 0;
+                maxSlider.value = 20000;
+                minDisplay.textContent = '0';
+                maxDisplay.textContent = '20000';
+
+                // Reset checkboxes - uncheck all
+                document.querySelectorAll('.brand-filter').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+
+                // Reset sort
+                document.getElementById('sort-select').value = 'default';
+
+                // Apply filters
+                applyFilters();
+            });
+
+            // Toggle filter section
+            const filterToggle = document.getElementById('filter-toggle');
+            const filterContent = document.getElementById('filter-content');
+            const filterIcon = document.getElementById('filter-icon');
+            
+            filterToggle.addEventListener('click', () => {
+                const isHidden = filterContent.style.display === 'none';
+                filterContent.style.display = isHidden ? 'block' : 'none';
+                filterToggle.querySelector('span').textContent = isHidden ? 'Hide Filters' : 'Show Filters';
+                filterIcon.className = isHidden ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+            });
+        }
+
+        // Initialize everything when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('filter-content').style.display = 'none';
+                document.getElementById('filter-toggle').querySelector('span').textContent = 'Show Filters';
+                document.getElementById('filter-icon').className = 'fas fa-chevron-down';
+                initializeProducts();
+                initializeFilters();
+                applyFilters();
+            });
+        } else {
+            document.getElementById('filter-content').style.display = 'none';
+            document.getElementById('filter-toggle').querySelector('span').textContent = 'Show Filters';
+            document.getElementById('filter-icon').className = 'fas fa-chevron-down';
+            initializeProducts();
+            initializeFilters();
+            applyFilters();
+        }
+    </script>
+
+    <script src="js/favourites.js"></script>
+</body>
+</html> 

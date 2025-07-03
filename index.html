@@ -266,6 +266,24 @@
         #filter-panel {
             transition: all 0.3s ease;
         }
+
+        .favourite-btn {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 2;
+        }
+        .favourite-btn i {
+            color: var(--accent) !important;
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+        .favourite-btn:hover i,
+        .favourite-btn:focus i {
+            color: var(--accent) !important;
+        }
     </style>
 </head>
 <body>
@@ -286,6 +304,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -298,6 +317,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -497,6 +519,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_00_standard.jpg" alt="Adidas Samba OG" class="product-image">
                         <span class="price-tag">₹22,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1" onclick="toggleFavourite(event, 1)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Samba OG</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11, 12</p>
@@ -523,6 +548,9 @@
                     <div class="relative mb-4">
                         <img src="https://images-cdn.ubuy.co.in/63574257c517ac09432a1c75-new-balance-retro-530-white-navy-mr530sg.jpg" alt="New Balance 530 - White" class="product-image">
                         <span class="price-tag">₹26,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2" onclick="toggleFavourite(event, 2)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 530 - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 10, 11, 12</p>
@@ -546,6 +574,9 @@
                     <div class="relative mb-4">
                         <img src="https://owp.klarna.com/product/640x640/3005441826/adidas-Yeezy-Boost-350-V2-Bone.jpg?ph=true" alt="Yeezy Boost 350 V2" class="product-image">
                         <span class="price-tag">₹18,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="3" onclick="toggleFavourite(event, 3)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy Boost 350 V2</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11, 12, 13</p>
@@ -571,6 +602,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn-img.poizonapp.com/pro-img/cut-img/20230801/c1fbc53f1a2046beb092758e4ac856ee.jpg?x-oss-process=image/format,webp/resize,w_800,h_800" alt="Balenciaga Defender - Black" class="product-image">
                         <span class="price-tag">₹99,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="4" onclick="toggleFavourite(event, 4)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga Defender - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -596,6 +630,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/db8ee5f7fa824ac9bb504e8182b4c560_9366/Tokyo_Shoes_White_JI3300_01_00_standard.jpg" alt="Adidas Tokyo" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1005" onclick="toggleFavourite(event, 1005)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Tokyo</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -620,6 +657,9 @@
                     <div class="relative mb-4">
                         <img src="https://lh6.googleusercontent.com/proxy/co8vdoVAK5Jq_z5hUG51ufEFjVIY_8Hces6dpAetwHnXOwqcOuyiOCu1mU8Qpx0RMqiEih4FpTMyz274yXRlRdYzQiPBulyK9DE1om_k8huo" alt="New Balance 740 V2" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1006" onclick="toggleFavourite(event, 1006)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 740 V2</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -644,6 +684,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/70466fe0-c158-4103-bf4a-041c5d464604/AIR+MAX+DN8.png" alt="Nike Air Max Dn8" class="product-image">
                         <span class="price-tag">₹16,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1007" onclick="toggleFavourite(event, 1007)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Max Dn8</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -669,6 +712,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.sneakers123.com/release/21706/converse-x-tyler-the-creator-one-star-purple-heart-162128c.jpg" alt="Converse X Tyle The Creator" class="product-image">
                         <span class="price-tag">₹14,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1008" onclick="toggleFavourite(event, 1008)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Converse X Tyle The Creator</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -693,6 +739,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.mytheresa.com/media/1094/1238/100/2e/P01020588.jpg" alt="Maison Margiela Sprinter Shell" class="product-image">
                         <span class="price-tag">₹1,09,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1009" onclick="toggleFavourite(event, 1009)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Maison Margiela Sprinter Shell</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -717,6 +766,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg?w=480&q=60&dpr=1&updated_at=1687889780&h=320" alt="Louis Vuitton Trainers" class="product-image">
                         <span class="price-tag">₹1,33,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1010" onclick="toggleFavourite(event, 1010)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Louis Vuitton Trainers</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -740,6 +792,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg" alt="Adidas Gazelle" class="product-image">
                         <span class="price-tag">₹7,899</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="11" onclick="toggleFavourite(event, 11)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Gazelle - Red</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10, 11</p>
@@ -768,6 +823,9 @@
                     <div class="relative mb-4">
                         <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard_1_1924d611-a91b-4fc6-bd5f-e400c4b68bed.png?v=1742204703&width=1946" alt="New Balance 5060" class="product-image">
                         <span class="price-tag">₹16,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1012" onclick="toggleFavourite(event, 1012)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 5060</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -791,6 +849,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.superkicks.in/cdn/shop/files/1_e60f0e82-31d2-4227-8e92-0184095e33d6.jpg?v=1719407945&width=1946" alt="Nike Zoom Vomero 5" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1013" onclick="toggleFavourite(event, 1013)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Zoom Vomero 5</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -815,6 +876,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.afew-store.com/assets/42/420054/2400/veja-campo-extra-white-california-cp0503121b-footwear%20%3E%20sneaker-packshots-0.jpg" alt="Veja Campo" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1014" onclick="toggleFavourite(event, 1014)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Veja Campo</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -839,6 +903,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRvw7ddcakbRpPiYdVXxt2kp4ZylNf7RmjPXGKIfXbsBPJ896vP_elJAksifadrpQiXxqNnFMBEW7oZUo0moQ7CU7VLBprc4JI_np2yzvAuV3CGckSlWyuanA" alt="Asics Gel 1130" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1015" onclick="toggleFavourite(event, 1015)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Asics Gel 1130</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
@@ -864,6 +931,9 @@
                     <div class="relative mb-4">
                         <img src="https://shop.uncrate.com/cdn/shop/files/new-balance-990-miusa-grey-21.jpg?v=1685995261" alt="New Balance 990 V6" class="product-image">
                         <span class="price-tag">₹10,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1016" onclick="toggleFavourite(event, 1016)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">New Balance 990 V6</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -887,6 +957,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ce738cbe5342421996feaf5001044964_9366/Campus_00s_Shoes_Grey_HQ8707_01_standard.jpg" alt="Adidas Campus 00s" class="product-image">
                         <span class="price-tag">₹10,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1017" onclick="toggleFavourite(event, 1017)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Campus 00s</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -911,6 +984,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.vans.eu/images/t_img/c_fill,g_center,f_auto,h_815,w_652,e_unsharp_mask:100/dpr_2.0/v1730405711/VN000CS0CX2-HERO/Knu-Skool-Shoes.png" alt="Van Knu Skool" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1018" onclick="toggleFavourite(event, 1018)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Van Knu Skool</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -936,6 +1012,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.shopatkings.com/cdn/shop/files/DV5477-3011_900x.gif?v=1711143570" alt="Nike SB Force 58" class="product-image">
                         <span class="price-tag">₹4,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1019" onclick="toggleFavourite(event, 1019)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike SB Force 58</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
@@ -946,6 +1025,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.superkicks.in/cdn/shop/files/4_40_09c932ed-00c4-4abb-ac33-1ae44d08f06f.jpg?v=1746267121" alt="Nike Dunk Low Retro" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1020" onclick="toggleFavourite(event, 1020)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Dunk Low Retro</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11, 12</p>
@@ -972,6 +1054,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.superkicks.in/cdn/shop/files/1_655b3af1-cea0-4ab6-878c-eff7097d0f82.jpg?v=1720439145" alt="Air Jordan Spizike Low" class="product-image">
                         <span class="price-tag">₹13,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1021" onclick="toggleFavourite(event, 1021)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan Spizike Low</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -982,6 +1067,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.radpresent.com/cdn/shop/products/Screenshot2023-02-16at8.53.14PM.png?v=1676553401" alt="Balenciaga Runner" class="product-image">
                         <span class="price-tag">₹1,09,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1022" onclick="toggleFavourite(event, 1022)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga Runner</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -1006,6 +1094,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.solesense.com/en/images/products/500/balenciaga-x-pander-black-653870w2ra21000_1.jpg" alt="Balenciaga Xpander" class="product-image">
                         <span class="price-tag">₹1,09,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1023" onclick="toggleFavourite(event, 1023)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga Xpander</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -1030,6 +1121,9 @@
                     <div class="relative mb-4">
                         <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard1_91c7b7a5-3a29-48db-a1a1-d52b29cff554.png?v=1742203323&width=1946" alt="Nike Air Jordan 1 Retro Low Travis Scott" class="product-image">
                         <span class="price-tag">₹46,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="7" onclick="toggleFavourite(event, 7)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Jordan 1 Travis Scott</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1047,6 +1141,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp" alt="On Cloudmonster" class="product-image">
                         <span class="price-tag">₹14,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="8" onclick="toggleFavourite(event, 8)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">On Cloudmonster - White/Blue</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 10</p>
@@ -1069,6 +1166,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.stockx.com/images/Burberry-Arthur-Archive-Beige-Black-Product.jpg" alt="Burberry Arthur Vintage" class="product-image">
                         <span class="price-tag">₹119,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="9" onclick="toggleFavourite(event, 9)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Burberry Arthur Vintage - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -1094,6 +1194,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn11.bigcommerce.com/s-hukvtympsj/images/stencil/original/products/19838/67360/lacoste-aglt23-ultra-m-off_white_navy-jeuli__68796.1739969492.jpg" alt="Lacoste AGLT23" class="product-image">
                         <span class="price-tag">₹24,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="10" onclick="toggleFavourite(event, 10)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Lacoste AGLT23</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1113,28 +1216,14 @@
                         Add to Cart
                     </button>
                 </div>
-                <!-- Product: Adidas Gazelle - Red -->
-                <div class="product-card rounded-lg p-4">
-                    <div class="relative mb-4">
-                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg" alt="Adidas Gazelle" class="product-image">
-                        <span class="price-tag">₹7,899</span>
-                    </div>
-                    <h4 class="font-semibold text-lg mb-1">Adidas Gazelle - Red</h4>
-                    <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10, 11</p>
-                    <button onclick="addToCart({
-                        id: 11,
-                        name: 'Adidas Gazelle - Red',
-                        price: 7899,
-                        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg'
-                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
-                        Add to Cart
-                    </button>
-                </div>
                 <!-- Product: Adidas Stan Smith - White -->
                 <div class="product-card rounded-lg p-4">
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg" alt="Adidas Stan Smith" class="product-image">
                         <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="12" onclick="toggleFavourite(event, 12)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Stan Smith - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1159,6 +1248,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.birkenstock.in/cdn/shop/products/34193_side_6f143189-212f-46b8-a14e-0cc553d86a0f.jpg?v=1659782890&width=1500" alt="Birkenstock Milano" class="product-image">
                         <span class="price-tag">₹7,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="13" onclick="toggleFavourite(event, 13)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Birkenstock Milano Natural Leather</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9, 10</p>
@@ -1184,6 +1276,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.runningxpert.com/media/catalog/product/1/1/1127895-bvr.jpg" alt="HOKA Clifton 9" class="product-image">
                         <span class="price-tag">₹22,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="15" onclick="toggleFavourite(event, 15)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">HOKA Clifton 9</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -1209,6 +1304,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.crepslocker.com/cdn/shop/products/IMG_8962_434c6e48-4e01-46e2-9e9c-fa749168c99b.jpg?v=1652089398" alt="Balenciaga Speed Knit Sock - Triple Black" class="product-image">
                         <span class="price-tag">₹1,22,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="16" onclick="toggleFavourite(event, 16)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga Speed Knit Sock</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -1232,6 +1330,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1b6eef32e1f64f1ca9541e282d22d556_9366/SL_72_OG_Shoes_Black_JH7390_01_standard.jpg" alt="Adidas SL72 OG" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="17" onclick="toggleFavourite(event, 17)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas SL72 OG</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1256,6 +1357,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.laced.com/products/01bf16ad-3b97-4dba-b450-0791ea495cfd.jpg?auto=format&fit=max&w=3840&q=75" alt="Nike Air Jordan 1 High OG Chicago Lost and Found" class="product-image">
                         <span class="price-tag">₹22,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="18" onclick="toggleFavourite(event, 18)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan 1 Chicago Lost&Found</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10</p>
@@ -1278,6 +1382,9 @@
                     <div class="relative mb-4">
                         <img src="https://d2cva83hdk3bwc.cloudfront.net/crocs-x-salehe-bembury-pollex-clog-sasquatch-1.jpg" alt="CROCS Salehe Bembury - Black" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="19" onclick="toggleFavourite(event, 19)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">CROCS Salehe Bembury - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1302,6 +1409,9 @@
                     <div class="relative mb-4">
                         <img src="https://images.stockx.com/images/Air-Jordan-3-Retro-Mocha-2018-Product.png?fit=fill&bg=FFFFFF&w=1200&h=857&q=60&dpr=1&trim=color&updated_at=1738193358" alt="Air Jordan 3 Mocha" class="product-image">
                         <span class="price-tag">₹42,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="20" onclick="toggleFavourite(event, 20)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan 3 Mocha</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -1327,6 +1437,9 @@
                     <div class="relative mb-4">
                         <img src="https://pufferreds.com/cdn/shop/products/Nike-Air-Max-97--Pure-Platinum--Nike-1671782608.jpg?v=1671782609" alt="Nike Air Max 97 Pure Platinum" class="product-image">
                         <span class="price-tag">₹19,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="21" onclick="toggleFavourite(event, 21)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Max 97 Pure Platinum</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1351,6 +1464,9 @@
                     <div class="relative mb-4">
                         <img src="https://balenciaga.dam.kering.com/m/6f889dcc9cc9b0af/Medium-734734W3XL49710_F.jpg?v=7" alt="Balenciaga 3XL" class="product-image">
                         <span class="price-tag">₹98,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="22" onclick="toggleFavourite(event, 22)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga 3XL</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -1374,6 +1490,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.kershkicks.co.uk/cdn/shop/files/cc8abcbf-cabf-4f97-bfe3-7a447fa5bc99_jpg.webp?v=1745404030&width=533" alt="Yeezy 350 V2 - Pirate Black" class="product-image">
                         <span class="price-tag">₹16,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="23" onclick="toggleFavourite(event, 23)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy 350 V2 - Pirate Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -1399,6 +1518,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.superkicks.in/cdn/shop/files/1_d513a1ee-98e0-4884-bdf6-d2d465b10edd.jpg?v=1684761287" alt="Nike Air Force - 1'07" class="product-image">
                         <span class="price-tag">₹7,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="24" onclick="toggleFavourite(event, 24)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Force - 1'07</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1423,6 +1545,9 @@
                     <div class="relative mb-4">
                         <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard10_e0f3ac57-26ad-4e11-a3b2-f6ca11a2df16.png?v=1749557482&width=1946" alt="Yeezy 700 V3 - Copper Fade" class="product-image">
                         <span class="price-tag">₹24,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="25" onclick="toggleFavourite(event, 25)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy 700 V3 - Copper Fade</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1447,6 +1572,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.misterrunning.com/images/2024-media-09/jr1163_A.jpg" alt="Adidas Adizero Adios Pro 4" class="product-image">
                         <span class="price-tag">₹71,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="26" onclick="toggleFavourite(event, 26)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Adizero Adios Pro 4</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -1471,6 +1599,9 @@
                     <div class="relative mb-4">
                         <img src="https://limitededt.com/cdn/shop/files/1_fe38aa69-2974-45e9-b90f-500355ac73b9_800x.jpg?v=1711431975" alt="Adidas Forum Low CL - White Core Black" class="product-image">
                         <span class="price-tag">₹12,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="27" onclick="toggleFavourite(event, 27)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Forum Low CL</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -1496,6 +1627,9 @@
                     <div class="relative mb-4">
                         <img src="https://10hillsstudio.com/cdn/shop/files/Air-Jordan-1-Retro-Low-Dior-resized-img01.png?v=1735301149" alt="Nike Dior Jordan - Low" class="product-image">
                         <span class="price-tag">₹7,20,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="28" onclick="toggleFavourite(event, 28)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Dior Jordan - Low</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
@@ -1519,6 +1653,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-jtNE2VJA6oPX-Xhwm-kYbcg6xeCeDUIy3pa23z4DIGCFcoTj3QR7VSk_967VZahItLCAwyUsUwZRp2KJWeI-4ELBMkapEzvfqiL7fygI9htwE9deK-jbEU8" alt="BALLY Saber Loafers - Black" class="product-image">
                         <span class="price-tag">₹58,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="29" onclick="toggleFavourite(event, 29)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">BALLY Saber Loafers - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -1542,6 +1679,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTF9HAr4wBi2On3vaEhw-ZcTbkuM7t2-0w1uN9GGW6qIfnxqujXWEvz0qELByP2zg2f992i2ynp9jHV4qrXyA934L9bieR44xgHRtH82CWzsD1_PeDgy4Vw454" alt="Balmain Unicorn Sneakers - Black" class="product-image">
                         <span class="price-tag">₹1,00,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="30" onclick="toggleFavourite(event, 30)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balmain Unicorn Sneakers - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -1566,6 +1706,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPv6MajM4_ynoewF3e-jU3NyJYoVXcGmlRkJN74pXx4mMYrLE48HiCG7iT8I_ykd0uP8SBlIOFsIzTjqaJreAfReijQHSWloOmYeuJo_dA6hfpWjnLjogicic" alt="Nike Air Force 1 - Women" class="product-image">
                         <span class="price-tag">₹9,599</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="31" onclick="toggleFavourite(event, 31)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 - Women</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9</p>
@@ -1590,6 +1733,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.svpsports.ca/cdn/shop/files/adidas---Unisex-Yeezy-700-V3-Shoes-_G54850__01.jpg?v=1731349391&width=2400" alt="Yeezy 700 V3 Arzareth" class="product-image">
                         <span class="price-tag">₹9,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="32" onclick="toggleFavourite(event, 32)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy 700 V3 Arzareth</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -1614,6 +1760,9 @@
                     <div class="relative mb-4">
                         <img src="https://limitededt.in/cdn/shop/files/DV0831-108_1.jpg?v=1748370653" alt="Nike Dunk Low - Off White & Retro" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="33" onclick="toggleFavourite(event, 33)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Dunk Low - Off White & Retro</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1638,6 +1787,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.superkicks.in/cdn/shop/files/5_30326c89-68e3-496e-a211-08abf7caf9c2.jpg?v=1723451236&width=1946" alt="Nike Dunk Low - Aster Pink" class="product-image">
                         <span class="price-tag">₹7,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="34" onclick="toggleFavourite(event, 34)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Dunk Low - Aster Pink</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 6, 7, 8, 9</p>
@@ -1662,6 +1814,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba67c42900a245b48c87e3085c72af99_9366/ADIDAS_FEROZA_MERCEDES_AMG_PETRONAS_F1_TEAM_SHOES_Black_JQ3272_01_00_standard.jpg" alt="Adidas Feroza Mercedes AMG" class="product-image">
                         <span class="price-tag">₹10,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="35" onclick="toggleFavourite(event, 35)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Feroza Mercedes AMG</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11</p>
@@ -1687,6 +1842,9 @@
                     <div class="relative mb-4">
                         <img src="https://solemotive.com/cdn/shop/files/Nike-Air-Zoom-Alphafly-Next-3-OLY-Womens-FOOTWEAR-12.jpg?v=1721840996" alt="Nike Alphafly 3" class="product-image">
                         <span class="price-tag">₹22,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="36" onclick="toggleFavourite(event, 36)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Alphafly 3</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -1711,6 +1869,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.superkicks.in/cdn/shop/files/1_5dfee5fb-b0e9-43c3-86c6-0d9ffac4e433.jpg?v=1725957115" alt="PUMA Speedcat OG - Red & White" class="product-image">
                         <span class="price-tag">₹9,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="37" onclick="toggleFavourite(event, 37)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">PUMA Speedcat OG - Red & White</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1735,6 +1896,9 @@
                     <div class="relative mb-4">
                         <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/MSQ2_1048833_01.jpga_d378dbf1-0e0a-4d4c-82ff-7483793f6163.jpg?v=1735292097" alt="Nike Air Force 1 X Ambush" class="product-image">
                         <span class="price-tag">₹43,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1019" onclick="toggleFavourite(event, 1019)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 X Ambush</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10, 11, 12</p>
@@ -1761,6 +1925,9 @@
                     <div class="relative mb-4">
                         <img src="https://lovellcdn.b-cdn.net/products/1190479.jpg?width=700" alt="Nike Air Max 90" class="product-image">
                         <span class="price-tag">₹9,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1021" onclick="toggleFavourite(event, 1021)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Max 90</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1785,6 +1952,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.kershkicks.co.uk/cdn/shop/files/4fb80aa0-5fd7-4db5-bfd8-8cf66ebd5278_jpg.webp?v=1745402395" alt="Jordan 4 Retro Bred" class="product-image">
                         <span class="price-tag">₹24,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1020" onclick="toggleFavourite(event, 1020)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Jordan 4 Retro Bred</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -1808,6 +1978,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw7391bb43/images/zoom/RENATOLOAF_BLACALF_01.jpg?strip=false" alt="Scarosso Renato Loafers" class="product-image">
                         <span class="price-tag">₹49,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="38" onclick="toggleFavourite(event, 38)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Scarosso Renato Loafers</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 9, 10, 11</p>
@@ -1831,6 +2004,9 @@
                     <div class="relative mb-4">
                         <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/Artboard1_3fe62b48-4e46-4fc3-8e30-82759cb69c32.png?v=1749557519" alt="Yeezy 450 Utility Black" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="39" onclick="toggleFavourite(event, 39)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy 450 Utility Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1855,6 +2031,9 @@
                     <div class="relative mb-4">
                         <img src="https://sa-sneakers.ch/cdn/shop/files/Adidas-Yeezy-Slide-Slate-Grey_-SA-Sneakers-74870882.png?v=1702718992" alt="Yeezy Slide Slate Grey" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="40" onclick="toggleFavourite(event, 40)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy Slide Slate Grey</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -1878,6 +2057,9 @@
                     <div class="relative mb-4">
                         <img src="https://marketplace.mainstreet.co.in/cdn/shop/files/6_2f9307fe-83f2-492d-b4bc-4d228be8537f.png?v=1735289696" alt="Nike SB High Skunk 240" class="product-image">
                         <span class="price-tag">₹2,33,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2001" onclick="toggleFavourite(event, 2001)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike SB High Skunk 240</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -1901,6 +2083,9 @@
                     <div class="relative mb-4">
                         <img src="https://limitededt.in/cdn/shop/files/FJ3458-160_2.jpg?v=1741779030" alt="Air Jordan Mid White/Dune Red" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2002" onclick="toggleFavourite(event, 2002)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan Mid White/Dune Red</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -1925,6 +2110,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/698e41ae0196408eb16aa7fb008046ad_9366/Gazelle_Shoes_Blue_BB5478_01_standard.jpg" alt="Adidas Gazelle - Blue" class="product-image">
                         <span class="price-tag">₹10,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2003" onclick="toggleFavourite(event, 2003)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Gazelle - Blue</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10</p>
@@ -1948,6 +2136,9 @@
                     <div class="relative mb-4">
                         <img src="https://shoegrab.com.au/cdn/shop/products/AdidasYeezyBoost350V2Taillight.png?v=1633909579" alt="Yeezy Boost 350 V2 Tail Light" class="product-image">
                         <span class="price-tag">₹47,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2004" onclick="toggleFavourite(event, 2004)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Yeezy Boost 350 V2 Tail Light</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 7, 8, 9, 10</p>
@@ -1972,6 +2163,9 @@
                     <div class="relative mb-4">
                         <img src="https://kicktheory.com/cdn/shop/products/153265-015_1.jpg?v=1661269299" alt="Air Jordan 12 Stealth" class="product-image">
                         <span class="price-tag">₹10,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="2005" onclick="toggleFavourite(event, 2005)" aria-label="Add to favourites">
+                            <i class="far fa-heart"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan 12 Stealth</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: 8, 9, 10, 11</p>
@@ -2280,6 +2474,64 @@
         }
 
         console.log('Inline filter system loaded successfully!');
+    </script>
+    <script>
+        // Favourites system
+        let favourites = [];
+
+        function loadFavourites() {
+            try {
+                const saved = localStorage.getItem('117-favourites');
+                if (saved) {
+                    favourites = JSON.parse(saved);
+                }
+            } catch (error) {
+                favourites = [];
+            }
+        }
+
+        function saveFavourites() {
+            try {
+                localStorage.setItem('117-favourites', JSON.stringify(favourites));
+            } catch (error) {}
+        }
+
+        function isFavourite(productId) {
+            return favourites.includes(productId);
+        }
+
+        function toggleFavourite(event, productId) {
+            event.preventDefault();
+            const idx = favourites.indexOf(productId);
+            if (idx === -1) {
+                favourites.push(productId);
+            } else {
+                favourites.splice(idx, 1);
+            }
+            saveFavourites();
+            updateFavouriteIcons();
+        }
+
+        function updateFavouriteIcons() {
+            document.querySelectorAll('.favourite-btn').forEach(btn => {
+                const pid = parseInt(btn.getAttribute('data-product-id'));
+                const icon = btn.querySelector('i');
+                if (isFavourite(pid)) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFavourites();
+            updateFavouriteIcons();
+        });
     </script>
 </body>
 </html> 

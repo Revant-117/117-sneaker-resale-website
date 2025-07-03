@@ -233,6 +233,7 @@
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                         </div>
                     </div>
                     <a href="sale.html" class="nav-link active-tab">SALE</a>
@@ -244,6 +245,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -272,6 +276,9 @@
                         <img src="https://www.superkicks.in/cdn/shop/files/DD8959-103-5.jpg?v=1690284836" alt="Nike Air Force 1 '07" class="product-image">
                         <div class="discount-badge">-40%</div>
                         <span class="price-tag">₹4,799</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1001" onclick="toggleFavourite(event, 1001)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Air Force 1 '07</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: 7, 8, 9, 10</p>
@@ -298,6 +305,9 @@
                         <img src="https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp" alt="Almost Gods Patched Boxy Tee" class="product-image">
                         <div class="discount-badge">-50%</div>
                         <span class="price-tag">₹3,499</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1002" onclick="toggleFavourite(event, 1002)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Almost Gods Patched Boxy Tee</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: XS, S, M, L</p>
@@ -325,6 +335,9 @@
                         <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png" alt="G-SHOCK G-Steel" class="product-image">
                         <div class="discount-badge">-35%</div>
                         <span class="price-tag">₹19,500</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1003" onclick="toggleFavourite(event, 1003)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">G-SHOCK G-Steel</h4>
                     <p class="text-gray-400 text-sm mb-2">Limited Stock</p>
@@ -345,6 +358,9 @@
                         <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/14de7135124a439587e90675cbe5d27d_9366/Gazelle_Indoor_Shoes_Red_IF9641_01_standard.jpg" alt="Adidas Gazelle" class="product-image">
                         <div class="discount-badge">-45%</div>
                         <span class="price-tag">₹4,344</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1004" onclick="toggleFavourite(event, 1004)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Gazelle - Red</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: 6, 7, 8, 9, 10, 11</p>
@@ -374,6 +390,9 @@
                         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug" alt="Balmain Flocked Shorts" class="product-image">
                         <div class="discount-badge">-60%</div>
                         <span class="price-tag">₹5,199</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1005" onclick="toggleFavourite(event, 1005)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balmain Flocked Shorts - Black</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: S, M, L, XL</p>
@@ -401,6 +420,9 @@
                         <img src="https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069" alt="Emporio Armani Rose Gold" class="product-image">
                         <div class="discount-badge">-55%</div>
                         <span class="price-tag">₹12,149</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1006" onclick="toggleFavourite(event, 1006)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Emporio Armani Rose Gold</h4>
                     <p class="text-gray-400 text-sm mb-2">Womens Watch</p>
@@ -421,6 +443,9 @@
                         <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/68ae7ea7849b43eca70aac1e00f5146d_9366/Stan_Smith_Shoes_White_FX5502_01_standard.jpg" alt="Adidas Stan Smith" class="product-image">
                         <div class="discount-badge">-30%</div>
                         <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1007" onclick="toggleFavourite(event, 1007)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Stan Smith</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: 7, 8, 9, 10, 11</p>
@@ -449,6 +474,9 @@
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q" alt="Burberry Horseferry" class="product-image">
                         <div class="discount-badge">-65%</div>
                         <span class="price-tag">₹13,299</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1008" onclick="toggleFavourite(event, 1008)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Burberry Horseferry - Black</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: S, M, L</p>
@@ -475,6 +503,9 @@
                         <img src="https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg" alt="Michael Kors MK7229" class="product-image">
                         <div class="discount-badge">-70%</div>
                         <span class="price-tag">₹6,899</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1009" onclick="toggleFavourite(event, 1009)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Michael Kors - MK7229</h4>
                     <p class="text-gray-400 text-sm mb-2">Ladies Watch</p>
@@ -495,6 +526,9 @@
                         <img src="https://images.ctfassets.net/hnk2vsx53n6l/38N10tjQrzoB2t9L19lLFD/38dade293c8592f59d54519904295bab/86db60fd56268f3c33c8dc3cfce080f8e20cf04a.png?fm=webp" alt="On Cloudmonster" class="product-image">
                         <div class="discount-badge">-25%</div>
                         <span class="price-tag">₹11,249</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1010" onclick="toggleFavourite(event, 1010)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">On Cloudmonster - White/Blue</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: 8, 10</p>
@@ -520,6 +554,9 @@
                         <img src="https://cdn.shopify.com/s/files/1/0569/1224/8947/files/JE9278_BLACK-4_300x.jpg?v=1730371947%201x" alt="Y-3 Hoodie" class="product-image">
                         <div class="discount-badge">-40%</div>
                         <span class="price-tag">₹7,200</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1011" onclick="toggleFavourite(event, 1011)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Y-3 Hoodie</h4>
                     <p class="text-gray-400 text-sm mb-2">Sizes: S, M, L, XL</p>
@@ -561,5 +598,8 @@
             });
         });
     </script>
+
+    <!-- Favourites system for sale -->
+    <script src="js/favourites.js"></script>
 </body>
 </html> 

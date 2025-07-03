@@ -132,6 +132,42 @@
         }
 
         console.log('Inline cart system loaded successfully!');
+
+        // Favourites system for sunglasses
+        let favourites = [];
+        function loadFavourites() {
+            try {
+                const saved = localStorage.getItem('117-favourites');
+                if (saved) { favourites = JSON.parse(saved); }
+            } catch (error) { favourites = []; }
+        }
+        function saveFavourites() {
+            try { localStorage.setItem('117-favourites', JSON.stringify(favourites)); } catch (error) {}
+        }
+        function isFavourite(productId) { return favourites.includes(productId); }
+        function toggleFavourite(event, productId) {
+            event.preventDefault();
+            const idx = favourites.indexOf(productId);
+            if (idx === -1) { favourites.push(productId); } else { favourites.splice(idx, 1); }
+            saveFavourites();
+            updateFavouriteIcons();
+        }
+        function updateFavouriteIcons() {
+            document.querySelectorAll('.favourite-btn').forEach(btn => {
+                const pid = parseInt(btn.getAttribute('data-product-id'));
+                const icon = btn.querySelector('i');
+                if (isFavourite(pid)) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => { loadFavourites(); updateFavouriteIcons(); });
     </script>
     <style>
         :root {
@@ -194,6 +230,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -206,6 +243,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -222,6 +262,9 @@
                     <div class="relative mb-4">
                         <img src="https://images-magento.shoppersstop.com/pub/media/catalog/product/4782419_base/4782419_base_NoColour/4782419_base_NoColour_alt1.jpg_2000Wx3000H" alt="RayBan Aviator Sunglasses" class="product-image">
                         <span class="price-tag">₹9,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="501" onclick="toggleFavourite(event, 501)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">RayBan Aviator Sunglasses</h4>
                     <button onclick="addToCart({
@@ -237,6 +280,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw8bd59d7e/original/90_O4361-OGB18753_ONUL_20_Medusa~Biggie~Sunglasses--Versace-online-store_2_0.jpg?sw=850&q=85&strip=true" alt="Versace Medusa Biggie - Black" class="product-image">
                         <span class="price-tag">₹35,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="502" onclick="toggleFavourite(event, 502)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Versace Medusa Biggie - Black</h4>
                     <button onclick="addToCart({
@@ -252,6 +298,9 @@
                     <div class="relative mb-4">
                         <img src="https://img.tatacliq.com/images/i17//437Wx649H/MP000000021894832_437Wx649H_202404121617471.jpeg" alt="Tommy Hilfiger Wayfarer" class="product-image">
                         <span class="price-tag">₹5,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="503" onclick="toggleFavourite(event, 503)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Tommy Hilfiger Wayfarer</h4>
                     <button onclick="addToCart({
@@ -267,6 +316,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.poizon.com/pro-img/cut-img/20240318/d91e50b2eb7245b0b854e2ba6a6764bb.png?x-oss-process=image/format,webp/resize,w_750" alt="Louis Vuitton Cyclone" class="product-image">
                         <span class="price-tag">₹44,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="504" onclick="toggleFavourite(event, 504)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Louis Vuitton Cyclone</h4>
                     <button onclick="addToCart({
@@ -282,6 +334,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.vijayopticians.com/cdn/shop/files/6_a0306b3d-2073-498e-9f19-a44fb576c68a.jpg?v=1746539922" alt="Saint Laurent 757" class="product-image">
                         <span class="price-tag">₹23,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="505" onclick="toggleFavourite(event, 505)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Saint Laurent 757</h4>
                     <button onclick="addToCart({
@@ -297,6 +352,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.chanel.com/images/t_one/t_fashion/b_rgb:F7F7F7,e_brightness:-3/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_428/square-sunglasses-black-acetate-acetate-packshot-extra-a71305x08101s2214-8853776203806.jpg" alt="Channel Square Sunglasses - Women" class="product-image">
                         <span class="price-tag">₹45,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="506" onclick="toggleFavourite(event, 506)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Channel Square Sunglasses - Women</h4>
                     <button onclick="addToCart({
@@ -311,5 +369,6 @@
             </div>
         </section>
     </main>
+    <script src="js/favourites.js"></script>
 </body>
 </html> 

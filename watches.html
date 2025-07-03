@@ -307,6 +307,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -319,6 +320,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -336,6 +340,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-04/CLASSIC-FUSION-TITANIUM-RACING-GREY-ON-RUBBER-45-MM.png?itok=xsh0UTeN" alt="Hublot Classic Fusion Racing Grey" class="product-image">
                         <span class="price-tag">₹7,60,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="301" onclick="toggleFavourite(event, 301)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Hublot Classic Fusion Racing Grey</h4>
                     <button onclick="addToCart({
@@ -352,6 +359,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.rado.com/media/catalog/product/cache/af21745092e03eab5206bbb4f15452fb/c/a/cat_golden_horse_561_6102_3_070_r33102703__web_1.png" alt="Rado HyperChrome Classic" class="product-image">
                         <span class="price-tag">₹2,05,900</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="302" onclick="toggleFavourite(event, 302)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Rado HyperChrome Classic</h4>
                     <button onclick="addToCart({
@@ -368,6 +378,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.kamalwatch.com/cdn/shop/files/emporio-armani-art3026-i_1.webp?v=1690522069" alt="Emporio Armani Rose Gold" class="product-image">
                         <span class="price-tag">₹26,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="304" onclick="toggleFavourite(event, 304)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Emporio Armani Rose Gold</h4>
                     <button onclick="addToCart({
@@ -385,6 +398,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GS/GST/gst-b400cx-1a/assets/GST-B400CX-1A.png.transform/main-visual-sp/image.png" alt="G-SHOCK G-Steel" class="product-image">
                         <span class="price-tag">₹30,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="305" onclick="toggleFavourite(event, 305)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">G-SHOCK G-Steel</h4>
                     <button onclick="addToCart({
@@ -402,6 +418,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.swisstimehouse.com/153866-home_default/michael-kors-mk7229-ladies-watch.jpg" alt="Michael Kors - MK7229" class="product-image">
                         <span class="price-tag">₹22,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="306" onclick="toggleFavourite(event, 306)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Michael Kors - MK7229</h4>
                     <button onclick="addToCart({
@@ -419,6 +438,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.rado.com/media/catalog/product/t/r/truesquare_r27086752_sld_web.png" alt="RADO Open Heart Diamonds" class="product-image">
                         <span class="price-tag">₹3,32,100</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="307" onclick="toggleFavourite(event, 307)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">RADO Open Heart Diamonds</h4>
                     <button onclick="addToCart({
@@ -444,5 +466,7 @@
             });
         });
     </script>
+
+    <script src="js/favourites.js"></script>
 </body>
 </html> 

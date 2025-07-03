@@ -233,6 +233,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -245,6 +246,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -333,6 +337,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.shopify.com/s/files/1/0569/1224/8947/files/JE9278_BLACK-4_300x.jpg?v=1730371947%201x" alt="Y-3 Hoodie" class="product-image">
                         <span class="price-tag">₹12,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="201" onclick="toggleFavourite(event, 201)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Y-3 Hoodie</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
@@ -358,6 +365,9 @@
                     <div class="relative mb-4">
                         <img src="https://balenciaga.dam.kering.com/m/c3fca444d06af3e/Small-739784TQVQ81073_X.jpg?v=1" alt="Balenciaga ZW - Black" class="product-image">
                         <span class="price-tag">₹55,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="202" onclick="toggleFavourite(event, 202)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga ZW - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
@@ -381,6 +391,9 @@
                     <div class="relative mb-4">
                         <img src="https://almostgods.com/wp-content/uploads/2023/10/jacquard-patch-tee-02-2-scaled-1.webp" alt="Almost Gods Patched Boxy Tee" class="product-image">
                         <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="203" onclick="toggleFavourite(event, 203)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Almost Gods Patched Boxy Tee</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: XS, S, M, L</p>
@@ -408,6 +421,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw6708d888/original/90_1013906-1A09796_1E510_10_BaroccoPoloShirt-T~shirts~~Polos-Versace-online-store_2_5.jpg?sw=850&q=85&strip=true" alt="Versace Barocco Polo - Grey" class="product-image">
                         <span class="price-tag">₹73,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="204" onclick="toggleFavourite(event, 204)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Versace Barocco Polo - Grey</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M , L,  XL</p>
@@ -433,6 +449,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMpNxGy4C5lzmnSpOMMPBbAZqHTcj0HdwKlSrC9Z0Ybqjel6rzt9N3EawfJr8I8H51EkBhck1aRL7TU3iF1AZXcl256L41_pFw-5T79ikoXKeg9Nf4J80r5Q" alt="Burberry Horseferry - Black" class="product-image">
                         <span class="price-tag">₹37,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="205" onclick="toggleFavourite(event, 205)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Burberry Horseferry - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
@@ -457,6 +476,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLsAm-vtjtDdMbyQKRpoEej7O5DKxq21FTZHHFBJjyCMZ4DeJe4WDa1TytmKyzK3zb67HyUQRJ1RamtInHY0QjqVclLaPc_kBDhRmG6cUsHWmpGkK9jUvXug" alt="Balmain Flocked Shorts - Black" class="product-image">
                         <span class="price-tag">₹12,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="206" onclick="toggleFavourite(event, 206)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balmain Flocked Shorts - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
@@ -482,6 +504,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTPymnfgn6ddK8mdX5sogGa_ls_1KEQ7LfU27BuWDfHqBi8-epgLRwNeN0BVk2y8KkJDHeKy3Ltk6aUXcXnJiPvxnMGyzkgrheS1R0iap7sAJtFydyL2reQX2Y" alt="Balenciaga Large Cargo Pants" class="product-image">
                         <span class="price-tag">₹2,44,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="207" onclick="toggleFavourite(event, 207)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balenciaga Large Cargo Pants</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
@@ -506,6 +531,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSkK01rYtoedxdjDP7RnYaDAdjjCPLTxVDNnmUIvPyxeIRf2a67_84rLg54zspZgeiYC-hEqmsvEdOA162Gt9g_Jb5EUq4Mf1Amt9W6u1pTqnC7kXg72ve6sg" alt="D&G Chennile Jacquard Hoodie" class="product-image">
                         <span class="price-tag">₹1,33,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="208" onclick="toggleFavourite(event, 208)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">D&G Chennile Jacquard Hoodie</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L, XL</p>
@@ -531,6 +559,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbMKV_fp7B34v7cwoJejN2y-Buo2AQZ93hUfsjh91mVztM-p16KKmhUsH-MKyPWEfGEuGnpqWTYkGpJAYKnmSbr823S6DDtIoRhRx2tDTloHp-A61AQJb_gQ" alt="Balmain Women's Tee - Black" class="product-image">
                         <span class="price-tag">₹42,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="209" onclick="toggleFavourite(event, 209)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Balmain Women's Tee - Black</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
@@ -555,6 +586,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT-hR1mrk2Xn3xXGQnwrojxI9S6nBgjrufhcuI10uGOkAOFF2DE15Eto0vzmuKZbp8mGOhKcp9naAUrskGirF0WCqg787m5ard39SfWveuQ17Rcrr4hTQmdtIU" alt="Loro Piana Open-Knit Silk Top" class="product-image">
                         <span class="price-tag">₹1,32,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="210" onclick="toggleFavourite(event, 210)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Loro Piana Open-Knit Silk Top</h4>
                     <p class="text-gray-400 text-sm mb-3">Sizes: XS, S, M, L</p>
@@ -959,6 +993,65 @@
         }
 
         console.log('Inline clothing filter system loaded successfully!');
+    </script>
+
+    <script>
+        // Favourites system for clothing
+        let favourites = [];
+
+        function loadFavourites() {
+            try {
+                const saved = localStorage.getItem('117-favourites');
+                if (saved) {
+                    favourites = JSON.parse(saved);
+                }
+            } catch (error) {
+                favourites = [];
+            }
+        }
+
+        function saveFavourites() {
+            try {
+                localStorage.setItem('117-favourites', JSON.stringify(favourites));
+            } catch (error) {}
+        }
+
+        function isFavourite(productId) {
+            return favourites.includes(productId);
+        }
+
+        function toggleFavourite(event, productId) {
+            event.preventDefault();
+            const idx = favourites.indexOf(productId);
+            if (idx === -1) {
+                favourites.push(productId);
+            } else {
+                favourites.splice(idx, 1);
+            }
+            saveFavourites();
+            updateFavouriteIcons();
+        }
+
+        function updateFavouriteIcons() {
+            document.querySelectorAll('.favourite-btn').forEach(btn => {
+                const pid = parseInt(btn.getAttribute('data-product-id'));
+                const icon = btn.querySelector('i');
+                if (isFavourite(pid)) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFavourites();
+            updateFavouriteIcons();
+        });
     </script>
 </body>
 </html>

@@ -67,6 +67,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -79,6 +80,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -174,10 +178,13 @@
                     <div class="relative mb-4">
                         <img src="https://m.media-amazon.com/images/I/41tEJylR89L.jpg" alt="Chanel N°5" class="product-image">
                         <span class="price-tag">₹12,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1901" onclick="toggleFavourite(event, 1901)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Chanel N°5</h4>
                     <button onclick="addToCart({
-                        id: 901,
+                        id: 1901,
                         name: 'Chanel N°5',
                         price: 12999,
                         image: 'https://m.media-amazon.com/images/I/41tEJylR89L.jpg'
@@ -191,10 +198,13 @@
                     <div class="relative mb-4">
                         <img src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwf9da8cc3/Y0996460/Y0996460_C099600755_E01_GHC.jpg?sw=800" alt="Dior Sauvage" class="product-image">
                         <span class="price-tag">₹9,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1902" onclick="toggleFavourite(event, 1902)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Dior Sauvage</h4>
                     <button onclick="addToCart({
-                        id: 902,
+                        id: 1902,
                         name: 'Dior Sauvage',
                         price: 9999,
                         image: 'https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwf9da8cc3/Y0996460/Y0996460_C099600755_E01_GHC.jpg?sw=800'
@@ -208,10 +218,13 @@
                     <div class="relative mb-4">
                         <img src="https://images-static.nykaa.com/media/catalog/product/7/3/7341ec2888066080705.jpg" alt="Tom Ford Tobacco Vanille" class="product-image">
                         <span class="price-tag">₹26,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1903" onclick="toggleFavourite(event, 1903)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Tom Ford Tobacco Vanille</h4>
                     <button onclick="addToCart({
-                        id: 903,
+                        id: 1903,
                         name: 'Tom Ford Tobacco Vanille',
                         price: 26999,
                         image: 'https://images-static.nykaa.com/media/catalog/product/7/3/7341ec2888066080705.jpg'
@@ -225,10 +238,13 @@
                     <div class="relative mb-4">
                         <img src="https://m.media-amazon.com/images/I/519sP9WD+rL._UF1000,1000_QL80_.jpg" alt="Creed Aventus" class="product-image">
                         <span class="price-tag">₹34,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1904" onclick="toggleFavourite(event, 1904)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Creed Aventus</h4>
                     <button onclick="addToCart({
-                        id: 904,
+                        id: 1904,
                         name: 'Creed Aventus',
                         price: 34999,
                         image: 'https://m.media-amazon.com/images/I/519sP9WD+rL._UF1000,1000_QL80_.jpg'
@@ -242,10 +258,13 @@
                     <div class="relative mb-4">
                         <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/2024/AUGUST/21/K6j3ToRP_32ef4d2fe4e04eeba44edb3c1e18894c.jpg" alt="Prada Paradoxe" class="product-image">
                         <span class="price-tag">₹12,799</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1905" onclick="toggleFavourite(event, 1905)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Prada Paradoxe</h4>
                     <button onclick="addToCart({
-                        id: 905,
+                        id: 1905,
                         name: 'Prada Paradoxe',
                         price: 12799,
                         image: 'https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/2024/AUGUST/21/K6j3ToRP_32ef4d2fe4e04eeba44edb3c1e18894c.jpg'
@@ -259,10 +278,13 @@
                     <div class="relative mb-4">
                         <img src="https://id.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-les-sables-roses--LP0120_PM2_Front%20view.jpg" alt="LV Les Sables Roses" class="product-image">
                         <span class="price-tag">₹39,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1906" onclick="toggleFavourite(event, 1906)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">LV Les Sables Roses</h4>
                     <button onclick="addToCart({
-                        id: 906,
+                        id: 1906,
                         name: 'LV Les Sables Roses',
                         price: 39999,
                         image: 'https://id.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-les-sables-roses--LP0120_PM2_Front%20view.jpg'
@@ -276,10 +298,13 @@
                     <div class="relative mb-4">
                         <img src="https://static.sweetcare.com/img/prd/488/v-638563047314564911/chanel-010303cl_01.webp" alt="Chanel Chance" class="product-image">
                         <span class="price-tag">₹17,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1907" onclick="toggleFavourite(event, 1907)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Chanel Chance</h4>
                     <button onclick="addToCart({
-                        id: 907,
+                        id: 1907,
                         name: 'Chanel Chance',
                         price: 17999,
                         image: 'https://static.sweetcare.com/img/prd/488/v-638563047314564911/chanel-010303cl_01.webp'
@@ -293,10 +318,13 @@
                     <div class="relative mb-4">
                         <img src="https://www.perfumenetwork.in/cdn/shop/products/BDCAlloverspray_2048x.png?v=1673618136" alt="Bleu De Chanel Deodorant" class="product-image">
                         <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1908" onclick="toggleFavourite(event, 1908)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Bleu De Chanel Deodorant</h4>
                     <button onclick="addToCart({
-                        id: 908,
+                        id: 1908,
                         name: 'Bleu De Chanel Deodorant',
                         price: 6999,
                         image: 'https://www.perfumenetwork.in/cdn/shop/products/BDCAlloverspray_2048x.png?v=1673618136'
@@ -310,10 +338,13 @@
                     <div class="relative mb-4">
                         <img src="https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/d/b/db992ab3348901362832.jpg" alt="Miss Dior" class="product-image">
                         <span class="price-tag">₹19,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1909" onclick="toggleFavourite(event, 1909)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Miss Dior</h4>
                     <button onclick="addToCart({
-                        id: 909,
+                        id: 1909,
                         name: 'Miss Dior',
                         price: 19999,
                         image: 'https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/d/b/db992ab3348901362832.jpg'
@@ -327,10 +358,13 @@
                     <div class="relative mb-4">
                         <img src="https://www.thalgo.gr/site/uploaded/photos/fr_photos_fichier_3402.jpg" alt="Thalgo Brume De Soin" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1910" onclick="toggleFavourite(event, 1910)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Thalgo Brume De Soin</h4>
                     <button onclick="addToCart({
-                        id: 910,
+                        id: 1910,
                         name: 'Thalgo Brume De Soin',
                         price: 8999,
                         image: 'https://www.thalgo.gr/site/uploaded/photos/fr_photos_fichier_3402.jpg'
@@ -344,10 +378,13 @@
                     <div class="relative mb-4">
                         <img src="https://perfumeonline.ca/cdn/shop/products/212-Men.jpg?v=1571609901" alt="212 Men NYC" class="product-image">
                         <span class="price-tag">₹7,599</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1911" onclick="toggleFavourite(event, 1911)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">212 Men NYC</h4>
                     <button onclick="addToCart({
-                        id: 911,
+                        id: 1911,
                         name: '212 Men NYC',
                         price: 7599,
                         image: 'https://perfumeonline.ca/cdn/shop/products/212-Men.jpg?v=1571609901'
@@ -361,10 +398,13 @@
                     <div class="relative mb-4">
                         <img src="https://www.noseunbox.in/wp-content/uploads/2023/10/Dior-Purple-Oud-1200x1600.webp" alt="Dior Purple Oud" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1912" onclick="toggleFavourite(event, 1912)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Dior Purple Oud</h4>
                     <button onclick="addToCart({
-                        id: 912,
+                        id: 1912,
                         name: 'Dior Purple Oud',
                         price: 8999,
                         image: 'https://www.noseunbox.in/wp-content/uploads/2023/10/Dior-Purple-Oud-1200x1600.webp'
@@ -378,10 +418,13 @@
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20240927/20b6/66f661d1f9b8ef490b71fb6c/-473Wx593H-410499688-0000-MODEL.jpg" alt="Giorgio Armani Acqua Di Gio" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1913" onclick="toggleFavourite(event, 1913)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Giorgio Armani Acqua Di Gio</h4>
                     <button onclick="addToCart({
-                        id: 913,
+                        id: 1913,
                         name: 'Giorgio Armani Acqua Di Gio',
                         price: 8999,
                         image: 'https://assets.ajio.com/medias/sys_master/root/20240927/20b6/66f661d1f9b8ef490b71fb6c/-473Wx593H-410499688-0000-MODEL.jpg'
@@ -395,10 +438,13 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.basler-beauty.de/out/pictures/master/product/thumb/2507013-DAVIDOFF-Cool-Water-Man-Eau-de-Parfum-50-ml.56ab5159.jpg" alt="Davidoff Cool Water" class="product-image">
                         <span class="price-tag">₹4,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1914" onclick="toggleFavourite(event, 1914)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Davidoff Cool Water</h4>
                     <button onclick="addToCart({
-                        id: 914,
+                        id: 1914,
                         name: 'Davidoff Cool Water',
                         price: 4999,
                         image: 'https://cdn.basler-beauty.de/out/pictures/master/product/thumb/2507013-DAVIDOFF-Cool-Water-Man-Eau-de-Parfum-50-ml.56ab5159.jpg'
@@ -412,10 +458,13 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/valentino/CATZYJ4P4FQ-2/0/CwL-86_zfB-1.jpg" alt="Valentino Uomo" class="product-image">
                         <span class="price-tag">₹5,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1915" onclick="toggleFavourite(event, 1915)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Valentino Uomo</h4>
                     <button onclick="addToCart({
-                        id: 915,
+                        id: 1915,
                         name: 'Valentino Uomo',
                         price: 5999,
                         image: 'https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/valentino/CATZYJ4P4FQ-2/0/CwL-86_zfB-1.jpg'
@@ -429,10 +478,13 @@
                     <div class="relative mb-4">
                         <img src="https://images-static.nykaa.com/media/catalog/product/1/1/11b7f1c3605521515346_1.jpg?tr=w-500" alt="Viktor & Rolf Spicebomb" class="product-image">
                         <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1916" onclick="toggleFavourite(event, 1916)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Viktor & Rolf Spicebomb</h4>
                     <button onclick="addToCart({
-                        id: 916,
+                        id: 1916,
                         name: 'Viktor & Rolf Spicebomb',
                         price: 6999,
                         image: 'https://images-static.nykaa.com/media/catalog/product/1/1/11b7f1c3605521515346_1.jpg?tr=w-500'
@@ -446,10 +498,13 @@
                     <div class="relative mb-4">
                         <img src="https://www.perfume24x7.com/cdn/shop/products/Dunhill_Icon_EDP_For_Men_1.jpg?v=1622733769" alt="Dunhill Icon" class="product-image">
                         <span class="price-tag">₹6,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1917" onclick="toggleFavourite(event, 1917)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Dunhill Icon</h4>
                     <button onclick="addToCart({
-                        id: 917,
+                        id: 1917,
                         name: 'Dunhill Icon',
                         price: 6999,
                         image: 'https://www.perfume24x7.com/cdn/shop/products/Dunhill_Icon_EDP_For_Men_1.jpg?v=1622733769'
@@ -463,10 +518,13 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/prada/ZT1SS55J9JB-1/0/fSuqJaNqMl-1.jpg" alt="Prada Amber" class="product-image">
                         <span class="price-tag">₹7,299</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1918" onclick="toggleFavourite(event, 1918)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Prada Amber</h4>
                     <button onclick="addToCart({
-                        id: 918,
+                        id: 1918,
                         name: 'Prada Amber',
                         price: 7299,
                         image: 'https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/prada/ZT1SS55J9JB-1/0/fSuqJaNqMl-1.jpg'
@@ -480,10 +538,13 @@
                     <div class="relative mb-4">
                         <img src="https://images-static.nykaa.com/media/catalog/product/b/4/b41b54aAZZAR00000016-new_01.jpg" alt="Azzaro Most Wanted" class="product-image">
                         <span class="price-tag">₹8,299</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1919" onclick="toggleFavourite(event, 1919)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Azzaro Most Wanted</h4>
                     <button onclick="addToCart({
-                        id: 919,
+                        id: 1919,
                         name: 'Azzaro Most Wanted',
                         price: 8299,
                         image: 'https://images-static.nykaa.com/media/catalog/product/b/4/b41b54aAZZAR00000016-new_01.jpg'
@@ -497,10 +558,13 @@
                     <div class="relative mb-4">
                         <img src="https://aarfragrances.com/public/uploads/all/3a08CfmluHxvHxWaYIYHEuY7CIKdwUloye2nSFxH.jpg" alt="Bvlgari Man in Black" class="product-image">
                         <span class="price-tag">₹12,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1920" onclick="toggleFavourite(event, 1920)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Bvlgari Man in Black</h4>
                     <button onclick="addToCart({
-                        id: 920,
+                        id: 1920,
                         name: 'Bvlgari Man in Black',
                         price: 12999,
                         image: 'https://aarfragrances.com/public/uploads/all/3a08CfmluHxvHxWaYIYHEuY7CIKdwUloye2nSFxH.jpg'
@@ -514,10 +578,13 @@
                     <div class="relative mb-4">
                         <img src="https://static.sweetcare.com/img/prd/488/v-638636569761136087/paco-rabanne-021965pc_03.webp" alt="Paco Rabbane Million Gold" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1921" onclick="toggleFavourite(event, 1921)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Paco Rabbane Million Gold</h4>
                     <button onclick="addToCart({
-                        id: 921,
+                        id: 1921,
                         name: 'Paco Rabbane Million Gold',
                         price: 11999,
                         image: 'https://static.sweetcare.com/img/prd/488/v-638636569761136087/paco-rabanne-021965pc_03.webp'
@@ -531,10 +598,13 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/000000000493111528/VEXomQ8Y7i-000000000493111528_1.jpg" alt="Saint Laurent Libre" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1922" onclick="toggleFavourite(event, 1922)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Saint Laurent Libre</h4>
                     <button onclick="addToCart({
-                        id: 922,
+                        id: 1922,
                         name: 'Saint Laurent Libre',
                         price: 11999,
                         image: 'https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/000000000493111528/VEXomQ8Y7i-000000000493111528_1.jpg'
@@ -548,10 +618,13 @@
                     <div class="relative mb-4">
                         <img src="https://images-static.nykaa.com/media/catalog/product/f/d/fdbc2ceGIOAA00000069_1.jpg?tr=w-500" alt="Giorgio Armani Code" class="product-image">
                         <span class="price-tag">₹11,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1923" onclick="toggleFavourite(event, 1923)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Giorgio Armani Code</h4>
                     <button onclick="addToCart({
-                        id: 923,
+                        id: 1923,
                         name: 'Giorgio Armani Code',
                         price: 11999,
                         image: 'https://images-static.nykaa.com/media/catalog/product/f/d/fdbc2ceGIOAA00000069_1.jpg?tr=w-500'
@@ -707,16 +780,29 @@
 
         // Product data with metadata for filtering
         const products = [
-            { id: 901, name: 'Chanel N°5', price: 12999, brand: 'Chanel', element: null },
-            { id: 902, name: 'Dior Sauvage', price: 9999, brand: 'Dior', element: null },
-            { id: 903, name: 'Tom Ford Tobacco Vanille', price: 26999, brand: 'Tom Ford', element: null },
-            { id: 904, name: 'Creed Aventus', price: 34999, brand: 'Creed', element: null },
-            { id: 905, name: 'Prada Paradoxe', price: 12799, brand: 'Prada', element: null },
-            { id: 906, name: 'LV Les Sables Roses', price: 39999, brand: 'Louis Vuitton', element: null },
-            { id: 907, name: 'Chanel Chance', price: 17999, brand: 'Chanel', element: null },
-            { id: 908, name: 'Bleu De Chanel Deodorant', price: 6999, brand: 'Chanel', element: null },
-            { id: 909, name: 'Miss Dior', price: 19999, brand: 'Dior', element: null },
-            { id: 910, name: 'Thalgo Brume De Soin', price: 8999, brand: 'Thalgo', element: null }
+            { id: 1901, name: 'Chanel N°5', price: 12999, brand: 'Chanel', element: null },
+            { id: 1902, name: 'Dior Sauvage', price: 9999, brand: 'Dior', element: null },
+            { id: 1903, name: 'Tom Ford Tobacco Vanille', price: 26999, brand: 'Tom Ford', element: null },
+            { id: 1904, name: 'Creed Aventus', price: 34999, brand: 'Creed', element: null },
+            { id: 1905, name: 'Prada Paradoxe', price: 12799, brand: 'Prada', element: null },
+            { id: 1906, name: 'LV Les Sables Roses', price: 39999, brand: 'Louis Vuitton', element: null },
+            { id: 1907, name: 'Chanel Chance', price: 17999, brand: 'Chanel', element: null },
+            { id: 1908, name: 'Bleu De Chanel Deodorant', price: 6999, brand: 'Chanel', element: null },
+            { id: 1909, name: 'Miss Dior', price: 19999, brand: 'Dior', element: null },
+            { id: 1910, name: 'Thalgo Brume De Soin', price: 8999, brand: 'Thalgo', element: null },
+            { id: 1911, name: '212 Men NYC', price: 7599, brand: 'Carolina Herrera', element: null },
+            { id: 1912, name: 'Dior Purple Oud', price: 8999, brand: 'Dior', element: null },
+            { id: 1913, name: 'Giorgio Armani Acqua Di Gio', price: 8999, brand: 'Giorgio Armani', element: null },
+            { id: 1914, name: 'Davidoff Cool Water', price: 4999, brand: 'Davidoff', element: null },
+            { id: 1915, name: 'Valentino Uomo', price: 5999, brand: 'Valentino', element: null },
+            { id: 1916, name: 'Viktor & Rolf Spicebomb', price: 6999, brand: 'Viktor & Rolf', element: null },
+            { id: 1917, name: 'Dunhill Icon', price: 6999, brand: 'Dunhill', element: null },
+            { id: 1918, name: 'Prada Amber', price: 7299, brand: 'Prada', element: null },
+            { id: 1919, name: 'Azzaro Most Wanted', price: 8299, brand: 'Azzaro', element: null },
+            { id: 1920, name: 'Bvlgari Man in Black', price: 12999, brand: 'Bvlgari', element: null },
+            { id: 1921, name: 'Paco Rabbane Million Gold', price: 11999, brand: 'Paco Rabbane', element: null },
+            { id: 1922, name: 'Saint Laurent Libre', price: 11999, brand: 'Saint Laurent', element: null },
+            { id: 1923, name: 'Giorgio Armani Code', price: 11999, brand: 'Giorgio Armani', element: null }
         ];
 
         // Initialize product elements
@@ -861,6 +947,44 @@
             initializeFilters();
             applyFilters(); // Show all products initially
         }
+    </script>
+
+    <script>
+        // Favourites system for perfumes
+        let favourites = [];
+        function loadFavourites() {
+            try {
+                const saved = localStorage.getItem('117-favourites');
+                if (saved) { favourites = JSON.parse(saved); }
+            } catch (error) { favourites = []; }
+        }
+        function saveFavourites() {
+            try { localStorage.setItem('117-favourites', JSON.stringify(favourites)); } catch (error) {}
+        }
+        function isFavourite(productId) { return favourites.includes(productId); }
+        function toggleFavourite(event, productId) {
+            event.preventDefault();
+            const idx = favourites.indexOf(productId);
+            if (idx === -1) { favourites.push(productId); } else { favourites.splice(idx, 1); }
+            saveFavourites();
+            updateFavouriteIcons();
+        }
+        function updateFavouriteIcons() {
+            document.querySelectorAll('.favourite-btn').forEach(btn => {
+                const pid = parseInt(btn.getAttribute('data-product-id'));
+                const icon = btn.querySelector('i');
+                if (isFavourite(pid)) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => { loadFavourites(); updateFavouriteIcons(); });
     </script>
 </body>
 </html> 

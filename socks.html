@@ -67,6 +67,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -79,6 +80,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -95,6 +99,9 @@
                     <div class="relative mb-4">
                         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXXDZ8ZwZdmdB1l-qmlQIKqv9XuKRPqJRrL3ocNC_RL6OrUmiQQLqTewgEN0hEPMd1UoHlO4rGjMD84oFBUiQrOvYKZ6fVzGqLaYtWUTwRrzmAylcg9vPG-Q" alt="Nike Multiplier Crew Socks - White" class="product-image">
                         <span class="price-tag">₹699</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1401" onclick="toggleFavourite(event, 1401)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Multiplier Crew Socks - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Size: 7-12</p>
@@ -112,6 +119,9 @@
                     <div class="relative mb-4">
                         <img src="https://gfx.r-gol.com/media/res/products/9/189009/465x605/iu2656_1.webp" alt="Adidas Originals Socks - White" class="product-image">
                         <span class="price-tag">₹1,299</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1402" onclick="toggleFavourite(event, 1402)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Adidas Originals Socks - White</h4>
                     <p class="text-gray-400 text-sm mb-3">Size: 8-12</p>
@@ -129,6 +139,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.superkicks.in/cdn/shop/products/1-2-47.jpg?v=1675967338" alt="Air Jordan Max Everyday" class="product-image">
                         <span class="price-tag">₹699</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1403" onclick="toggleFavourite(event, 1403)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Air Jordan Max Everyday</h4>
                     <p class="text-gray-400 text-sm mb-3">Size: 8-12</p>
@@ -146,6 +159,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/e2f6bb7d-892a-4f4d-8098-adcf65d8e31a/U+NK+NSW+EVERYDAY+ESSENTIAL.png" alt="Nike JUST DO IT Socks" class="product-image">
                         <span class="price-tag">₹1,299</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1404" onclick="toggleFavourite(event, 1404)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike JUST DO IT Socks</h4>
                     <p class="text-gray-400 text-sm mb-3">Size: 8-12</p>
@@ -163,6 +179,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn.laredoute.com/cdn-cgi/image/width=500,height=500,fit=pad,dpr=1/products/2/b/b/2bbb053046d377cabcffa792ba3aaf26.jpg" alt="DIESEL Socks" class="product-image">
                         <span class="price-tag">₹899</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1405" onclick="toggleFavourite(event, 1405)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">DIESEL Socks</h4>
                     <p class="text-gray-400 text-sm mb-3">Size: 7-12</p>
@@ -180,6 +199,9 @@
                     <div class="relative mb-4">
                         <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/29b26d55-c379-48ac-ab28-b6674dc07395/U+NK+NSW+EVERYDAY+ESSENTIAL+CR.png" alt="Nike Everyday Crew Socks" class="product-image">
                         <span class="price-tag">₹1,199</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="1406" onclick="toggleFavourite(event, 1406)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Nike Everyday Crew Socks</h4>
                     <p class="text-gray-400 text-sm mb-3">Size: 7-12</p>
@@ -333,5 +355,7 @@
 
         console.log('Inline cart system loaded successfully!');
     </script>
+
+    <script src="js/favourites.js"></script>
 </body>
 </html> 

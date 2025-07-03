@@ -226,6 +226,7 @@
                             <a href="socks.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Socks</a>
                             <a href="bags.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Bags</a>
                             <a href="perfumes.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Perfumes</a>
+                            <a href="caps.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Caps</a>
                             <a href="sunglasses.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800">Sunglasses</a>
                         </div>
                     </div>
@@ -238,6 +239,9 @@
                            class="search-bar bg-gray-900 text-white px-4 py-2 rounded-full w-40 md:w-64">
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
+                <a href="favourites.html" class="relative" title="Favourites">
+                    <i class="fas fa-heart text-xl" style="color: var(--accent);"></i>
+                </a>
                 <a href="cart.html" class="relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -325,6 +329,9 @@
                     <div class="relative mb-4">
                         <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton--M46203_PM2_Front%20view.jpg?wid=750&hei=870" alt="Louis Vuitton CarryAll" class="product-image">
                         <span class="price-tag">₹2,49,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="401" onclick="toggleFavourite(event, 401)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Louis Vuitton CarryAll</h4>
                     <button onclick="addToCart({
@@ -342,6 +349,9 @@
                     <div class="relative mb-4">
                         <img src="https://n.nordstrommedia.com/it/aff72709-8098-4e04-9222-34d6fa32478c.jpeg?h=368&w=240&dpr=2" alt="BOSS Handbag" class="product-image">
                         <span class="price-tag">₹29,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="402" onclick="toggleFavourite(event, 402)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">BOSS Handbag</h4>
                     <button onclick="addToCart({
@@ -359,6 +369,9 @@
                     <div class="relative mb-4">
                         <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-getaway-backpack--M46792_PM2_Front%20view.jpg" alt="Louis Vuitton Getaway" class="product-image">
                         <span class="price-tag">₹3,99,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="403" onclick="toggleFavourite(event, 403)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Louis Vuitton Getaway</h4>
                     <button onclick="addToCart({
@@ -376,6 +389,9 @@
                     <div class="relative mb-4">
                         <img src="https://www.cheekspakistan.com/cdn/shop/files/35T0GCFT3B-0200_1_grande.jpg?v=1690964776" alt="Michael Kors Voyager" class="product-image">
                         <span class="price-tag">₹27,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="404" onclick="toggleFavourite(event, 404)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Michael Kors Voyager</h4>
                     <button onclick="addToCart({
@@ -393,6 +409,9 @@
                     <div class="relative mb-4">
                         <img src="https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/192878/1874334/ch280_imaa8_a0__25717.1718280138.jpg?c=1" alt="COACH Rowan Satchel" class="product-image">
                         <span class="price-tag">₹16,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="405" onclick="toggleFavourite(event, 405)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">COACH Rowan Satchel</h4>
                     <button onclick="addToCart({
@@ -410,6 +429,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20250203/G84L/67a0d2c02960820c49577dca/-1117Wx1400H-469122353-black-MODEL.jpg" alt="Marc Jacobs TOTE Bag" class="product-image">
                         <span class="price-tag">₹42,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="406" onclick="toggleFavourite(event, 406)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Marc Jacobs TOTE Bag</h4>
                     <button onclick="addToCart({
@@ -427,6 +449,9 @@
                     <div class="relative mb-4">
                         <img src="https://goluxuryindia.com/cdn/shop/files/PhotoRoom-20240626_014755_1.png?v=1719346712" alt="Hermes Gold Madame" class="product-image">
                         <span class="price-tag">₹2,44,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="407" onclick="toggleFavourite(event, 407)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Hermes Gold Madame</h4>
                     <button onclick="addToCart({
@@ -444,6 +469,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20230824/ka42/64e77b63afa4cf41f577ef7d/-473Wx593H-410392901-001-MODEL.jpg" alt="Kate Spade Bleeker" class="product-image">
                         <span class="price-tag">₹16,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="408" onclick="toggleFavourite(event, 408)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Kate Spade Bleeker</h4>
                     <button onclick="addToCart({
@@ -461,6 +489,9 @@
                     <div class="relative mb-4">
                         <img src="https://imagescdn.thecollective.in/img/app/product/1/1028480-14434341.jpg?asp=true&crop=500&auto=format" alt="Emporio Armani Plaque" class="product-image">
                         <span class="price-tag">₹8,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="409" onclick="toggleFavourite(event, 409)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Emporio Armani Plaque</h4>
                     <button onclick="addToCart({
@@ -478,6 +509,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20230427/ay0Y/644a9d4cd55b7d0c63851ecb/-1117Wx1400H-410382005-nu3-MODEL.jpg" alt="COACH Signature Charter" class="product-image">
                         <span class="price-tag">₹37,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="410" onclick="toggleFavourite(event, 410)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">COACH Signature Charter</h4>
                     <button onclick="addToCart({
@@ -495,6 +529,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20240227/7nQI/65de275d05ac7d77bb80ace3/-1117Wx1400H-410477129-149-MODEL.jpg" alt="Michael Kors BEX" class="product-image">
                         <span class="price-tag">₹17,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="411" onclick="toggleFavourite(event, 411)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">Michael Kors BEX</h4>
                     <button onclick="addToCart({
@@ -512,6 +549,9 @@
                     <div class="relative mb-4">
                         <img src="https://assets.ajio.com/medias/sys_master/root/20220720/4FGn/62d81808f997dd03e2e3a8aa/-473Wx593H-410312868-u507p-MODEL.jpg" alt="BALLY Backpack - Blue" class="product-image">
                         <span class="price-tag">₹65,000</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="412" onclick="toggleFavourite(event, 412)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
                     </div>
                     <h4 class="font-semibold text-lg mb-1">BALLY Backpack - Blue</h4>
                     <button onclick="addToCart({
@@ -870,5 +910,6 @@
 
         console.log('Inline bags filter system loaded successfully!');
     </script>
+    <script src="js/favourites.js"></script>
 </body>
 </html> 
