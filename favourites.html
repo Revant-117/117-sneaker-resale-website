@@ -229,8 +229,26 @@ const perfumeProducts = [
     { id: 1913, name: 'Paco Rabbane Million Gold', price: 11999, image: 'https://static.sweetcare.com/img/prd/488/v-638636569761136087/paco-rabanne-021965pc_03.webp' },
     { id: 1914, name: 'Saint Laurent Libre', price: 11999, image: 'https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/000000000493111528/VEXomQ8Y7i-000000000493111528_1.jpg' },
     { id: 1915, name: 'Giorgio Armani Code', price: 11999, image: 'https://images-static.nykaa.com/media/catalog/product/f/d/fdbc2ceGIOAA00000069_1.jpg?tr=w-500' }
-    // ... (add all other perfume products here)
 ];
+
+// Caps products
+const capsProducts = [
+  { id: 2101, name: 'BAPE Lorry Cap', price: 13999, image: 'https://int.bape.com/cdn/shop/files/MRBCPM304801OBKX-pdp-1.jpg?v=1746670172&width=700' },
+  { id: 2102, name: 'Emporio Armani Baseball Cap', price: 8999, image: 'https://assets.ajio.com/medias/sys_master/root/20211006/x5uT/615cd6b6aeb2692b85af7d46/-1117Wx1400H-410254430-00020-MODEL.jpg' },
+  { id: 2103, name: 'Gucci Baseball Cap', price: 39999, image: 'https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/100181/1015949/200035_KQWBG_9791_001_100_0000_Light-Casquette-de-base-ball-avec-dtail-bande-Web_1__03565.1701429609.jpg?c=1' },
+  { id: 2104, name: 'Yankees MLB Patch Up', price: 6999, image: 'https://scssports.in/cdn/shop/files/60503506_535x.jpg?v=1746670172&width=700' }
+];
+
+// Socks products
+const socksProducts = [
+  { id: 1401, name: 'Nike Multiplier Crew Socks - White', price: 699, image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXXDZ8ZwZdmdB1l-qmlQIKqv9XuKRPqJRrL3ocNC_RL6OrUmiQQLqTewgEN0hEPMd1UoHlO4rGjMD84oFBUiQrOvYKZ6fVzGqLaYtWUTwRrzmAylcg9vPG-Q' },
+  { id: 1402, name: 'Adidas Originals Socks - White', price: 1299, image: 'https://gfx.r-gol.com/media/res/products/9/189009/465x605/iu2656_1.webp' },
+  { id: 1403, name: 'Air Jordan Max Everyday', price: 699, image: 'https://www.superkicks.in/cdn/shop/products/1-2-47.jpg?v=1675967338' },
+  { id: 1404, name: 'Nike JUST DO IT Socks', price: 1299, image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/e2f6bb7d-892a-4f4d-8098-adcf65d8e31a/U+NK+NSW+EVERYDAY+ESSENTIAL.png' },
+  { id: 1405, name: 'DIESEL Socks', price: 899, image: 'https://cdn.laredoute.com/cdn-cgi/image/width=500,height=500,fit=pad,dpr=1/products/2/b/b/2bbb053046d377cabcffa792ba3aaf26.jpg' },
+  { id: 1406, name: 'Nike Everyday Crew Socks', price: 1199, image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/29b26d55-c379-48ac-ab28-b6674dc07395/U+NK+NSW+EVERYDAY+ESSENTIAL+CR.png' }
+];
+
 // Bags products
 const bagsProducts = [
   { id: 401, name: 'Louis Vuitton CarryAll', price: 249999, image: 'https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton--M46203_PM2_Front%20view.jpg?wid=750&hei=870' },
@@ -241,24 +259,12 @@ const bagsProducts = [
   { id: 406, name: 'Marc Jacobs TOTE Bag', price: 42999, image: 'https://assets.ajio.com/medias/sys_master/root/20250203/G84L/67a0d2c02960820c49577dca/-1117Wx1400H-469122353-black-MODEL.jpg' },
   { id: 407, name: 'Hermes Gold Madame', price: 244999, image: 'https://goluxuryindia.com/cdn/shop/files/PhotoRoom-20240626_014755_1.png?v=1719346712' },
   { id: 408, name: 'Kate Spade Bleeker', price: 16999, image: 'https://assets.ajio.com/medias/sys_master/root/20230824/ka42/64e77b63afa4cf41f577ef7d/-473Wx593H-410392901-001-MODEL.jpg' },
-  { id: 409, name: 'Emporio Armani Plaque', price: 8999, image: 'https://imagescdn.thecollective.in/img/app/product/1/1028480-14434341.jpg?asp=true&crop=500&auto=format' }
+  { id: 409, name: 'Emporio Armani Plaque', price: 8999, image: 'https://imagescdn.thecollective.in/img/app/product/1/1028480-14434341.jpg?asp=true&crop=500&auto=format' },
+  { id: 410, name: 'COACH Signature Charter', price: 37999, image: 'https://assets.ajio.com/medias/sys_master/root/20230427/ay0Y/644a9d4cd55b7d0c63851ecb/-1117Wx1400H-410382005-nu3-MODEL.jpg' },
+  { id: 411, name: 'Michael Kors BEX', price: 17999, image: 'https://assets.ajio.com/medias/sys_master/root/20230824/ka42/64e77b63afa4cf41f577ef7d/-473Wx593H-410392901-001-MODEL.jpg' },
+  { id: 412, name: 'BALLY Backpack - Blue', price: 65000, image: 'https://assets.ajio.com/medias/sys_master/root/20230824/ka42/64e77b63afa4cf41f577ef7d/-473Wx593H-410392901-001-MODEL.jpg' }
 ];
-// Caps products
-const capsProducts = [
-  { id: 2101, name: 'BAPE Lorry Cap', price: 13999, image: 'https://int.bape.com/cdn/shop/files/MRBCPM304801OBKX-pdp-1.jpg?v=1746670172&width=700' },
-  { id: 2102, name: 'Emporio Armani Baseball Cap', price: 8999, image: 'https://assets.ajio.com/medias/sys_master/root/20211006/x5uT/615cd6b6aeb2692b85af7d46/-1117Wx1400H-410254430-00020-MODEL.jpg' },
-  { id: 2103, name: 'Gucci Baseball Cap', price: 39999, image: 'https://cdn11.bigcommerce.com/s-eie9lsi1uc/images/stencil/1280x1280/products/100181/1015949/200035_KQWBG_9791_001_100_0000_Light-Casquette-de-base-ball-avec-dtail-bande-Web_1__03565.1701429609.jpg?c=1' },
-  { id: 2104, name: 'Yankees MLB Patch Up', price: 6999, image: 'https://scssports.in/cdn/shop/files/60503506_535x.jpg?v=1728886380' }
-];
-// Socks products
-const socksProducts = [
-  { id: 1401, name: 'Nike Multiplier Crew Socks - White', price: 699, image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXXDZ8ZwZdmdB1l-qmlQIKqv9XuKRPqJRrL3ocNC_RL6OrUmiQQLqTewgEN0hEPMd1UoHlO4rGjMD84oFBUiQrOvYKZ6fVzGqLaYtWUTwRrzmAylcg9vPG-Q' },
-  { id: 1402, name: 'Adidas Originals Socks - White', price: 1299, image: 'https://gfx.r-gol.com/media/res/products/9/189009/465x605/iu2656_1.webp' },
-  { id: 1403, name: 'Air Jordan Max Everyday', price: 699, image: 'https://www.superkicks.in/cdn/shop/products/1-2-47.jpg?v=1675967338' },
-  { id: 1404, name: 'Nike JUST DO IT Socks', price: 1299, image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/e2f6bb7d-892a-4f4d-8098-adcf65d8e31a/U+NK+NSW+EVERYDAY+ESSENTIAL.png' },
-  { id: 1405, name: 'DIESEL Socks', price: 899, image: 'https://cdn.laredoute.com/cdn-cgi/image/width=500,height=500,fit=pad,dpr=1/products/2/b/b/2bbb053046d377cabcffa792ba3aaf26.jpg' },
-  { id: 1406, name: 'Nike Everyday Crew Socks', price: 1199, image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/29b26d55-c379-48ac-ab28-b6674dc07395/U+NK+NSW+EVERYDAY+ESSENTIAL+CR.png' }
-];
+
 // Sunglasses products
 const sunglassesProducts = [
   { id: 501, name: 'RayBan Aviator Sunglasses', price: 9999, image: 'https://images-magento.shoppersstop.com/pub/media/catalog/product/4782419_base/4782419_base_NoColour/4782419_base_NoColour_alt1.jpg_2000Wx3000H' },
@@ -328,7 +334,7 @@ function renderFavourites() {
         return;
     }
     favIds.forEach(id => {
-        const product = allProducts.find(p => p.id == id);
+        const product = allProducts.find(p => p.id === Number(id));
         if (!product) return;
         const card = document.createElement('div');
         card.className = 'product-card bg-gray-900 rounded-lg p-4 relative';
@@ -353,8 +359,126 @@ function removeFromFavourites(id) {
 }
 // Listen for storage changes (sync across tabs)
 window.addEventListener('storage', renderFavourites);
-// Initial render
-renderFavourites();
+
+// --- Cart System for Favourites ---
+let cart = [];
+
+// Load cart from localStorage
+function loadCart() {
+    try {
+        const saved = localStorage.getItem('117-cart');
+        if (saved) {
+            cart = JSON.parse(saved);
+        }
+    } catch (error) {
+        cart = [];
+    }
+}
+
+// Save cart to localStorage
+function saveCart() {
+    try {
+        localStorage.setItem('117-cart', JSON.stringify(cart));
+    } catch (error) {}
+}
+
+// Show notification
+function showCartNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: ${type === 'success' ? '#00ff00' : '#ff0000'};
+        color: ${type === 'success' ? '#000000' : '#ffffff'};
+        padding: 15px 20px;
+        border-radius: 5px;
+        z-index: 10000;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        font-family: Arial, sans-serif;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 3000);
+}
+
+// Add to cart function
+function addToCart(event, product) {
+    console.log('Adding to cart:', product);
+    
+    if (!product || !product.id || !product.name || !product.price) {
+        showCartNotification('Error: Invalid product data', 'error');
+        return;
+    }
+    
+    // Check if product already exists
+    const existingItem = cart.find(item => item.id === product.id);
+    if (existingItem) {
+        existingItem.quantity += 1;
+        showCartNotification(`${product.name} quantity updated!`);
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1,
+            size: product.size || null
+        });
+        showCartNotification(`${product.name} added to cart!`);
+    }
+    
+    saveCart();
+    updateCartCount();
+    
+    // Visual feedback
+    if (event && event.target) {
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = 'Added!';
+        button.style.backgroundColor = '#00ff00';
+        button.style.color = '#000000';
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.backgroundColor = '';
+            button.style.color = '';
+        }, 1000);
+    }
+}
+
+// Update cart count display
+function updateCartCount() {
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCountElements = document.querySelectorAll('#cart-count');
+    cartCountElements.forEach(element => {
+        if (element) {
+            element.textContent = count;
+        }
+    });
+}
+
+// Initialize cart
+function initializeCart() {
+    loadCart();
+    updateCartCount();
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        renderFavourites();
+        initializeCart();
+    });
+} else {
+    renderFavourites();
+    initializeCart();
+}
     </script>
 </body>
 </html>

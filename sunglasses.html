@@ -133,41 +133,7 @@
 
         console.log('Inline cart system loaded successfully!');
 
-        // Favourites system for sunglasses
-        let favourites = [];
-        function loadFavourites() {
-            try {
-                const saved = localStorage.getItem('117-favourites');
-                if (saved) { favourites = JSON.parse(saved); }
-            } catch (error) { favourites = []; }
-        }
-        function saveFavourites() {
-            try { localStorage.setItem('117-favourites', JSON.stringify(favourites)); } catch (error) {}
-        }
-        function isFavourite(productId) { return favourites.includes(productId); }
-        function toggleFavourite(event, productId) {
-            event.preventDefault();
-            const idx = favourites.indexOf(productId);
-            if (idx === -1) { favourites.push(productId); } else { favourites.splice(idx, 1); }
-            saveFavourites();
-            updateFavouriteIcons();
-        }
-        function updateFavouriteIcons() {
-            document.querySelectorAll('.favourite-btn').forEach(btn => {
-                const pid = parseInt(btn.getAttribute('data-product-id'));
-                const icon = btn.querySelector('i');
-                if (isFavourite(pid)) {
-                    icon.classList.remove('far');
-                    icon.classList.add('fas');
-                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
-                } else {
-                    icon.classList.remove('fas');
-                    icon.classList.add('far');
-                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
-                }
-            });
-        }
-        document.addEventListener('DOMContentLoaded', () => { loadFavourites(); updateFavouriteIcons(); });
+
     </script>
     <style>
         :root {

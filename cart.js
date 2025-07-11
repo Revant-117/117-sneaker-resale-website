@@ -55,7 +55,7 @@ function showNotification(message, type = 'success') {
 }
 
 // Add to cart function
-function addToCart(product) {
+function addToCart(event, product) {
     console.log('Adding to cart:', product);
     
     if (!product || !product.id || !product.name || !product.price) {
@@ -84,16 +84,18 @@ function addToCart(product) {
     updateCartCount();
     
     // Visual feedback
-    const button = event.target;
-    const originalText = button.textContent;
-    button.textContent = 'Added!';
-    button.style.backgroundColor = '#00ff00';
-    button.style.color = '#000000';
-    setTimeout(() => {
-        button.textContent = originalText;
-        button.style.backgroundColor = '';
-        button.style.color = '';
-    }, 1000);
+    if (event && event.target) {
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = 'Added!';
+        button.style.backgroundColor = '#00ff00';
+        button.style.color = '#000000';
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.backgroundColor = '';
+            button.style.color = '';
+        }, 1000);
+    }
 }
 
 // Remove from cart

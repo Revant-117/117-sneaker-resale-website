@@ -1083,7 +1083,7 @@
                         id: 1022,
                         name: 'Balenciaga Runner',
                         price: 109999,
-                        image: 'https://www.radpresent.com/cdn/shop/products/Screenshot2023-02-16at8.53.14PM.png?v=1676553401',
+                        image: 'https://cdn-images.farfetch-contents.com/20/01/13/60/20011360_45496413_1000.jpg',
                         size: document.getElementById('size-1022').value
                     })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
                         Add to Cart
@@ -2475,63 +2475,6 @@
 
         console.log('Inline filter system loaded successfully!');
     </script>
-    <script>
-        // Favourites system
-        let favourites = [];
-
-        function loadFavourites() {
-            try {
-                const saved = localStorage.getItem('117-favourites');
-                if (saved) {
-                    favourites = JSON.parse(saved);
-                }
-            } catch (error) {
-                favourites = [];
-            }
-        }
-
-        function saveFavourites() {
-            try {
-                localStorage.setItem('117-favourites', JSON.stringify(favourites));
-            } catch (error) {}
-        }
-
-        function isFavourite(productId) {
-            return favourites.includes(productId);
-        }
-
-        function toggleFavourite(event, productId) {
-            event.preventDefault();
-            const idx = favourites.indexOf(productId);
-            if (idx === -1) {
-                favourites.push(productId);
-            } else {
-                favourites.splice(idx, 1);
-            }
-            saveFavourites();
-            updateFavouriteIcons();
-        }
-
-        function updateFavouriteIcons() {
-            document.querySelectorAll('.favourite-btn').forEach(btn => {
-                const pid = parseInt(btn.getAttribute('data-product-id'));
-                const icon = btn.querySelector('i');
-                if (isFavourite(pid)) {
-                    icon.classList.remove('far');
-                    icon.classList.add('fas');
-                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
-                } else {
-                    icon.classList.remove('fas');
-                    icon.classList.add('far');
-                    icon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadFavourites();
-            updateFavouriteIcons();
-        });
-    </script>
+    <script src="js/favourites.js"></script>
 </body>
 </html> 
