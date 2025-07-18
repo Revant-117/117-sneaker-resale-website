@@ -60,7 +60,10 @@ const products = [
     { id: 1020, name: 'Jordan 4 Retro Bred', brand: 'Jordan', price: 24999, sizes: [8, 9, 10] },
     { id: 38, name: 'Scarosso Renato Loafers', brand: 'Scarosso', price: 49999, sizes: [9, 10, 11] },
     { id: 39, name: 'Yeezy 450 Utility Black', brand: 'Yeezy', price: 11999, sizes: [7, 8, 9, 10] },
-    { id: 40, name: 'Yeezy Slide Slate Grey', brand: 'Yeezy', price: 8999, sizes: [8, 9, 10] }
+    { id: 40, name: 'Yeezy Slide Slate Grey', brand: 'Yeezy', price: 8999, sizes: [8, 9, 10] },
+    { id: 20001, name: 'Nike Air Mag Back to the Future', brand: 'Nike', price: 3000000, sizes: [7, 8, 9, 10], image: 'https://images.stockx.com/images/Nike-Air-Mag-Back-To-The-Future-BTTF-2016-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1738193358' },
+    { id: 20002, name: 'Nike SB Dunk Low Pigeon', brand: 'Nike', price: 89999, sizes: [9, 10, 11], image: 'https://image.goxip.com/j1DaRu8RiWGT5QMLMXQX7Ct4t-g=/fit-in/500x500/filters:format(jpg):quality(80):fill(white)/https:%2F%2Fimages.stockx.com%2Fimages%2FNike-Dunk-SB-Low-Staple-NYC-Pigeon-Product.jpg' },
+    { id: 20003, name: 'Converse Run Star', brand: 'Converse', price: 13999, sizes: [6, 7, 8, 9, 10], image: 'https://images-cdn.ubuy.co.in/63f6c4f158513f2392533c21-new-converse-run-star-hike-hi-shoes.jpg' },
 ];
 
 // Filter state

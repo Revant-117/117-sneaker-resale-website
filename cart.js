@@ -85,16 +85,16 @@ function addToCart(event, product) {
     
     // Visual feedback
     if (event && event.target) {
-        const button = event.target;
-        const originalText = button.textContent;
-        button.textContent = 'Added!';
-        button.style.backgroundColor = '#00ff00';
-        button.style.color = '#000000';
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.backgroundColor = '';
-            button.style.color = '';
-        }, 1000);
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Added!';
+    button.style.backgroundColor = '#00ff00';
+    button.style.color = '#000000';
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.backgroundColor = '';
+        button.style.color = '';
+    }, 1000);
     }
 }
 
