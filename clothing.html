@@ -608,6 +608,32 @@
                         Add to Cart
                     </button>
                 </div>
+                <!-- Product 11 -->
+                <div class="product-card bg-gray-900 rounded-lg p-4" data-product-id="211">
+                    <div class="relative mb-4">
+                        <img src="https://assets.burberry.com/is/image/Burberryltd/7CB4E7DC-127E-4D50-8A88-5065BA382A63?$BBY_V3_SL_1$&wid=1501&hei=1500" alt="Burberry Check Collar Polo" class="product-image">
+                        <span class="price-tag">₹53,999</span>
+                        <button class="favourite-btn absolute top-2 left-2 text-white" data-product-id="211" onclick="toggleFavourite(event, 211)" aria-label="Add to favourites">
+                            <i class="far fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Burberry Check Collar Polo</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sizes: S, M, L</p>
+                    <select id="size-211" class="w-full mb-2 bg-gray-800 text-white rounded-full px-3 py-1 text-sm">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="addToCart({
+                        id: 211,
+                        name: 'Burberry Check Collar Polo',
+                        price: 53999,
+                        image: 'https://assets.burberry.com/is/image/Burberryltd/7CB4E7DC-127E-4D50-8A88-5065BA382A63?$BBY_V3_SL_1$&wid=1501&hei=1500',
+                        size: document.getElementById('size-211').value
+                    })" class="w-full bg-gray-800 hover:bg-green-500 hover:text-black text-white px-3 py-1 rounded-full text-sm transition">
+                        Add to Cart
+                    </button>
+                </div>
             </div>
         </section>
     </main>
@@ -627,7 +653,8 @@
             { id: 207, name: 'Balenciaga Large Cargo Pants', brand: 'Balenciaga', price: 244999, sizes: ['S', 'M', 'L'], category: 'Pants' },
             { id: 208, name: 'D&G Chennile Jacquard Hoodie', brand: 'Dolce & Gabbana', price: 133999, sizes: ['S', 'M', 'L', 'XL'], category: 'Hoodie' },
             { id: 209, name: 'Balmain Women\'s Tee - Black', brand: 'Balmain', price: 42999, sizes: ['S', 'M', 'L'], category: 'T-Shirt' },
-            { id: 210, name: 'Loro Piana Open-Knit Silk Top', brand: 'Loro Piana', price: 132999, sizes: ['XS', 'S', 'M', 'L'], category: 'Top' }
+            { id: 210, name: 'Loro Piana Open-Knit Silk Top', brand: 'Loro Piana', price: 132999, sizes: ['XS', 'S', 'M', 'L'], category: 'Top' },
+            { id: 211, name: 'Burberry Check Collar Polo', brand: 'Burberry', price: 53999, sizes: ['S', 'M', 'L'], category: 'Polo' }
         ];
 
         // Filter state
