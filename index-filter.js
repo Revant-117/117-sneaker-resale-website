@@ -17,7 +17,7 @@ const products = [
     { id: 1012, name: 'New Balance 5060', brand: 'New Balance', price: 16999, sizes: [8, 9, 10] },
     { id: 1013, name: 'Nike Zoom Vomero 5', brand: 'Nike', price: 11999, sizes: [8, 9, 10, 11] },
     { id: 1014, name: 'Veja Campo', brand: 'Veja', price: 11999, sizes: [7, 8, 9, 10] },
-    { id: 1015, name: 'Asics Gel 1130', brand: 'Asics', price: 8999, sizes: [6, 7, 8, 9, 10] },
+    { id: 1015, name: 'Asics Gel 1130', brand: 'Asics', price: 8999, sizes: [6, 7, 8, 9, 10], image: 'https://limitededt.in/cdn/shop/files/1203A610-020_1.jpg?v=1750414314' },
     { id: 1016, name: 'New Balance 990 V6', brand: 'New Balance', price: 10999, sizes: [8, 9, 10] },
     { id: 1017, name: 'Adidas Campus 00s', brand: 'Adidas', price: 10999, sizes: [7, 8, 9, 10] },
     { id: 1018, name: 'Van Knu Skool', brand: 'Vans', price: 8999, sizes: [7, 8, 9, 10, 11] },
