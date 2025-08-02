@@ -89,7 +89,14 @@ function handleSubmit(event) {
     }
 
     // Simulate order placement
-    showNotification('Order placed successfully!');
+    // Show acknowledgement box
+    const ackBox = document.getElementById('ack-box');
+    if (ackBox) {
+        ackBox.classList.remove('hidden');
+        setTimeout(() => { ackBox.classList.add('hidden'); }, 3000);
+    }
+    // Toast notification
+    showNotification('Order Placed!');
 
     // Clear cart and storage
     cart = [];
