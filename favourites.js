@@ -1,4 +1,4 @@
-// favourites.js - Shared Favourites Logic for All Sections
+console.log('favourites.js loaded');
 (function() {
     // Use a single global variable to avoid conflicts
     window.favourites = [];
